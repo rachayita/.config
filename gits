@@ -1,0 +1,28 @@
+#git
+https://github.com/junegunn/vim-plug
+https://github.com/polybar/polybar-scripts.git    bspwm/scripts
+https://github.com/jarun/ddgr.git
+https://github.com/junegunn/fzf.git
+https://github.com/ohmyzsh/ohmyzsh.git
+https://github.com/zsh-users/zsh-syntax-highlighting.git
+
+#AUR
+https://aur.archlinux.org/simple-mtpfs-git.git
+https://aur.archlinux.org/obinskit.git
+
+
+#pacman
+riggrep fd base-devel git meld vim firefox mpv w3m lsd vifm youtube-dl feh stow
+
+#yay
+stint: cmd line color picker
+
+#cargo
+# https://github.com/jD91mZM2/powerline-rs.git
+  cargo install powerline-rs    
+
+#font
+JetBrainsMono
+
+#optinal
+https://github.com/nielssp/colorgrab

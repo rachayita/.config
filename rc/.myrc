@@ -1,0 +1,66 @@
+#
+# ~/.myrc
+#
+export EDITOR=vim
+export BROWSER=surf
+
+TO=/run/media/rakshas/7ACC25F9CC25B075
+export PATH=$TO/tools/jdk8/bin:$PATH
+export PATH=$TO/tools/scala/bin:$PATH
+export PATH=$TO/SmrutiPatra/tools/sbt/bin:$PATH
+export PATH=$TO/tools/VSCode-linux-x64/bin/:$PATH
+alias idea=$TO'/tools/idea/bin/idea.sh &'
+
+alias po='poweroff'
+alias scala='scala -Dscala.color'
+alias yy='youtube-dl -c'
+alias wk='wget -nc'
+alias ww='wget -c'
+alias ev='evince'
+alias l='lsd -ltrAh'
+alias mc='mc --nocolor'
+alias f='l|grep -i'
+alias tf='tree -fa | grep -i'
+alias dok='sudo docker'
+alias q='exit'
+alias v='vifm'
+alias www='w3m'
+alias c='clear'
+alias surf='tabbed surf -e'
+#alias ls='ls --color=auto'
+alias ls='lsd'
+alias la='lsd -a'
+alias ll='ls --color -lh'
+alias l='ls -ltrAh'
+alias l.="lsd -A | egrep '^\.'"
+
+#vi mode
+set -o vi
+
+#ddgr
+alias ddgr='ddgr -n 7'
+alias wwd='BROWSER=w3m ddgr'
+
+# save path on cd
+function cd {
+		builtin cd $@
+				pwd > ~/.last_dir
+}
+
+alias pp='pwd > ~/.last_dir'
+alias cds='cd `cat ~/.last_dir`'
+
+
+# restore last saved path
+#if [ -f ~/.last_dir ]
+#    then cd `cat ~/.last_dir`
+#fi
+
+
+#------------------------------
+# reload shell
+#------------------------------
+reload () {
+		exec "${SHELL}" "$@"
+}
+

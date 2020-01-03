@@ -1,0 +1,117 @@
+castie
+circe for json
+ngrok
+tee
+The lint command checks C and C++ language source code for coding and syntax errors and for inefficient or non-portable code.
+cat ~/.ssh/id_rsa.pub | ssh admin@server "sudo tee -a /root/.ssh/authorized_keys2 > /dev/null"
+find "4DOS" wikipedia.txt | tee 4DOS.txt | sort > 4DOSsorted.txt
+ExecutionContext
+YourKit profiler, Oracle JDK VisualVM, as well as Oracle Flight Recorder
+apply method  (list)
+fold foldLeft foldRight
+beta reduction
+andThen combinator is for function composition.
+Bulle Proof Principle: An expression composed from Try, map and flatMap will never throw a non-fatal expression.Because fails Left-Unit monad law.
+scala.lang.postfixops
+Airframe, macwire
+Dependency Injection in Functional Programming
+Zio
+https://scala-clippy.org/    plugin
+sttp- scala based http client
+quill like slick
+fetch
+https://github.com/non/kind-projector   for F[A => ?]
+import scala.reflect.runtime.universe
+https://scalameter.github.io/
+https://github.com/japgolly/clear-config
+grapheme clusters
+
+//
+Tree has a main method with parameter type Array[String], but fp.functor.Tree will not be a runnable program.
+[warn]   Reason: companion is a trait, which means no static forwarder can be generated.
+
+rustup doc
+
+feh for pic
+
+
+linux PineTime watch
+TestDisk: recover deleted files
+gitbucket
+gnu debugger(gdb) for rust
+imcompressor: image compressor
+ss: port check
+dumpcap with wireshark
+
+sudo watch ss -tulpn
+
+hadjod
+cizus quadrangularis
+
+xrandr: shows current screen resolution
+
+alsamixer: for vol
+arandr: graphical resolution
+
+#set screen resolution
+xrandr -q
+xrandr -d :0 --output <OUTPUT> --mode 1360x768
+
+xf86-video-vmware for arch graphical driver
+
+weather: curl wttr.in/city,country
+news: curl getnews.tech/<topic>
+
+#remove
+pacman -Rns <pkg>
+
+
+gdb with tui flag
+
+
+" vifm Example of standard two-panel file managers mappings
+nnoremap <f3> :!less %f<cr>
+nnoremap <f4> :edit<cr>
+nnoremap <f5> :copy<cr>
+nnoremap <f6> :move<cr>
+nnoremap <f7> :mkdir<space>
+nnoremap <f8> :delete<cr>
+
+#for mapping menu key to super
+exec xmodmap -e "keysym Menu = Super_R" 2>/dev/null &
+
+Font Awesome icon
+
+#vim plugins
+plug
+nerdtree
+fzf
+fugative
+syntastic
+
+entr — run arbitrary commands when files change
+
+xev - to know key number
+
+https://www.reddit.com/r/archlinux/comments/86g4ef/how_to_enable_tap_click/
+40-libinput.conf or 30-touchpad.conf
+
+Section "InputClass"
+Identifier "libinput touchpad catchall"
+MatchIsTouchpad "on"
+MatchDevicePath "/dev/input/event*"
+Option "Tapping" "True"
+Option "TappingDrag" "True"
+Option "ScrollMethod" "Edge"
+Option "AccelProfile" "linear"
+Option "AccelSpeed" "1"
+Option "DisableWhileTyping" "False"
+Driver "libinput"
+
+EndSection
+
+vscode plugin: Bracket Pair Colorizer 2
+
+Axel is a command-line based download accelerator for Linux. Axel makes it possible to download a file at much faster speed through single connection request for multiple copies of files in small chunks through multiple http and ftp connections.
+
+ripgrep: rg for search in docs
