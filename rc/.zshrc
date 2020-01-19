@@ -2,22 +2,31 @@
 HISTFILE=~/.cache/zsh/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
-
-export ZSH=${HOME}/.config/ohmyzsh
-
 setopt appendhistory autocd extendedglob notify
 bindkey -v
 # End of lines configured by zsh-newuser-install
+# The following lines were read by zsh-newuser-install.
+# They were moved here as they could not be understood.
+# Sat Feb  1 19:21:32 IST 2020
+export ZSH=${HOME}/.config/ohmyzsh
+# End of lines moved by zsh-newuser-install.
 # The following lines were added by compinstall
-zstyle :compinstall filename '{$HOME}/.zshrc'
+setopt COMPLETE_ALIASES
+zstyle ':completion:*' completer _list _oldlist _expand _complete _ignored _match _correct _approximate _prefix
+zstyle ':completion:*' completions set
+zstyle ':completion:*' glob set
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' max-errors 11 not-numeric
+zstyle ':completion:*' substitute set
+zstyle ':completion:*' verbose true
+zstyle :compinstall filename '/home/rakshas/.zshrc'
 
 autoload -Uz compinit
 compinit
-_comp_options+=(globdos)
 # End of lines added by compinstall
 
-autoload -Uz promptinit
-promptinit
+# autoload -Uz promptinit
+# promptinit
 #prompt pws
 #PROMPT='%b%f[~>]'
 #PROMPT='[%F{blue}%B%~%b%f]$ '
@@ -83,22 +92,23 @@ export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 ttyctl -f
 
 #------------------------------
-# silver
+# starship
 #------------------------------
-#SILVER=(status:black:white dir:blue:black git:green:black cmdtime:magenta:black)
-#export SILVER_SHELL=$0 # bash, zsh, or fish
-#eval "$(silver init)"
+ eval "$(starship init zsh)"
 
 #------------------------------
 # ohmyzsh plugins
 #------------------------------
 plugins=(
 		git
-		git-prompt
+		# git-prompt
 		rsync
 		catimg
 	#	last-working-dir
 		sudo
+		z
+		# https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh
+		zsh-autosuggestions
 )
 
 #------------------------------
@@ -112,15 +122,13 @@ source $ZSH/oh-my-zsh.sh
 [[ -f ~/.myrc ]] && . ~/.myrc
 
 #------------------------------
-# powerline-rs
+#broot
 #------------------------------
-#prompt() {
-#    PS1="$(powerline-rs --shell zsh $?)"
-#}
-#precmd_functions+=(prompt)
-eval "$(starship init zsh)"
+source /home/rakshas/.config/broot/launcher/bash/br
+
 #------------------------------
 #must be last
 #------------------------------
 source ~/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 

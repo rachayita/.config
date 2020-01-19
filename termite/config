@@ -1,0 +1,121 @@
+[options]
+#https://github.com/thestinger/termite/blob/master/config
+allow_bold = true
+audible_bell = false
+browser = xdg-open
+clickable_url = true
+cursor_blink = system
+cursor_shape = block
+dynamic_title = true
+filter_unmatched_urls = true
+font = JetBrainsMono 8
+#font = Mono 8.5
+#font = Hack Bold 10
+geometry = 900x650
+highlight = #2f2f2f
+icon_name = terminal
+modify_other_keys = false
+mouse_autohide = false
+scroll_on_output = false
+scroll_on_keystroke = true
+scrollback_lines = 15000
+size_hints = false
+search_wrap = true
+urgent_on_bell = true
+
+
+[hints]
+#font = Monospace 12
+#foreground = #dcdccc
+#background = #3f3f3f
+#active_foreground = #e68080
+#active_background = #3f3f3f
+#padding = 2
+#border = #3f3f3f
+#border_width = 10
+#roundness = 2.0
+
+############################################################
+#### You can change the color coding to your liking
+#### There is a folder themes in ~/config/termite/themes
+#### Copy/paste the colors from one of the 79+ templates to this one
+#### A backup of the original config termite is present
+############################################################
+#### Use websites to make the terminal your own
+#### https://terminal.sexy
+#### https://critical.ch/xterm/
+############################################################
+#[colors]
+# deepin distro terminal theme azu
+
+#background=#09111a
+#foreground=#508b6b
+#tab=#508b6b
+#cursor=#508b6b
+#
+#color0=#000000
+#color1=#ac6d74
+#color2=#74ac6d
+#color3=#aca46d
+#color4=#6d74ac
+#color5=#a46dac
+#color6=#6daca4
+#color7=#e6e6e6
+#color8=#262626
+#color9=#d6b8bc
+#color10=#bcd6b8
+#color11=#d6d3b8
+#color12=#b8bcd6
+#color13=#d3b8d6
+#color14=#b8d6d3
+#color15=#ffffff
+
+
+[colors]
+# Base16 Solarized Dark
+# Author: Ethan Schoonover (http://ethanschoonover.com/solarized)
+
+foreground      = #93a1a1
+foreground_bold = #eee8d5
+cursor          = #eee8d5
+background      = #001f27
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #002b36
+color8  = #657b83
+color7  = #93a1a1
+color15 = #fdf6e3
+
+# Red
+color1  = #dc322f
+color9  = #dc322f
+
+# Green
+color2  = #859900
+color10 = #859900
+
+# Yellow
+color3  = #b58900
+color11 = #b58900
+
+# Blue
+color4  = #268bd2
+color12 = #268bd2
+
+# Purple
+color5  = #6c71c4
+color13 = #6c71c4
+
+# Teal
+color6  = #2aa198
+color14 = #2aa198
+
+# Extra colors
+color16 = #cb4b16
+color17 = #d33682
+color18 = #073642
+color19 = #586e75
+color20 = #839496
+color21 = #eee8d5

@@ -211,3 +211,5 @@ fi
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 
+
+source /home/rakshas/.config/broot/launcher/bash/br

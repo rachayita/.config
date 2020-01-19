@@ -5,7 +5,7 @@ set number relativenumber
 set autoindent
 set smartindent
 set showmatch
-set hlsearch
+"set hlsearch
 set nobackup
 set noswapfile
 set splitbelow splitright
@@ -133,14 +133,21 @@ let mapleader = "\<Space>"
 vnoremap <Leader>y "+y
 map <Leader>p "+p
 
+" <leader><leader> toggles between buffers
+nnoremap <leader>a <c-^>
 
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
-"nmap <Leader><Leader> V
+nnoremap <Leader>s :wq<CR>
+map <Leader>f <C-f>
+map <Leader>b <C-b>
+map <Leader>e <C-w>w
 
 "autocmd vimenter * NERDTree
 map <Leader>n :NERDTreeToggle<CR>
-map <Leader>x :FZF<CR>
+map <Leader>z :FZF<CR>
+map <Leader>x :SK<CR>
+map <Leader>t :terminal<CR>
 
 " search and replace
 " search things usual way using /something
@@ -168,19 +175,52 @@ noremap gV `[v`]
 " Stop that stupid window from popping up:
 map q: :q
 
+nnoremap ; :
+
 call plug#begin()
 Plug 'vim-airline/vim-airline'
+" Plug 'https://github.com/itchyny/lightline.vim.git'
 Plug 'scrooloose/nerdtree'
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/dense-analysis/ale.git'
 Plug 'https://github.com/rust-lang/rust.vim.git'
 Plug 'https://github.com/terryma/vim-expand-region.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
-
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
+Plug 'https://github.com/airblade/vim-rooter.git'
+Plug 'https://github.com/racer-rust/vim-racer.git'
+Plug 'autozimu/LanguageClient-neovim', {
+     \ 'branch': 'next',
+     \ 'do': 'bash install.sh',
+     \ }
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'https://github.com/vim-syntastic/syntastic.git'
 call plug#end()
+
+" Plug 'https://github.com/racer-rust/vim-racer.git'
+set hidden
+let g:racer_cmd = "~/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+let g:racer_insert_paren = 1
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap gt <Plug>(rust-def-tab)
+au FileType rust nmap <leader>d <Plug>(rust-doc)
+ 
+" Plug 'autozimu/LanguageClient-neovim'
+set hidden
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+    \ }
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <leader>k :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 " Plugin 'https://github.com/rust-lang/rust.vim.git'
 let g:rustfmt_autosave = 1
@@ -190,16 +230,19 @@ vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
 "https://github.com/vim-syntastic/syntastic.git
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 0
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 0
 
 "fzf
 set rtp+=~/.bin/fzf
+
+"sk
+set rtp+=~/.bin/skim
 
 " Prevent replacing paste buffer on paste:
 " I can select some text and paste over it without worrying 
