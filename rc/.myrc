@@ -3,8 +3,12 @@
 #
 export EDITOR=vim
 export BROWSER=surf
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+export DOTDIR="~/.config"
+export XDG_CONFIG_HOME="~/.config"
+export PAGER=bat
 
-TO=/run/media/rakshas/7ACC25F9CC25B075
+TO=/run/media/rakshas/raw
 export PATH=$TO/tools/jdk8/bin:$PATH
 export PATH=$TO/tools/scala/bin:$PATH
 export PATH=$TO/SmrutiPatra/tools/sbt/bin:$PATH
@@ -26,13 +30,18 @@ alias q='exit'
 alias v='vifm'
 alias www='w3m'
 alias c='clear'
-alias surf='tabbed surf -e'
+alias surf='tabbed surf -e &'
 #alias ls='ls --color=auto'
 alias ls='lsd'
 alias la='lsd -a'
 alias ll='ls --color -lh'
 alias l='ls -ltrAh'
 alias l.="lsd -A | egrep '^\.'"
+alias lo='kill -9 -1'
+alias rr='br'
+alias rs='br --sizes'
+alias rl='br -dp'
+alias vim=nvim
 
 #vi mode
 set -o vi
@@ -49,7 +58,6 @@ function cd {
 
 alias pp='pwd > ~/.last_dir'
 alias cds='cd `cat ~/.last_dir`'
-
 
 # restore last saved path
 #if [ -f ~/.last_dir ]

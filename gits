@@ -12,17 +12,21 @@ https://aur.archlinux.org/obinskit.git
 
 
 #pacman
-riggrep fd base-devel git meld vim firefox mpv w3m lsd vifm youtube-dl feh stow
+riggrep fd base-devel git meld vim firefox mpv w3m lsd vifm youtube-dl feh stow alacritty \
+brave-bin 
 
 #yay
 stint: cmd line color picker
+byobu
 
 #cargo
 # https://github.com/jD91mZM2/powerline-rs.git
-  cargo install powerline-rs    
+  cargo install powerline-rs du-dust riggrep racer skim starship rls lsd bat
 
 #font
 JetBrainsMono
 
 #optinal
 https://github.com/nielssp/colorgrab
+https://github.com/koalaman/shellcheck
+https://github.com/Kethku/neovide    No Nonsense Neovim Client in Rust

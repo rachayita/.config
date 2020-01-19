@@ -41,7 +41,8 @@ format-offset =
 [colors]
 ; Nord theme ============
 ;background = #2F343F
-background = #104589
+;background = #104589
+background = #001f27
 foreground = #f3f4f5
 alert = #d08770
 volume-min = #a3be8c
@@ -397,8 +398,7 @@ height = 13
 radius = 0.0
 fixed-center = true
 bottom = false
-separator = 
-
+separator = 
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -427,10 +427,15 @@ module-margin-left = 2
 module-margin-right = 2
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Noto Sans:size=7;0"
+;font-0 = "Noto Sans:size=7;0"
+;font-1 = "FontAwesome:size=7;0"
+;font-2 = "Noto Sans:size=7;0"
+;font-3 = "Noto Sans Mono:size=7;0"
+
+font-0 = "JetBriansMono:size=7;0"
 font-1 = "FontAwesome:size=7;0"
-font-2 = "Noto Sans:size=7;0"
-font-3 = "Noto Sans Mono:size=7;0"
+font-2 = "JetBrainsMono:size=7;0"
+font-3 = "JetBrainsMono:size=7;0"
 
 modules-left = bspwm filesystem pub-ip prv-ip xwindow 
 modules-center = date
@@ -447,7 +452,6 @@ tray-background = ${colors.background}
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
-
 
 ################################################################################
 ################################################################################
@@ -1281,7 +1285,7 @@ type = internal/fs
 ; Mountpoints to display
 mount-0 = /
 mount-1 = /run/media/rakshas/SmrutiPatra
-mount-2 = /run/media/rakshas/7ACC25F9CC25B075
+mount-2 = /run/media/rakshas/raw
 ; Seconds to sleep between updates
 ; Default: 30
 interval = 30
@@ -1853,8 +1857,7 @@ format-prefix-background = ${colors.background}
 format-prefix-underline = #9f78e1
 format-underline = #9f78e1
 label = %percentage%%
-bar-width = 1
-#bar-width = 10
+bar-width = 10
 bar-indicator = 
 bar-indicator-foreground = #fff
 bar-indicator-font = 2

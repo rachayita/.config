@@ -34,7 +34,6 @@ rustup doc
 
 feh for pic
 
-
 linux PineTime watch
 TestDisk: recover deleted files
 gitbucket
@@ -65,29 +64,12 @@ news: curl getnews.tech/<topic>
 #remove
 pacman -Rns <pkg>
 
-
 gdb with tui flag
-
-
-" vifm Example of standard two-panel file managers mappings
-nnoremap <f3> :!less %f<cr>
-nnoremap <f4> :edit<cr>
-nnoremap <f5> :copy<cr>
-nnoremap <f6> :move<cr>
-nnoremap <f7> :mkdir<space>
-nnoremap <f8> :delete<cr>
 
 #for mapping menu key to super
 exec xmodmap -e "keysym Menu = Super_R" 2>/dev/null &
 
 Font Awesome icon
-
-#vim plugins
-plug
-nerdtree
-fzf
-fugative
-syntastic
 
 entr — run arbitrary commands when files change
 
@@ -107,7 +89,6 @@ Option "AccelProfile" "linear"
 Option "AccelSpeed" "1"
 Option "DisableWhileTyping" "False"
 Driver "libinput"
-
 EndSection
 
 vscode plugin: Bracket Pair Colorizer 2
@@ -115,3 +96,49 @@ vscode plugin: Bracket Pair Colorizer 2
 Axel is a command-line based download accelerator for Linux. Axel makes it possible to download a file at much faster speed through single connection request for multiple copies of files in small chunks through multiple http and ftp connections.
 
 ripgrep: rg for search in docs
+
+inxi -F : for sys info
+
+for 5 sec lag problem with intel gpu
+https://github.com/qutebrowser/qutebrowser/issues/4641
+https://github.com/qutebrowser/qutebrowser/issues/4809
+If not, create a new file in /etc/X11/xorg.conf.d/ called 20-modesetting.conf or whatever and add this:
+Section "Device"
+	Identifier 	"Intel Graphics"
+	Driver		"modesetting"
+	Option		"AccelMethod" "glamor"
+	Option		"DRI"	"2"
+EndSection
+
+browsh: terminal browser
+
+rsync -avr source destination
+no slash at path end
+
+https://asciinema.org/
+record & share terminal session
+
+mount android phone:
+simple-mtpfs -l
+simple-mtpfs --device 1 cell/
+to unmount:
+fusermount -u cell/
+
+Bizcat - an 8x16 bitmap font
+
+jq: commandline json parser
+
+install font manually:
+https://ehellman.github.io/blog/2013/04/16/manually-install-a-font-in-arch-linux/
+Unpack the file and move it to the shared fonts folder
+$ mv font.ttf /usr/share/fonts/  or  ~/.local/share/fonts
+Or if you want to install the font for a single user, move it to the .fonts directory in the home folder.
+$ mv font.ttf ~/.fonts/
+You might also have to update /etc/X11/xorg.conf or /etc/xorg.conf with the new directory. Search for FontPath to find the correct location within the file to add your new path.
+Now, reload the font cache:
+$ fc-cache -vf
+
+freelance contract
+https://www.ashedryden.com/blog/contract
+
+
