@@ -6,7 +6,7 @@ export BROWSER=surf
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 export DOTDIR="~/.config"
 export XDG_CONFIG_HOME="~/.config"
-export PAGER=bat
+export PAGER=less
 
 TO=/run/media/rakshas/raw
 export PATH=$TO/tools/jdk8/bin:$PATH
@@ -42,7 +42,8 @@ alias rr='br'
 alias rs='br --sizes'
 alias rl='br -dp'
 alias vim=nvim
-alias vv='nvim $(sk)'
+alias vv='nvim $(sk -m)'
+alias rs='nvim $(find . -name "*.rs" | sk -m)'
 
 #vi mode
 set -o vi
@@ -52,13 +53,13 @@ alias ddgr='ddgr -n 7'
 alias wwd='BROWSER=w3m ddgr'
 
 # save path on cd
-function cd {
-		builtin cd $@
-				pwd > ~/.last_dir
-}
+#function cd {
+#		builtin cd $@
+#				pwd > ~/.last_dir
+#}
 
-alias pp='pwd > ~/.last_dir'
-alias cds='cd `cat ~/.last_dir`'
+#alias pp='pwd > ~/.last_dir'
+#alias cds='cd `cat ~/.last_dir`'
 
 # restore last saved path
 #if [ -f ~/.last_dir ]

@@ -13,7 +13,7 @@ https://aur.archlinux.org/brother-mfc-l2700dw.git    https://aur.archlinux.org/p
 
 #pacman
 riggrep fd base-devel git meld vim firefox mpv w3m lsd vifm youtube-dl feh stow alacritty \
-brave-bin 
+ 
 
 #yay
 stint: cmd line color picker
@@ -21,10 +21,16 @@ byobu
 
 #cargo
 # https://github.com/jD91mZM2/powerline-rs.git
-  cargo install powerline-rs du-dust riggrep racer skim starship rls lsd bat
+  cargo install powerline-rs du-dust riggrep racer skim starship rls lsd bat diskonaut
 
 #font
 JetBrainsMono
+
+#firefox addon
+dark reader
+https everywhere
+vimium
+ublock origin
 
 #optinal
 https://github.com/nielssp/colorgrab

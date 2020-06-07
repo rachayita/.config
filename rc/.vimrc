@@ -18,7 +18,7 @@ set incsearch
 
 "
 
-	"enable syntax and plugins (for netrw)
+	"enable syntax and plugins (for netrw) and rust.vim plugin
 	syntax enable
 	filetype plugin on
 
@@ -137,11 +137,12 @@ map <Leader>p "+p
 nnoremap <leader>a <c-^>
 
 nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
+nnoremap <Leader>q :q!<CR>
 nnoremap <Leader>s :wq<CR>
 map <Leader>f <C-f>
 map <Leader>b <C-b>
 map <Leader>e <C-w>w
+map <Leader>d daw
 
 "autocmd vimenter * NERDTree
 map <Leader>n :NERDTreeToggle<CR>
@@ -192,6 +193,9 @@ Plug 'autozimu/LanguageClient-neovim', {
      \ 'branch': 'next',
      \ 'do': 'bash install.sh',
      \ }
+Plug 'vimwiki/vimwiki'
+Plug 'vifm/vifm.vim'
+Plug 'ap/vim-css-color'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'https://github.com/vim-syntastic/syntastic.git'
 call plug#end()
