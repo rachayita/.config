@@ -42,7 +42,8 @@ alias rr='br'
 alias rs='br --sizes'
 alias rl='br -dp'
 alias vim=nvim
-alias vv='nvim $(sk)'
+alias vv='nvim $(sk -m)'
+alias rs='nvim $(find . -name "*.rs" | sk -m)'
 
 #vi mode
 set -o vi
