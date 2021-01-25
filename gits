@@ -15,18 +15,19 @@ https://aur.archlinux.org/brother-mfc-l2700dw.git    https://aur.archlinux.org/p
 riggrep fd base-devel git meld vim firefox mpv w3m lsd vifm youtube-dl feh stow alacritty \
  
 
-#yay
+#paru
 stint: cmd line color picker
 byobu
+vimb
 
 #cargo
 # https://github.com/jD91mZM2/powerline-rs.git
-  cargo install powerline-rs du-dust riggrep racer skim starship rls lsd bat diskonaut
+  cargo install powerline-rs du-dust riggrep racer skim starship rls lsd bat diskonaut paru
 
 #font
 JetBrainsMono
 
-#firefox addon
+#browser addon
 dark reader
 https everywhere
 vimium

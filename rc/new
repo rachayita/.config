@@ -141,4 +141,10 @@ $ fc-cache -vf
 freelance contract
 https://www.ashedryden.com/blog/contract
 
+stow for dotfiles
+
+#connect AnnePro2 P1 via bluetooth
+press F2 + 1 for 5 sec
+$ bt-device -l
+$ bt-device -c <mac>
 
