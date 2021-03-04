@@ -19,6 +19,9 @@ riggrep fd base-devel git meld vim firefox mpv w3m lsd vifm youtube-dl feh stow 
 stint: cmd line color picker
 byobu
 vimb
+badwolf
+ytfzf
+ueberzug
 
 #cargo
 # https://github.com/jD91mZM2/powerline-rs.git

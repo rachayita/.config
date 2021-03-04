@@ -1,6 +1,6 @@
-	"enter the current millenia
-	set nocompatible
-set tabstop=1
+"enter the current millenia
+set nocompatible
+" set tabstop=1
 set number relativenumber
 set autoindent
 set smartindent

@@ -18,3 +18,4 @@ export FM_SUDO_COLOR="red"
 #default terminal
 export TERMINAL=st
 export EDITOR=vim
+_byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true

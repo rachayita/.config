@@ -148,3 +148,18 @@ press F2 + 1 for 5 sec
 $ bt-device -l
 $ bt-device -c <mac>
 
+#sudoedit to edit root file
+
+# git config --local status.showUntrackedFiles no
+
+# for updating and locating a file
+$ updatedb
+$ locate <file>
+
+# deallocate and remove file after overwriting
+$ shred -u
+
+# ISO 8601: the better date format
+  yyyy-mm-dd hh:mm:ss
+  2021-12-22 23:44:56
+

@@ -437,7 +437,8 @@ font-1 = "FontAwesome:size=7;0"
 font-2 = "JetBrainsMono:size=7;0"
 font-3 = "JetBrainsMono:size=7;0"
 
-modules-left = bspwm filesystem pub-ip prv-ip xwindow 
+;modules-left = bspwm filesystem pub-ip prv-ip xwindow 
+modules-left = bspwm filesystem xwindow 
 modules-center = date
 modules-right = rx_bytes networkspeedup networkspeeddown wireless-network memory2 cpu2 temperature2 xbacklight pavolume battery
 
