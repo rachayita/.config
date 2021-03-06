@@ -47,6 +47,8 @@ alias vim=nvim
 alias vv='nvim $(sk -m)'
 alias rs='nvim $(find . -name "*.rs" | sk -m)'
 alias dotf='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+alias up='nmcli c up '
+alias dn='nmcli c down '
 
 #vi mode
 set -o vi

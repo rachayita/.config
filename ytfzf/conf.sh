@@ -1,1 +1,1 @@
-YTFZF_PREF="bestvideo[height<=?240]+bestaudio/best"
+YTFZF_PREF="bestvideo[height<=?144]+bestaudio/best"
