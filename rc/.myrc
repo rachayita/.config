@@ -17,6 +17,7 @@ export PATH=$TO/tools/scala/bin:$PATH
 export PATH=$TO/SmrutiPatra/tools/sbt/bin:$PATH
 export PATH=$TO/tools/VSCode-linux-x64/bin/:$PATH
 alias idea=$TO'/tools/idea/bin/idea.sh &'
+export PATH=~/.config/vifm/scripts/:$PATH
 
 alias po='poweroff'
 alias scala='scala -Dscala.color'
@@ -30,7 +31,7 @@ alias f='l|grep -i'
 alias tf='tree -fa | grep -i'
 alias dok='sudo docker'
 alias q='exit'
-alias v='vifm'
+alias v='vifmrun'
 alias www='w3m'
 alias c='clear'
 alias surf='tabbed surf -e &'
