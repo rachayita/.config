@@ -167,7 +167,7 @@ nnoremap <silent> p p`]
 " Type 12<Enter> to go to line 12 (12G breaks my wrist)
 " Hit Enter to go to end of file.
 " Hit Backspace to go to beginning of file.
-nnoremap <CR> G
+" nnoremap <CR> G
 nnoremap <BS> gg
 
 " Quickly select text you just pasted:
@@ -191,7 +191,7 @@ Plug 'https://github.com/airblade/vim-rooter.git'
 Plug 'https://github.com/racer-rust/vim-racer.git'
 Plug 'autozimu/LanguageClient-neovim', {
      \ 'branch': 'next',
-     \ 'do': 'bash install.sh',
+     \ 'do': 'zsh install.sh',
      \ }
 Plug 'vimwiki/vimwiki'
 Plug 'vifm/vifm.vim'

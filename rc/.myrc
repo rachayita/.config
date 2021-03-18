@@ -3,7 +3,8 @@
 #
 export EDITOR=vim
 export BROWSER=vimb
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+# export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
 export DOTDIR="~/.config"
 export XDG_CONFIG_HOME="~/.config"
 export PAGER=less
@@ -50,28 +51,12 @@ alias rs='nvim $(find . -name "*.rs" | sk -m)'
 alias dotf='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 alias up='nmcli c up '
 alias dn='nmcli c down '
-
-#vi mode
-set -o vi
-
-#ddgr
-alias ddgr='ddgr -n 7'
+alias mnt4='sudo mount /dev/sda4 /run/media'
+alias umnt4='sudo umount /dev/sda4'
 alias wwd='BROWSER=w3m ddgr'
 
-# save path on cd
-#function cd {
-#		builtin cd $@
-#				pwd > ~/.last_dir
-#}
-
-#alias pp='pwd > ~/.last_dir'
-#alias cds='cd `cat ~/.last_dir`'
-
-# restore last saved path
-#if [ -f ~/.last_dir ]
-#    then cd `cat ~/.last_dir`
-#fi
-
+#vi mode on command line
+set -o vi
 
 #------------------------------
 # reload shell
