@@ -26,7 +26,7 @@ ueberzug
 
 #cargo
 # https://github.com/jD91mZM2/powerline-rs.git
-  cargo install powerline-rs du-dust riggrep racer skim starship rls lsd bat diskonaut paru nethoscope
+  cargo install powerline-rs du-dust riggrep racer skim starship rls lsd bat diskonaut paru nethoscope broot
 
 #font
 JetBrainsMono
