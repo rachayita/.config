@@ -143,6 +143,7 @@ map <Leader>f <C-f>
 map <Leader>b <C-b>
 map <Leader>e <C-w>w
 map <Leader>d daw
+map <Leader>c gcc
 
 "autocmd vimenter * NERDTree
 map <Leader>n :NERDTreeToggle<CR>
@@ -178,6 +179,9 @@ map q: :q
 
 nnoremap ; :
 
+let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog='/usr/bin/python2'
+
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 " Plug 'https://github.com/itchyny/lightline.vim.git'
@@ -196,6 +200,11 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'vimwiki/vimwiki'
 Plug 'vifm/vifm.vim'
 Plug 'ap/vim-css-color'
+
+Plug 'https://github.com/ncm2/ncm2.git'
+Plug 'https://github.com/roxma/nvim-yarp.git'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'https://github.com/vim-syntastic/syntastic.git'
 call plug#end()
@@ -210,6 +219,14 @@ au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap gt <Plug>(rust-def-tab)
 au FileType rust nmap <leader>d <Plug>(rust-doc)
+ 
+
+" Plug 'https://github.com/ncm2/ncm2.git'
+" Requires pynvim installation from pacman
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
  
 " Plug 'autozimu/LanguageClient-neovim'
 set hidden

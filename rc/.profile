@@ -16,6 +16,6 @@ export FM_ACTION_COLOR_LV2="#FF8C00"
 export FM_ACTION_COLOR_BULK="#CB06CB"
 export FM_SUDO_COLOR="red"
 #default terminal
-export TERMINAL=st
+export TERMINAL=alacritty
 export EDITOR=vim
-_byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
+#_byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true

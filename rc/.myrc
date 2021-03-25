@@ -1,7 +1,7 @@
 #
 # ~/.myrc
 #
-export EDITOR=vim
+export EDITOR=nvim
 export BROWSER=vimb
 # export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
