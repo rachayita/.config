@@ -56,6 +56,7 @@ alias woff='nmcli radio wifi off'
 alias mnt4='sudo mount /dev/sda4 /run/media'
 alias umnt4='sudo umount /dev/sda4'
 alias wwd='BROWSER=w3m ddgr'
+alias vs='zsh ~/Documents/vs/bin/codium &'
 
 #vi mode on command line
 set -o vi

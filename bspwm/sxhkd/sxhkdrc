@@ -71,7 +71,7 @@ super + c
     conky-toggle
 
 #Oblogout
-super + x
+super + g
     xfce4-terminal --drop-down
     # oblogout
 

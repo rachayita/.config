@@ -170,3 +170,6 @@ $ ssh -T git@github.com
 
 #copy to clipboard
 $ some-command | xclip -sel clip
+
+# terminal background color
+#1e1e1e
