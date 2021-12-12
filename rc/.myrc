@@ -57,6 +57,7 @@ alias mnt4='sudo mount /dev/sda4 /run/media'
 alias umnt4='sudo umount /dev/sda4'
 alias wwd='BROWSER=w3m ddgr'
 alias vs='zsh ~/Documents/vs/bin/codium &'
+alias shu='shred -u '
 
 #vi mode on command line
 set -o vi

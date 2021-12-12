@@ -13,8 +13,7 @@ https://aur.archlinux.org/obinskit.git
 https://aur.archlinux.org/brother-mfc-l2700dw.git    https://aur.archlinux.org/packages/brother-mfc-l2700dw/
 
 #pacman
-riggrep fd base-devel git meld vim firefox mpv w3m lsd vifm youtube-dl feh stow alacritty \
- 
+riggrep fd base-devel git meld vim firefox mpv w3m lsd vifm youtube-dl feh stow alacritty chromium
 
 #paru
 stint: cmd line color picker
@@ -41,3 +40,4 @@ ublock origin
 https://github.com/nielssp/colorgrab
 https://github.com/koalaman/shellcheck
 https://github.com/Kethku/neovide    No Nonsense Neovim Client in Rust
+https://github.com/tpope/vim-eunuch    vim optional
