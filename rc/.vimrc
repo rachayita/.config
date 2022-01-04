@@ -139,7 +139,8 @@ nnoremap <leader>a <c-^>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q!<CR>
 nnoremap <Leader>s :wq<CR>
-map <Leader>f <C-f>
+map f <C-f>
+map F <C-b>
 map <Leader>b <C-b>
 map <Leader>e <C-w>w
 map <Leader>d daw

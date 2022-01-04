@@ -22,7 +22,7 @@ zstyle ':completion:*' verbose true
 zstyle :compinstall filename '/home/rakshas/.zshrc'
 
 autoload -Uz compinit
-compinit
+compinit -D
 # End of lines added by compinstall
 
 # autoload -Uz promptinit
