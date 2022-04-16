@@ -30,6 +30,9 @@ ueberzug
 #font
 JetBrainsMono
 
+#firewall
+ufw/gufw
+
 #browser addon
 dark reader
 https everywhere
@@ -43,4 +46,5 @@ https://github.com/Kethku/neovide    No Nonsense Neovim Client in Rust
 https://github.com/tpope/vim-eunuch    vim optional
 bpytop   like htop
 https://github.com/MarcoLucidi01/ytcast    cast yt to smart tv
+dunst: light weight notification daemon
 

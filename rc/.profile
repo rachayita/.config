@@ -19,3 +19,5 @@ export FM_SUDO_COLOR="red"
 export TERMINAL=alacritty
 export EDITOR=vim
 #_byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
+
+export LC_CTYPE="en_IN.utf8"

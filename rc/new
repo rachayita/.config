@@ -173,3 +173,9 @@ $ some-command | xclip -sel clip
 
 # terminal background color
 #1e1e1e
+
+# for dmenu
+export LC_CTYPE="en_GB.utf8"
+
+# git donot show untracked files locally
+git config --local status.showUntrackedFiles no
