@@ -6,7 +6,6 @@ export BROWSER=vimb
 # export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
 export DOTDIR="~/.config"
-export XDG_CONFIG_HOME="~/.config"
 export PAGER=less
 
 #man page in colour with links
@@ -19,6 +18,7 @@ export PATH=$TO/SmrutiPatra/tools/sbt/bin:$PATH
 export PATH=$TO/tools/VSCode-linux-x64/bin/:$PATH
 alias idea=$TO'/tools/idea/bin/idea.sh &'
 export PATH=~/.config/vifm/scripts/:$PATH
+export PATH=~/.local/bin/:$PATH  # for rust-analyzer
 
 alias po='poweroff'
 alias scala='scala -Dscala.color'

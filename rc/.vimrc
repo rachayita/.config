@@ -183,6 +183,16 @@ nnoremap ; :
 let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog='/usr/bin/python2'
 
+"fzf
+set rtp+=~/.bin/fzf
+
+"sk
+set rtp+=~/.bin/skim
+
+" Jump to start and end of line using the home row keys
+map H ^
+map L $
+
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 " Plug 'https://github.com/itchyny/lightline.vim.git'
@@ -193,7 +203,7 @@ Plug 'https://github.com/rust-lang/rust.vim.git'
 Plug 'https://github.com/terryma/vim-expand-region.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/airblade/vim-rooter.git'
-Plug 'https://github.com/racer-rust/vim-racer.git'
+Plug 'https://github.com/lifepillar/vim-mucomplete.git'
 Plug 'autozimu/LanguageClient-neovim', {
      \ 'branch': 'next',
      \ 'do': 'zsh install.sh',
@@ -202,47 +212,26 @@ Plug 'vimwiki/vimwiki'
 Plug 'vifm/vifm.vim'
 Plug 'ap/vim-css-color'
 
-Plug 'https://github.com/ncm2/ncm2.git'
-Plug 'https://github.com/roxma/nvim-yarp.git'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'https://github.com/vim-syntastic/syntastic.git'
 call plug#end()
 
-" Plug 'https://github.com/racer-rust/vim-racer.git'
-set hidden
-let g:racer_cmd = "~/.cargo/bin/racer"
-let g:racer_experimental_completer = 1
-let g:racer_insert_paren = 1
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap gs <Plug>(rust-def-split)
-au FileType rust nmap gx <Plug>(rust-def-vertical)
-au FileType rust nmap gt <Plug>(rust-def-tab)
-au FileType rust nmap <leader>d <Plug>(rust-doc)
- 
-
-" Plug 'https://github.com/ncm2/ncm2.git'
-" Requires pynvim installation from pacman
-" enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
-" IMPORTANT: :help Ncm2PopupOpen for more information
+"Plug 'https://github.com/lifepillar/vim-mucomplete.git'
 set completeopt=noinsert,menuone,noselect
  
 " Plug 'autozimu/LanguageClient-neovim'
 set hidden
 let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'rust': ['rust-analyzer'],
     \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
     \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
     \ 'python': ['/usr/local/bin/pyls'],
     \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
     \ }
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" note that if you are using Plug mapping you should not use `noremap` mappings.
+nmap <F5> <Plug>(lcn-menu)
 " Or map each action separately
-nnoremap <leader>k :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+nmap <leader>k <Plug>(lcn-hover)
+nmap <silent> gd <Plug>(lcn-definition)
+nmap <silent> <F2> <Plug>(lcn-rename)
 
 " Plugin 'https://github.com/rust-lang/rust.vim.git'
 let g:rustfmt_autosave = 1
@@ -251,20 +240,8 @@ let g:rustfmt_autosave = 1
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
-"https://github.com/vim-syntastic/syntastic.git
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_always_populate_loc_list = 0
-" let g:syntastic_auto_loc_list = 0
-" let g:syntastic_check_on_open = 0
-" let g:syntastic_check_on_wq = 0
-
-"fzf
-set rtp+=~/.bin/fzf
-
-"sk
-set rtp+=~/.bin/skim
+" ale plugin
+let g:ale_linters = {'rust': ['analyzer']}
 
 " Prevent replacing paste buffer on paste:
 " I can select some text and paste over it without worrying 

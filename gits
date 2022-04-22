@@ -13,7 +13,7 @@ https://aur.archlinux.org/obinskit.git
 https://aur.archlinux.org/brother-mfc-l2700dw.git    https://aur.archlinux.org/packages/brother-mfc-l2700dw/
 
 #pacman
-riggrep fd base-devel git meld vim firefox mpv w3m lsd vifm youtube-dl feh stow alacritty chromium
+riggrep fd base-devel git meld vim firefox mpv w3m lsd vifm youtube-dl feh stow alacritty chromium vscodium sxiv
 
 #paru
 stint: cmd line color picker
@@ -47,4 +47,4 @@ https://github.com/tpope/vim-eunuch    vim optional
 bpytop   like htop
 https://github.com/MarcoLucidi01/ytcast    cast yt to smart tv
 dunst: light weight notification daemon
-
+https://github.com/dewyze/vim-tada  vim todo plugin

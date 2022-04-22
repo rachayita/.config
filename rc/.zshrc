@@ -78,13 +78,6 @@ zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
 #------------------------------
-# fzf
-#------------------------------
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
-
-#------------------------------
 # The ttyctl command can be used to "freeze/unfreeze" the terminal. 
 # Many programs change the terminal state, and often do not restore 
 # terminal settings on exiting abnormally. 
@@ -107,6 +100,8 @@ plugins=(
 	#	last-working-dir
 		sudo
 		z
+		copypath
+		dirhistory
 		# https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh
 		zsh-autosuggestions
 )
@@ -120,11 +115,6 @@ source $ZSH/oh-my-zsh.sh
 #loading personal configs
 #------------------------------
 [[ -f ~/.myrc ]] && . ~/.myrc
-
-#------------------------------
-#broot
-#------------------------------
-source /home/rakshas/.config/broot/launcher/bash/br
 
 #------------------------------
 #must be last
