@@ -7,10 +7,41 @@
 	helper = cache --timeout=18000
 [merge]
 	tool = meld
- guitool = meld
+	guitool = meld
 [mergetool "meld"]
 	path = /usr/bin/meld
 [difftool "meld"]
  path = /usr/bin/meld
 [diff]
 	tool = meld
+[ui "color"]
+	ui = always
+[color]
+	ui = true
+[core]
+	autocrlf = input
+	safecrlf = true
+[alias]
+	c = commit
+	s = status
+	st = status
+	lg = log --oneline
+	last = log -1 HEAD
+	f = push --force-with-lease
+	# https://stackoverflow.com/a/11688523/472927
+	ss = "!f() { git stash show stash^{/$*} -p; }; f"
+	sa = "!f() { git stash apply stash^{/$*}; }; f"
+	sl = stash list
+[pull]
+	ff = only
+[push]
+	default = simple
+[help]
+	autocorrect = 1
+[url "git@github.com:"]
+	insteadOf = gh:
+[github]
+	user = rachayita
+[diff]
+	algorithm = patience
+	compactionHeuristic = true

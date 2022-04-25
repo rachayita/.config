@@ -9,18 +9,29 @@ set showmatch
 set nobackup
 set noswapfile
 set splitbelow splitright
- 
+set encoding=utf-8
 set ignorecase
 set smartcase
+set colorcolumn=80 " and give me a colored column
+set showcmd " Show (partial) command in status line.
+set mouse=a " Enable mouse usage (all modes) in terminals
+
+" Show those damn hidden characters
+set listchars=nbsp:¬,extends:»,precedes:«,trail:•
+
+" Keymap for replacing up to next _ or -
+noremap <leader>m ct_
+
+" I can type :help on my own, thanks.
+map <F1> <Esc>
+imap <F1> <Esc>
 
 " Use increment searching (search while typing)
 set incsearch
 
-"
-
-	"enable syntax and plugins (for netrw) and rust.vim plugin
-	syntax enable
-	filetype plugin on
+"enable syntax and plugins (for netrw) and rust.vim plugin
+syntax enable
+filetype plugin indent on
 
 "search down into subfolders
 "provides tab-completion for all file related task
@@ -50,10 +61,6 @@ command! MakeTags !ctags -R .
 
 " THINGS TO CONSIDER:
 " - This doesn't help if you want a visual list of tags
-
-
-
-
 
 " AUTOCOMPLETE:
 
@@ -125,6 +132,16 @@ set makeprg=cargo\ build
 
 "                    Download this file at:
 "                github.com/mcantor/no_plugins
+
+" Jump to last edit position on opening file
+if has("autocmd")
+  " https://stackoverflow.com/questions/31449496/vim-ignore-specifc-file-in-autocommand
+  au BufReadPost * if expand('%:p') !~# '\m/\.git/' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" Help filetype detection
+autocmd BufRead *.md set filetype=markdown
+
 
 " my leader
 let mapleader = "\<Space>"
@@ -204,6 +221,7 @@ Plug 'https://github.com/terryma/vim-expand-region.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/airblade/vim-rooter.git'
 Plug 'https://github.com/lifepillar/vim-mucomplete.git'
+Plug 'https://github.com/mattn/webapi-vim.git' "an interface to web apis
 Plug 'autozimu/LanguageClient-neovim', {
      \ 'branch': 'next',
      \ 'do': 'zsh install.sh',
@@ -235,6 +253,10 @@ nmap <silent> <F2> <Plug>(lcn-rename)
 
 " Plugin 'https://github.com/rust-lang/rust.vim.git'
 let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
+let g:rust_clip_command = 'xclip -selection clipboard'
+
 
 " Plugin 'https://github.com/terryma/vim-expand-region.git'
 vmap v <Plug>(expand_region_expand)
@@ -242,6 +264,13 @@ vmap <C-v> <Plug>(expand_region_shrink)
 
 " ale plugin
 let g:ale_linters = {'rust': ['analyzer']}
+
+" format para to 80 char (selected or not)
+nnoremap <Leader>g gqap
+xnoremap <Leader>g gqa
+
+" highlighting a selection on yank
+ au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=2000}
 
 " Prevent replacing paste buffer on paste:
 " I can select some text and paste over it without worrying 
