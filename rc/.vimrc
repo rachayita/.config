@@ -222,6 +222,7 @@ Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/airblade/vim-rooter.git'
 Plug 'https://github.com/lifepillar/vim-mucomplete.git'
 Plug 'https://github.com/mattn/webapi-vim.git' "an interface to web apis
+Plug 'https://github.com/justinmk/vim-sneak.git' "jump to any location specified by 2 chars
 Plug 'autozimu/LanguageClient-neovim', {
      \ 'branch': 'next',
      \ 'do': 'zsh install.sh',
