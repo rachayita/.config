@@ -235,7 +235,10 @@ call plug#end()
 
 "Plug 'https://github.com/lifepillar/vim-mucomplete.git'
 set completeopt=noinsert,menuone,noselect
- 
+set shortmess+=c   " Shut off completion messages
+set belloff+=ctrlg " Add only if Vim beeps during completion
+let g:mucomplete#enable_auto_at_startup = 1
+
 " Plug 'autozimu/LanguageClient-neovim'
 set hidden
 let g:LanguageClient_serverCommands = {
@@ -272,6 +275,9 @@ xnoremap <Leader>g gqa
 
 " highlighting a selection on yank
  au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=2000}
+
+" Plug 'vifm/vifm.vim'
+map <Leader>v :Vifm<CR>
 
 " Prevent replacing paste buffer on paste:
 " I can select some text and paste over it without worrying 

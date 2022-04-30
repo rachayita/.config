@@ -114,7 +114,7 @@ source $ZSH/oh-my-zsh.sh
 #------------------------------
 #loading personal configs
 #------------------------------
-[[ -f ~/.myrc ]] && . ~/.myrc
+[[ -f ~/.config/myrc/myzshrc ]] && . ~/.config/myrc/myzshrc
 
 #------------------------------
 #must be last

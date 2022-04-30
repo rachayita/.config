@@ -29,6 +29,7 @@ cargo install powerline-rs du-dust riggrep racer skim starship rls lsd bat disko
 
 # font
 - JetBrainsMono
+- Bizcat:  an 8x16 bitmap font
 
 # firewall
 - ufw/gufw
@@ -48,3 +49,6 @@ cargo install powerline-rs du-dust riggrep racer skim starship rls lsd bat disko
 - [cast yt to smart tv](https://github.com/MarcoLucidi01/ytcast)    
 - dunst: light weight notification daemon
 - [vim todo plugin](https://github.com/dewyze/vim-tada)
+
+# settings
+- [blutooth auto power on after boot/resume/before login](https://wiki.archlinux.org/title/Bluetooth)

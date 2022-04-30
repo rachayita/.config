@@ -1,0 +1,11 @@
+export PATH="$HOME/.cargo/bin:$PATH"
+export TERMINAL=alacritty
+export EDITOR=nvim
+
+# setting locale for dmenu
+export LC_CTYPE="en_IN.utf8"
+
+#mapping menu key to Super_R and caps to escape
+#xmodmap -e "keysym Menu = Super_R" -e "keysym Caps_Lock = Escape" 2>/dev/null &
+#xmodmap -e "keysym Caps_Lock = Escape" 2>/dev/null &
+xmodmap ~/.config/Xmodmap

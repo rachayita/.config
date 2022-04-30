@@ -61,6 +61,11 @@ alias wwd='BROWSER=w3m ddgr'
 alias vs='zsh ~/Documents/vs/bin/codium &'
 alias shu='shred -u '
 alias dt='expr `cat /sys/class/net/wlp2s0/statistics/rx_bytes` / 1024 / 1024'
+alias b=bat
+alias sy='sudo pacman -Syyu'
+alias sc='sudo pacman -Sc'
+alias si='sudo pacman -S '
+alias sr='sudo pacman -Rns '
 
 #vi mode on command line
 set -o vi
