@@ -158,7 +158,6 @@ nnoremap <Leader>q :q!<CR>
 nnoremap <Leader>s :wq<CR>
 map f <C-f>
 map F <C-b>
-map <Leader>b <C-b>
 map <Leader>e <C-w>w
 map <Leader>d daw
 map <Leader>c gcc
@@ -240,6 +239,7 @@ set belloff+=ctrlg " Add only if Vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
 
 " Plug 'autozimu/LanguageClient-neovim'
+" Note: download rust-analyzer in ~/.local/bin
 set hidden
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rust-analyzer'],
@@ -267,6 +267,7 @@ vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
 " ale plugin
+" Note: download rust-analyzer in ~/.local/bin
 let g:ale_linters = {'rust': ['analyzer']}
 
 " format para to 80 char (selected or not)
@@ -278,6 +279,12 @@ xnoremap <Leader>g gqa
 
 " Plug 'vifm/vifm.vim'
 map <Leader>v :Vifm<CR>
+
+" rust debugger
+" Note: gdb installation required
+let g:termdebugger="rust-gdb"
+let g:termdebug_wide=1
+map <Leader>b :packadd termdebug<CR>
 
 " Prevent replacing paste buffer on paste:
 " I can select some text and paste over it without worrying 

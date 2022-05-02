@@ -13,18 +13,15 @@
 - https://aur.archlinux.org/brother-mfc-l2700dw.git    https://aur.archlinux.org/packages/brother-mfc-l2700dw/
 
 # pacman
-riggrep fd base-devel git meld vim firefox mpv w3m lsd vifm youtube-dl feh stow alacritty chromium vscodium sxiv
+riggrep fd base-devel git meld vim firefox mpv w3m lsd vifm youtube-dl feh stow
+alacritty chromium vscodium sxiv gdb vimb ueberzug byobu ytfzf
 
 # paru
 - stint: cmd line color picker
-- byobu
-- vimb
-- badwolf
-- ytfzf
-- ueberzug
 
 # cargo
-cargo install powerline-rs du-dust riggrep racer skim starship rls lsd bat diskonaut paru nethoscope broot
+powerline-rs du-dust riggrep racer skim starship lsd bat  diskonaut paru
+nethoscope broot 
 - [powerline-rs](https://github.com/jD91mZM2/powerline-rs.git)
 
 # font
@@ -40,6 +37,10 @@ cargo install powerline-rs du-dust riggrep racer skim starship rls lsd bat disko
 - vimium
 - ublock origin
 
+# settings
+- [blutooth auto power on after boot/resume/before login](https://wiki.archlinux.org/title/Bluetooth)
+- download rust-analyzer in ~/.local/bin
+
 # optinal
 - [colorgrab](https://github.com/nielssp/colorgrab)
 - [shell check](https://github.com/koalaman/shellcheck)
@@ -49,6 +50,3 @@ cargo install powerline-rs du-dust riggrep racer skim starship rls lsd bat disko
 - [cast yt to smart tv](https://github.com/MarcoLucidi01/ytcast)    
 - dunst: light weight notification daemon
 - [vim todo plugin](https://github.com/dewyze/vim-tada)
-
-# settings
-- [blutooth auto power on after boot/resume/before login](https://wiki.archlinux.org/title/Bluetooth)
