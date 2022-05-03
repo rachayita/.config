@@ -21,7 +21,7 @@ alacritty chromium vscodium sxiv gdb vimb ueberzug byobu ytfzf
 
 # cargo
 powerline-rs du-dust riggrep racer skim starship lsd bat  diskonaut paru
-nethoscope broot 
+nethoscope broot hmm
 - [powerline-rs](https://github.com/jD91mZM2/powerline-rs.git)
 
 # font
@@ -50,3 +50,4 @@ nethoscope broot
 - [cast yt to smart tv](https://github.com/MarcoLucidi01/ytcast)    
 - dunst: light weight notification daemon
 - [vim todo plugin](https://github.com/dewyze/vim-tada)
+- gitsjournal

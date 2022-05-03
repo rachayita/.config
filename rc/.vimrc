@@ -146,6 +146,8 @@ autocmd BufRead *.md set filetype=markdown
 " my leader
 let mapleader = "\<Space>"
 
+noremap <leader>s :source ~/.vimrc<cr>
+
 "copy paste in clipboard
 vnoremap <Leader>y "+y
 map <Leader>p "+p
@@ -155,7 +157,7 @@ nnoremap <leader>a <c-^>
 
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q!<CR>
-nnoremap <Leader>s :wq<CR>
+nnoremap <Leader><CR> :wq<CR>
 map f <C-f>
 map F <C-b>
 map <Leader>e <C-w>w

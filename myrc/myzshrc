@@ -8,15 +8,6 @@ export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
 export DOTDIR="~/.config"
 export PAGER=less
 
-#man page in colour with links
-#export MANPAGER="nvim -c 'set ft=man' -"
-
-TO=/run/media/rakshas/raw
-export PATH=$TO/tools/jdk8/bin:$PATH
-export PATH=$TO/tools/scala/bin:$PATH
-export PATH=$TO/SmrutiPatra/tools/sbt/bin:$PATH
-export PATH=$TO/tools/VSCode-linux-x64/bin/:$PATH
-alias idea=$TO'/tools/idea/bin/idea.sh &'
 export PATH=~/.config/vifm/scripts/:$PATH
 export PATH=~/.local/bin/:$PATH  # for rust-analyzer
 
@@ -58,7 +49,6 @@ alias umnt4='sudo umount /dev/sda4'
 alias mnt3='sudo mount /dev/sda3 /run/media'
 alias umnt3='sudo umount /dev/sda3'
 alias wwd='BROWSER=w3m ddgr'
-alias vs='zsh ~/Documents/vs/bin/codium &'
 alias shu='shred -u '
 alias dt='expr `cat /sys/class/net/wlp2s0/statistics/rx_bytes` / 1024 / 1024'
 alias b=bat
@@ -66,6 +56,7 @@ alias sy='sudo pacman -Syyu'
 alias sc='sudo pacman -Sc'
 alias si='sudo pacman -S '
 alias sr='sudo pacman -Rns '
+alias yta="youtube-dl -f bestaudio"
 
 #vi mode on command line
 set -o vi
@@ -74,6 +65,6 @@ set -o vi
 # reload shell
 #------------------------------
 reload () {
-		exec "${SHELL}" "$@"
+  exec "${SHELL}" "$@"
 }
 
