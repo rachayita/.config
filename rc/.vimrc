@@ -161,7 +161,7 @@ nnoremap <Leader><CR> :wq<CR>
 map f <C-f>
 map F <C-b>
 map <Leader>e <C-w>w
-map <Leader>d daw
+map <Leader>d dawi
 map <Leader>c gcc
 
 "autocmd vimenter * NERDTree
@@ -212,7 +212,7 @@ map H ^
 map L $
 
 call plug#begin()
-Plug 'vim-airline/vim-airline'
+Plug 'https://github.com/vim-airline/vim-airline.git'
 " Plug 'https://github.com/itchyny/lightline.vim.git'
 Plug 'scrooloose/nerdtree'
 Plug 'https://github.com/tpope/vim-fugitive.git'
@@ -224,6 +224,7 @@ Plug 'https://github.com/airblade/vim-rooter.git'
 Plug 'https://github.com/lifepillar/vim-mucomplete.git'
 Plug 'https://github.com/mattn/webapi-vim.git' "an interface to web apis
 Plug 'https://github.com/justinmk/vim-sneak.git' "jump to any location specified by 2 chars
+Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'autozimu/LanguageClient-neovim', {
      \ 'branch': 'next',
      \ 'do': 'zsh install.sh',
@@ -231,6 +232,11 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'vimwiki/vimwiki'
 Plug 'vifm/vifm.vim'
 Plug 'ap/vim-css-color'
+
+" both are related in order
+Plug 'https://github.com/godlygeek/tabular.git'
+Plug 'https://github.com/preservim/vim-markdown.git'
+
 
 call plug#end()
 
@@ -245,8 +251,6 @@ let g:mucomplete#enable_auto_at_startup = 1
 set hidden
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rust-analyzer'],
-    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
     \ 'python': ['/usr/local/bin/pyls'],
     \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
     \ }
@@ -262,7 +266,6 @@ let g:rustfmt_autosave = 1
 let g:rustfmt_emit_files = 1
 let g:rustfmt_fail_silently = 0
 let g:rust_clip_command = 'xclip -selection clipboard'
-
 
 " Plugin 'https://github.com/terryma/vim-expand-region.git'
 vmap v <Plug>(expand_region_expand)
@@ -287,6 +290,9 @@ map <Leader>v :Vifm<CR>
 let g:termdebugger="rust-gdb"
 let g:termdebug_wide=1
 map <Leader>b :packadd termdebug<CR>
+
+" Plug 'https://github.com/airblade/vim-gitgutter.git'
+highlight clear SignColumn
 
 " Prevent replacing paste buffer on paste:
 " I can select some text and paste over it without worrying 
