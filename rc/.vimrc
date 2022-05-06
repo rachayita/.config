@@ -154,6 +154,7 @@ map <Leader>p "+p
 
 " <leader><leader> toggles between buffers
 nnoremap <leader>a <c-^>
+nnoremap <leader>r :bdelete<CR>
 
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q!<CR>
@@ -195,8 +196,6 @@ noremap gV `[v`]
 
 " Stop that stupid window from popping up:
 map q: :q
-
-nnoremap ; :
 
 let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog='/usr/bin/python2'
@@ -241,19 +240,15 @@ Plug 'https://github.com/preservim/vim-markdown.git'
 call plug#end()
 
 "Plug 'https://github.com/lifepillar/vim-mucomplete.git'
-set completeopt=noinsert,menuone,noselect
+set completeopt=menu,menuone,noselect
 set shortmess+=c   " Shut off completion messages
 set belloff+=ctrlg " Add only if Vim beeps during completion
-let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#enable_auto_at_startup = 0
 
 " Plug 'autozimu/LanguageClient-neovim'
 " Note: download rust-analyzer in ~/.local/bin
 set hidden
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rust-analyzer'],
-    \ 'python': ['/usr/local/bin/pyls'],
-    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-    \ }
+let g:LanguageClient_serverCommands = { 'rust': ['rust-analyzer'], }
 " note that if you are using Plug mapping you should not use `noremap` mappings.
 nmap <F5> <Plug>(lcn-menu)
 " Or map each action separately
@@ -263,15 +258,15 @@ nmap <silent> <F2> <Plug>(lcn-rename)
 
 " Plugin 'https://github.com/rust-lang/rust.vim.git'
 let g:rustfmt_autosave = 1
-let g:rustfmt_emit_files = 1
-let g:rustfmt_fail_silently = 0
+" let g:rustfmt_emit_files = 1
+" let g:rustfmt_fail_silently = 0
 let g:rust_clip_command = 'xclip -selection clipboard'
 
 " Plugin 'https://github.com/terryma/vim-expand-region.git'
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
-" ale plugin
+" Plug 'https://github.com/dense-analysis/ale.git'
 " Note: download rust-analyzer in ~/.local/bin
 let g:ale_linters = {'rust': ['analyzer']}
 

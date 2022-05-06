@@ -11,7 +11,7 @@
 [mergetool "meld"]
 	path = /usr/bin/meld
 [difftool "meld"]
- path = /usr/bin/meld
+	path = /usr/bin/meld
 [diff]
 	tool = meld
 [ui "color"]
