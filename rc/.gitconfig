@@ -6,14 +6,18 @@
 [credential]
 	helper = cache --timeout=18000
 [merge]
-	tool = meld
-	guitool = meld
-[mergetool "meld"]
-	path = /usr/bin/meld
-[difftool "meld"]
-	path = /usr/bin/meld
+	tool = nvimdiff
+	guitool = nvimdiff
+[mergetool "nvimdiff"]
+	; cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+	prompt = true
+[difftool "nvimdiff"]
+	; cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+	prompt = true
 [diff]
-	tool = meld
+	algorithm = patience
+	compactionHeuristic = true
+	tool = nvimdiff
 [ui "color"]
 	ui = always
 [color]

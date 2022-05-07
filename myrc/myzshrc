@@ -57,6 +57,7 @@ alias sc='sudo pacman -Sc'
 alias si='sudo pacman -S '
 alias sr='sudo pacman -Rns '
 alias yta="youtube-dl -f bestaudio"
+alias vimdiff="nvim -d"
 
 #vi mode on command line
 set -o vi
