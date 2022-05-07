@@ -10,9 +10,14 @@
 	guitool = nvimdiff
 [mergetool "nvimdiff"]
 	; cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+	
+	; $wincmd w focuses the last window because $ always references the highest window number.
+        ; wincmd J moves the focused window to the bottom, so in this case the window for the merged file view.
+	cmd = "nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'"
 	prompt = true
 [difftool "nvimdiff"]
 	; cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+	cmd = "nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'"
 	prompt = true
 [diff]
 	algorithm = patience

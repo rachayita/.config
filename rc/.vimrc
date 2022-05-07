@@ -15,6 +15,7 @@ set smartcase
 set colorcolumn=80 " and give me a colored column
 set showcmd " Show (partial) command in status line.
 set mouse=a " Enable mouse usage (all modes) in terminals
+set autoread
 
 " Show those damn hidden characters
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
