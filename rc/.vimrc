@@ -163,7 +163,8 @@ nnoremap <Leader><CR> :wq<CR>
 map f <C-f>
 map F <C-b>
 map <Leader>e <C-w>w
-map <Leader>d dawi
+map <Leader>d daw
+map <Leader>D dawi
 map <Leader>c gcc
 
 "autocmd vimenter * NERDTree
@@ -213,16 +214,13 @@ map L $
 
 call plug#begin()
 Plug 'https://github.com/vim-airline/vim-airline.git'
-" Plug 'https://github.com/itchyny/lightline.vim.git'
 Plug 'scrooloose/nerdtree'
-Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/dense-analysis/ale.git'
 Plug 'https://github.com/rust-lang/rust.vim.git'
 Plug 'https://github.com/terryma/vim-expand-region.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/airblade/vim-rooter.git'
 Plug 'https://github.com/lifepillar/vim-mucomplete.git'
-Plug 'https://github.com/mattn/webapi-vim.git' "an interface to web apis
 Plug 'https://github.com/justinmk/vim-sneak.git' "jump to any location specified by 2 chars
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'autozimu/LanguageClient-neovim', {
@@ -253,7 +251,7 @@ let g:LanguageClient_serverCommands = { 'rust': ['rust-analyzer'], }
 " note that if you are using Plug mapping you should not use `noremap` mappings.
 nmap <F5> <Plug>(lcn-menu)
 " Or map each action separately
-nmap <leader>k <Plug>(lcn-hover)
+nmap <silent> K <Plug>(lcn-hover)
 nmap <silent> gd <Plug>(lcn-definition)
 nmap <silent> <F2> <Plug>(lcn-rename)
 
@@ -289,6 +287,14 @@ map <Leader>b :packadd termdebug<CR>
 
 " Plug 'https://github.com/airblade/vim-gitgutter.git'
 highlight clear SignColumn
+
+" nvimdiff
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
+map <Leader>m ]c "hunk downward
+map <Leader>M [c "hunk upward
 
 " Prevent replacing paste buffer on paste:
 " I can select some text and paste over it without worrying 

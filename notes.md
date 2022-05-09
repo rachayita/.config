@@ -115,4 +115,23 @@ EndSection
 - dp          - diff put
 - zo          - open folded text
 - zc          - close folded text
+- zR          - unfold all lines
+- zr          - open all folds
+- zm          - close all folds
+- :diffoff!   - to end diff mode
+ :syn off     - to remove colors
+- :diffupdate - to remove leftover spacing issues)
+- :only       - once you’re done reviewing all conflicts, this shows only the middle/merged file
+- :set diffopt+=iwhite      - to avoid whitespace comparison
+- :set diffopt+=context:0   - you can influence how many identical lines are kept around changes (default: 6 lines above and below) via the context value of the diffopt option. So, to completely fold all identical lines
+- :windo diffthis - to begin diffing on all visible windows which executes :diffthis on each window.
+- default identifiers that can be selected using diffget
+  - LO local master copy
+  - RE remote master to be merged
+  - BA common ancestor of remote and local changes.
 - :diffupdate - re-scan the files for differences
+  - choose which version you want to keep with :diffget //2 or :diffget //3 
+  - the //2 and //3 are unique identifiers for the target/master copy and the merge/branch copy file names
+- If you were trying to do a git pull when you ran into merge conflicts, type `git rebase –continue`
+
+- 
