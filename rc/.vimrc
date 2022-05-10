@@ -73,10 +73,6 @@ command! MakeTags !ctags -R .
 " NOW WE CAN:
 " - Use ^n and ^p to go back and forth in the suggestion list
 
-
-
-
-
 " FILE BROWSING:
 
 " Tweaks for browsing
@@ -92,8 +88,6 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 " - <CR>/v/t to open in an h-split/v-split/tab
 " - check |netrw-browse-maps| for more mappings
 
-
-
 " SNIPPETS:
 
 " Read an empty HTML template and move cursor to title
@@ -103,19 +97,10 @@ nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
 " - Take over the world!
 "   (with much fewer keystrokes)
 
-
-
-
-
-
-
 " BUILD INTEGRATION:
-
-" Steal Mr. Bradley's formatter & add it to our spec_helper
 " http://philipbradley.net/rspec-into-vim-with-quickfix
-
 " Configure the `make` command to run RSpec
-"set makeprg=bundle\ exec\ rspec\ -f\ QuickfixFormatter
+" set makeprg=bundle\ exec\ rspec\ -f\ QuickfixFormatter
 set makeprg=cargo\ build
 
 " NOW WE CAN:
@@ -124,12 +109,8 @@ set makeprg=cargo\ build
 " - :cc# to jump to error by number
 " - :cn and :cp to navigate forward and back
 
-
-
-"                          THANK YOU!
-
-"                    Download this file at:
-"                github.com/mcantor/no_plugins
+" github.com/mcantor/no_plugins
+" ----
 
 " Jump to last edit position on opening file
 if has("autocmd")
@@ -162,7 +143,7 @@ map F <C-b>
 map <Leader>e <C-w>w
 map <Leader>d daw
 map <Leader>D dawi
-map <Leader>c gcc
+" map <Leader>c gcc
 
 "autocmd vimenter * NERDTree
 map <Leader>n :NERDTreeToggle<CR>
@@ -188,7 +169,7 @@ nnoremap <silent> p p`]
 " Hit Enter to go to end of file.
 " Hit Backspace to go to beginning of file.
 " nnoremap <CR> G
-nnoremap <BS> gg
+" nnoremap <BS> gg
 
 " Quickly select text you just pasted:
 noremap gV `[v`]
@@ -200,10 +181,10 @@ let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog='/usr/bin/python2'
 
 "fzf
-set rtp+=~/.bin/fzf
+set rtp+=/usr/bin/fzf
 
 "sk
-set rtp+=~/.bin/skim
+set rtp+=/usr/bin/sk
 
 " Jump to start and end of line using the home row keys
 map H ^

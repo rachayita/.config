@@ -19,38 +19,26 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*' max-errors 11 not-numeric
 zstyle ':completion:*' substitute set
 zstyle ':completion:*' verbose true
-zstyle :compinstall filename '/home/rakshas/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 
 autoload -Uz compinit
 compinit -D
 # End of lines added by compinstall
 
-# autoload -Uz promptinit
-# promptinit
-#prompt pws
-#PROMPT='%b%f[~>]'
-#PROMPT='[%F{blue}%B%~%b%f]$ '
-#RPROMPT='[%F{blue}%B%~%b%f]'
-
-#------------------------------
-# ShellFuncs
-#------------------------------
-# -- coloured manuals
+# coloured manuals
 man() {
-		env \
-				LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-				LESS_TERMCAP_md=$(printf "\e[1;31m") \
-				LESS_TERMCAP_me=$(printf "\e[0m") \
-				LESS_TERMCAP_se=$(printf "\e[0m") \
-				LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-				LESS_TERMCAP_ue=$(printf "\e[0m") \
-				LESS_TERMCAP_us=$(printf "\e[1;32m") \
-				man "$@"
-		}
+  env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+        man "$@"
+}
 
-#------------------------------
-# Keybindings
-#------------------------------
+# keybindings
 bindkey -v
 typeset -g -A key
 bindkey '^?' backward-delete-char
@@ -64,7 +52,7 @@ bindkey '^[[C' forward-char
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 
-#Use Ctrl-Z to switch back to Vim
+# use Ctrl-Z to switch back to Vim
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
     BUFFER="fg"
@@ -77,48 +65,39 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-#------------------------------
+# fzf
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
+
 # The ttyctl command can be used to "freeze/unfreeze" the terminal. 
 # Many programs change the terminal state, and often do not restore 
 # terminal settings on exiting abnormally. 
-#------------------------------
 ttyctl -f
 
-#------------------------------
 # starship
-#------------------------------
- eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 
-#------------------------------
 # ohmyzsh plugins
-#------------------------------
 plugins=(
-		git
-		# git-prompt
-		rsync
-		catimg
-	#	last-working-dir
-		sudo
-		z
-		copypath
-		dirhistory
-		# https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh
-		zsh-autosuggestions
+	git
+	# git-prompt
+	rsync
+	catimg
+	# last-working-dir
+	sudo
+	z
+	copypath
+	dirhistory
+# https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh
+	zsh-autosuggestions
 )
 
-#------------------------------
-#ohmyzsh
-#------------------------------
+# ohmyzsh
 source $ZSH/oh-my-zsh.sh
 
-#------------------------------
-#loading personal configs
-#------------------------------
+# loading personal configs
 [[ -f ~/.config/myrc/myzshrc ]] && . ~/.config/myrc/myzshrc
 
-#------------------------------
-#must be last
-#------------------------------
+# must be last
 source ~/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
