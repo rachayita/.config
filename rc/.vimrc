@@ -20,9 +20,6 @@ set autoread
 " Show those damn hidden characters
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 
-" Keymap for replacing up to next _ or -
-noremap <leader>m ct_
-
 " I can type :help on my own, thanks.
 map <F1> <Esc>
 imap <F1> <Esc>
@@ -171,7 +168,7 @@ map <Leader>c gcc
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>z :FZF<CR>
 map <Leader>x :SK<CR>
-map <Leader>t :terminal<CR>
+map <Leader>l :terminal<CR>
 
 " search and replace
 " search things usual way using /something
@@ -221,7 +218,6 @@ Plug 'https://github.com/terryma/vim-expand-region.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/airblade/vim-rooter.git'
 Plug 'https://github.com/lifepillar/vim-mucomplete.git'
-Plug 'https://github.com/justinmk/vim-sneak.git' "jump to any location specified by 2 chars
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'autozimu/LanguageClient-neovim', {
      \ 'branch': 'next',
@@ -235,6 +231,8 @@ Plug 'ap/vim-css-color'
 Plug 'https://github.com/godlygeek/tabular.git'
 Plug 'https://github.com/preservim/vim-markdown.git'
 
+" paren edting
+Plug 'https://github.com/tpope/vim-surround.git'
 
 call plug#end()
 
@@ -287,6 +285,9 @@ map <Leader>b :packadd termdebug<CR>
 
 " Plug 'https://github.com/airblade/vim-gitgutter.git'
 highlight clear SignColumn
+
+"  Plug 'https://github.com/godlygeek/tabular.git'
+map <Leader>t :Tabularize /
 
 " nvimdiff
 highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
