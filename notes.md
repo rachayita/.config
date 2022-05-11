@@ -134,4 +134,11 @@ EndSection
   - the //2 and //3 are unique identifiers for the target/master copy and the merge/branch copy file names
 - If you were trying to do a git pull when you ran into merge conflicts, type `git rebase –continue`
 
-- 
+# pass store format
+```
+YwrZSNH35j164ns9pI
+URL: *.example.com/*
+Username: myuser@example.com
+Secret Question 1: secret question here
+Phone Support PIN #: 00000 
+```

@@ -165,12 +165,6 @@ vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
-" Type 12<Enter> to go to line 12 (12G breaks my wrist)
-" Hit Enter to go to end of file.
-" Hit Backspace to go to beginning of file.
-" nnoremap <CR> G
-" nnoremap <BS> gg
-
 " Quickly select text you just pasted:
 noremap gV `[v`]
 
@@ -199,6 +193,7 @@ Plug 'https://github.com/terryma/vim-expand-region.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/airblade/vim-rooter.git'
 Plug 'https://github.com/lifepillar/vim-mucomplete.git'
+Plug 'https://github.com/mattn/webapi-vim.git' "an interface to web apis
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'autozimu/LanguageClient-neovim', {
      \ 'branch': 'next',
