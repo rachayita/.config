@@ -199,7 +199,7 @@ Plug 'autozimu/LanguageClient-neovim', {
      \ 'branch': 'next',
      \ 'do': 'zsh install.sh',
      \ }
-Plug 'vimwiki/vimwiki'
+Plug 'https://github.com/vimwiki/vimwiki.git'
 Plug 'vifm/vifm.vim'
 Plug 'ap/vim-css-color'
 
@@ -272,6 +272,12 @@ highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Re
 highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
 map <Leader>m ]c "hunk downward
 map <Leader>M [c "hunk upward
+" completely fold all line above and below
+map <Leader>O :set diffopt+=context:0<CR>
+
+" Plug 'https://github.com/vimwiki/vimwiki.git'
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " Prevent replacing paste buffer on paste:
 " I can select some text and paste over it without worrying 
