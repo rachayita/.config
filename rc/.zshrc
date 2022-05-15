@@ -97,7 +97,17 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # loading personal configs
-[[ -f ~/.config/myrc/myzshrc ]] && . ~/.config/myrc/myzshrc
+[[ -f ~/.config/myrc/aliasrc ]] && . ~/.config/myrc/aliasrc
+
+#vi mode on command line
+set -o vi
+
+#------------------------------
+# reload shell
+#------------------------------
+reload () {
+  exec "${SHELL}" "$@"
+}
 
 # must be last
 source ~/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

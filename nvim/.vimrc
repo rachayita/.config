@@ -222,7 +222,7 @@ let g:mucomplete#enable_auto_at_startup = 0
 " Note: download rust-analyzer in ~/.local/bin
 set hidden
 let g:LanguageClient_serverCommands = { 'rust': ['rust-analyzer'], }
-" note that if you are using Plug mapping you should not use `noremap` mappings.
+" Note:  if you are using Plug mapping you should not use `noremap` mappings
 nmap <F5> <Plug>(lcn-menu)
 " Or map each action separately
 nmap <silent> K <Plug>(lcn-hover)
@@ -280,10 +280,8 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " Prevent replacing paste buffer on paste:
-" I can select some text and paste over it without worrying 
-" if my paste buffer was replaced by the just removed text .
-" vp doesn't replace paste buffer
-"(place it close to end of ~/vimrc) *****
+" Note: place it close to end of file
+" https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 function! RestoreRegister()
   let @" = s:restore_reg
   return ''
@@ -293,6 +291,3 @@ function! s:Repl()
   return "p@=RestoreRegister()\<cr>"
 endfunction
 vmap <silent> <expr> p <sid>Repl()
-"************************************************
-" https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
-"************************************************

@@ -48,14 +48,3 @@ alias pc='sudo paru -Sc'
 alias vimdiff="nvim -d"
 alias xc="xclip -sel clip -r"
 alias temp="inxi -s"
-
-#vi mode on command line
-set -o vi
-
-#------------------------------
-# reload shell
-#------------------------------
-reload () {
-  exec "${SHELL}" "$@"
-}
-
