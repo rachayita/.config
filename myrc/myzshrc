@@ -1,12 +1,3 @@
-export EDITOR=nvim
-export BROWSER=vimb
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
-export DOTDIR="~/.config"
-export PAGER=less
-
-export PATH=~/.config/vifm/scripts/:$PATH
-export PATH=~/.local/bin/:$PATH  # for rust-analyzer
-
 alias po='poweroff'
 alias scala='scala -Dscala.color'
 alias yy='youtube-dl -c'

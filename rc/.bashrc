@@ -147,10 +147,6 @@ alias nslim="sudo nano /etc/slim.conf"
 alias noblogout="sudo nano /etc/oblogout.conf"
 alias nmirrorlist="sudo nano /etc/pacman.d/mirrorlist"
 
-#shutdown or reboot
-alias ssn="sudo shutdown now"
-alias sr="sudo reboot"
-
 # # ex = EXtractor for all kinds of archives
 # # usage: ex <file>
 ex ()
@@ -177,8 +173,6 @@ ex ()
   fi
 }
 
-
-
 ################## SHOW GIT BRANCH ON PROMPT ######################
 #
 #function parse_git_branch () {
@@ -204,12 +198,9 @@ fi
 
 #create a file called .bashrc-personal and put all your personal aliases
 #in there. They will not be overwritten by skel.
-[[ -f ~/.myrc ]] && . ~/.myrc
+[[ -f ~/.config/myrc/myzshrc ]] && . ~/.config/myrc/myzshrc
 
 #fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
-
-
-source /home/rakshas/.config/broot/launcher/bash/br
