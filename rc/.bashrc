@@ -198,7 +198,7 @@ fi
 
 #create a file called .bashrc-personal and put all your personal aliases
 #in there. They will not be overwritten by skel.
-[[ -f ~/.config/myrc/myzshrc ]] && . ~/.config/myrc/myzshrc
+[[ -f ~/.config/myrc/aliasrc ]] && . ~/.config/myrc/aliasrc
 
 #fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

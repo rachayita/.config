@@ -48,3 +48,7 @@ alias pc='sudo paru -Sc'
 alias vimdiff="nvim -d"
 alias xc="xclip -sel clip -r"
 alias temp="inxi -s"
+
+# fish
+alias t='math (cat /sys/class/net/wlp2s0/statistics/rx_bytes) / 1024 / 1024'
+alias re='source ~/.config/fish/config.fish'

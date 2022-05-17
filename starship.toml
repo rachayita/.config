@@ -22,9 +22,6 @@ disabled = true
 [git_branch]
 symbol = ""
 
-#[git_status]
-#enabled = true
-
 [git_commit]
 disabled = true
 
