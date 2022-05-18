@@ -197,7 +197,7 @@ Plug 'https://github.com/mattn/webapi-vim.git' "an interface to web apis
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'autozimu/LanguageClient-neovim', {
      \ 'branch': 'next',
-     \ 'do': 'zsh install.sh',
+     \ 'do': 'bash install.sh',
      \ }
 Plug 'https://github.com/vimwiki/vimwiki.git'
 Plug 'vifm/vifm.vim'

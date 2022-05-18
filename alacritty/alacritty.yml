@@ -8,7 +8,7 @@ window:
     lines: 30
   dynamic_padding: true
   decorations: full
-  title: Alacritty@Garuda
+  title: Alacritty
   # opacity: 0.6
   class:
     instance: Alacritty
@@ -20,7 +20,7 @@ scrolling:
   multiplier: 3
  
 font:
-  size: 10
+  size: 8.5
   normal:
     family: JetBrainsMono
   bold:
@@ -29,7 +29,7 @@ font:
     family:  JetBrainsMono
   bold_italic:
     family:  JetBrainsMono
-    size: 10.0
+    size: 8.5
  
 draw_bold_text_with_bright_colors: true
  
@@ -38,7 +38,7 @@ save_to_clipboard: true
 window.dynamic_title: true
  
 cursor:
-  style: Underline
+  style: Block
  
 live_config_reload: true
  
