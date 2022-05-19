@@ -1,3 +1,6 @@
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
+
 alias po='poweroff'
 alias scala='scala -Dscala.color'
 alias yy='youtube-dl -c'
@@ -16,9 +19,10 @@ alias www='w3m'
 alias c='clear'
 alias surf='tabbed surf -e &'
 #alias ls='ls --color=auto'
+alias exa='exa --icons --git'
 alias ls='exa'
 alias la='exa -a'
-alias ll='exa -lrah'
+alias ll='exa -lrahg'
 alias l.="exa -a | egrep '^\.'"
 alias lo='kill -9 -1'
 alias rr='br'
@@ -32,9 +36,9 @@ alias up='nmcli c up '
 alias dn='nmcli c down '
 alias won='nmcli radio wifi on'
 alias woff='nmcli radio wifi off'
-alias mnt4='sudo mount /dev/sda4 /run/media'
+alias mnt4='sudo mount /dev/sda4 ~/Desktop/d4'
 alias umnt4='sudo umount /dev/sda4'
-alias mnt3='sudo mount /dev/sda3 /run/media'
+alias mnt3='sudo mount /dev/sda3 ~/Desktop/d3'
 alias umnt3='sudo umount /dev/sda3'
 alias wwd='BROWSER=w3m ddgr'
 alias shu='shred -u '
@@ -48,6 +52,7 @@ alias pc='sudo paru -Sc'
 alias vimdiff="nvim -d"
 alias xc="xclip -sel clip -r"
 alias temp="inxi -s"
+alias dmenu_run="dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'JetBrains Mono:bold:pixelsize=10'"
 
 # fish
 alias t='math (cat /sys/class/net/wlp2s0/statistics/rx_bytes) / 1024 / 1024'

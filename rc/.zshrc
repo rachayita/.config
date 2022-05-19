@@ -65,11 +65,6 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-# fzf
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
-
 # The ttyctl command can be used to "freeze/unfreeze" the terminal. 
 # Many programs change the terminal state, and often do not restore 
 # terminal settings on exiting abnormally. 
