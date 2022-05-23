@@ -1,4 +1,16 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
 add_newline = false
+
+# A minimal left prompt
+format = """$directory$character"""
+
+# move the rest of the prompt to the right
+right_format = """$all"""
+
+[character] 
+success_symbol = "[➜](bold green)"
 
 #[character]
 #symbol = "❯❯"
@@ -7,8 +19,9 @@ add_newline = false
 disabled = true
 
 [rust]
-disabled = true
+disabled = false
 symbol = "⚙️ "
+format = "[$symbol($version )]($style)"
 
 #[jobs]
 #number_threshold = 0
@@ -20,11 +33,21 @@ disabled = true
 #prefix = ""
 
 [git_branch]
-symbol = ""
+#symbol = ""
+symbol = ""
+#symbol = "🌱"
+style = "bold yellow"
+format = "$symbol$branch(:$remote_branch)($style)"
 
 [git_commit]
-disabled = true
+disabled = false
+
+[git_metrics]
+disabled = false
+
+[git_status]
+format = '([$all_status$ahead_behind]($style))'
+style = "bold yellow"
 
 [package]
 disabled = true
-

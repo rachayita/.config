@@ -1,59 +1,72 @@
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 
-alias po='poweroff'
-alias scala='scala -Dscala.color'
+# exa
+alias lk='exa --icons --git'
+alias exaig='exa --icons --git'
+alias la='exaig -a'
+alias ll='exaig -lrahg'
+alias l='exaig --long'
+alias l.="exa -a | egrep '^\.'"
+
+# path
+alias dotf='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+
+# system
+alias po=poweroff
+alias q=exit
+alias c=clear
+alias lo='kill -9 -1'
+alias shu='shred -u '
+alias dt='expr `cat /sys/class/net/wlp2s0/statistics/rx_bytes` / 1024 / 1024'
+
+# app
+alias www=w3m
+alias v=vifmrun
+alias temp="inxi -s"
 alias yy='youtube-dl -c'
 alias yta="youtube-dl -f bestaudio"
 alias wk='wget -nc'
 alias ww='wget -c'
-alias ev='evince'
-alias l='exa --long'
-alias mc='mc --nocolor'
-alias f='l|grep -i'
-alias tf='tree -fa | grep -i'
+alias ev=evince
 alias dok='sudo docker'
-alias q='exit'
-alias v='vifmrun'
-alias www='w3m'
-alias c='clear'
-alias surf='tabbed surf -e &'
-#alias ls='ls --color=auto'
-alias exa='exa --icons --git'
-alias ls='exa'
-alias la='exa -a'
-alias ll='exa -lrahg'
-alias l.="exa -a | egrep '^\.'"
-alias lo='kill -9 -1'
-alias rr='br'
-alias rs='br --sizes'
-alias rl='br -dp'
+alias b=bat
+alias xc="xclip -sel clip -r"
+alias dmenu_run="dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'JetBrains Mono:bold:pixelsize=10'"
+
+# search
+alias frs='nvim $(find . -name "*.rs" | sk -m)'
+alias tf='tree -fa | grep -i'
+alias sk='sk --color=bg+:24'
+alias f='l|grep -i'
+alias bb='bat $(sk -m)'
+
+# vim
 alias vim=nvim
 alias vv='nvim $(sk -m)'
-alias frs='nvim $(find . -name "*.rs" | sk -m)'
-alias dotf='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+alias vimdiff="nvim -d"
+
+# wifi
 alias up='nmcli c up '
 alias dn='nmcli c down '
 alias won='nmcli radio wifi on'
 alias woff='nmcli radio wifi off'
+
+# mount
 alias mnt4='sudo mount /dev/sda4 ~/Desktop/d4'
 alias umnt4='sudo umount /dev/sda4'
 alias mnt3='sudo mount /dev/sda3 ~/Desktop/d3'
 alias umnt3='sudo umount /dev/sda3'
-alias wwd='BROWSER=w3m ddgr'
-alias shu='shred -u '
-alias dt='expr `cat /sys/class/net/wlp2s0/statistics/rx_bytes` / 1024 / 1024'
-alias b=bat
+alias mntp='sudo mount /dev/sdb ~/Desktop/usb1'
+alias umntp='sudo umount /dev/sdb'
+
+# pacman
 alias sy='sudo pacman -Syyu'
 alias sc='sudo pacman -Sc'
 alias si='sudo pacman -S '
 alias sr='sudo pacman -Rns '
 alias pc='sudo paru -Sc'
-alias vimdiff="nvim -d"
-alias xc="xclip -sel clip -r"
-alias temp="inxi -s"
-alias dmenu_run="dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'JetBrains Mono:bold:pixelsize=10'"
 
 # fish
-alias t='math (cat /sys/class/net/wlp2s0/statistics/rx_bytes) / 1024 / 1024'
+alias t='math (cat /sys/class/net/wlan0/statistics/rx_bytes) / 1024 / 1024'
 alias re='source ~/.config/fish/config.fish'

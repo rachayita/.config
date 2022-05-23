@@ -127,3 +127,7 @@ super + q
 # thunar
 super + e
 	pcmanfm
+
+# slock
+super + z
+	slock
