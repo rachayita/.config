@@ -19,8 +19,10 @@ alias c=clear
 alias lo='kill -9 -1'
 alias shu='shred -u '
 alias dt='expr `cat /sys/class/net/wlp2s0/statistics/rx_bytes` / 1024 / 1024'
+alias fcc='fc-cache -vf'
 
 # app
+alias hm=hmmq
 alias www=w3m
 alias v=vifmrun
 alias temp="inxi -s"

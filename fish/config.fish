@@ -16,8 +16,8 @@ set -U __done_notification_urgency_level low
 
 ## Environment setup
 # Apply .profile: use this to put fish compatible .profile stuff in
-if test -f ~/.fish_profile
-  source ~/.fish_profile
+if test -f ~/.config/fish/.fish_profile
+  source ~/.config/fish/.fish_profile
 end
 
 # Add ~/.local/bin to PATH
@@ -26,6 +26,21 @@ if test -d ~/.local/bin
         set -p PATH ~/.local/bin
     end
 end
+
+if not contains -- ~/.cargo/bin $PATH
+    set -p PATH ~/.cargo/bin
+end
+
+if not contains -- ~/.config/vifm/scripts $PATH
+    set -p PATH ~/.config/vifm/scripts
+end
+
+set -g TERMINAL alacritty
+set -g EDITOR nvim
+set -g BROWSER firefox
+set -g RUST_SRC_PATH "$(rustc --print sysroot)/lib/rustlib/src/rust/library"
+set -g DOTDIR "~/.config"
+set -g PAGER less
 
 # Add depot_tools to PATH
 if test -d ~/Applications/depot_tools
@@ -36,14 +51,10 @@ end
 
 
 ## Starship prompt
-# if status --is-interactive
+if status --is-interactive
 #    source ("/usr/bin/starship" init fish --print-full-init | psub)
-# end
-
-starship init fish | source
-
-## Advanced command-not-found hook
-# source /usr/share/doc/find-the-command/ftc.fish
+    starship init fish | source
+end
 
 ## Functions
 # Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
