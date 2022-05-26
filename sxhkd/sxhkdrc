@@ -131,3 +131,7 @@ super + e
 # slock
 super + z
 	slock
+
+# screenshot
+super + v
+	shotgun ~/Pictures/shotgun/shotgun-(date).png

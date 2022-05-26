@@ -45,6 +45,7 @@ alias bb='bat $(sk -m)'
 
 # vim
 alias vim=nvim
+alias vi=nvim
 alias vv='nvim $(sk -m)'
 alias vimdiff="nvim -d"
 
