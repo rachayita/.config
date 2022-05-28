@@ -5,4 +5,6 @@ then
     killall bspwm
 fi
 
+xsetroot -cursor_name left_ptr &
+
 bspwm

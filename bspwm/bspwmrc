@@ -19,7 +19,7 @@ bspc rule -a mpv desktop='^4' state=fullscreen follow=on
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-feh --bg-fill ~/Downloads/bg.jpg
+feh --bg-fill ~/Pictures/bg.jpg
 ~/.config/polybar/launch.sh &
 dunst &
 blueman-applet &
