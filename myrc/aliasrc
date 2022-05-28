@@ -1,6 +1,3 @@
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
-
 # exa
 alias lk='exa --icons --git'
 alias exaig='exa --icons --git'
@@ -13,6 +10,7 @@ alias l.="exa -a | egrep '^\.'"
 alias dotf='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 
 # system
+alias x=startx
 alias po=poweroff
 alias q=exit
 alias c=clear
