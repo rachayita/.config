@@ -16,7 +16,6 @@ BROWSER=firefox
 PAGER=less
 
 DOTDIR DEFAULT=@{HOME}/.config
-RUST_SRC_PATH DEFAULT=@{HOME}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library
 FZF_DEFAULT_COMMAND DEFAULT="fd --type f --hidden --follow --exclude .git"
 FZF_DEFAULT_OPTS DEFAULT="--layout=reverse --inline-info"
 
@@ -27,9 +26,9 @@ LC_CTYPE=en_US.UTF-8
 CARGO_INCREMENTAL=1
 RUST_BACKTRACE=1
 
-PATH DEFAULT=${PATH}:@{HOME}/.config/vifm/scripts
 PATH DEFAULT=${PATH}:@{HOME}/.cargo/bin
 PATH DEFAULT=${PATH}:@{HOME}/.local/bin
+PATH DEFAULT=${PATH}:@{HOME}/.config/vifm/scripts
 
 # make less better
 # X = leave content on-screen

@@ -1,14 +1,4 @@
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH=~/.config/vifm/scripts/:$PATH
-export PATH=~/.local/bin/:$PATH  # for rust-analyzer
-export LC_CTYPE="en_US.UTF-8" # setting locale for dmenu
-
-export TERMINAL=alacritty
-export EDITOR=nvim
-export BROWSER=firefox
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
-export DOTDIR="~/.config"
-export PAGER=less
 
 #mapping menu key to Super_R and caps to escape
 #xmodmap -e "keysym Menu = Super_R" -e "keysym Caps_Lock = Escape" 2>/dev/null &
