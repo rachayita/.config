@@ -3,4 +3,4 @@ export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
 #mapping menu key to Super_R and caps to escape
 #xmodmap -e "keysym Menu = Super_R" -e "keysym Caps_Lock = Escape" 2>/dev/null &
 #xmodmap -e "keysym Caps_Lock = Escape" 2>/dev/null &
-xmodmap ~/.config/Xmodmap
+xmodmap ~/.config/myrc/Xmodmap
