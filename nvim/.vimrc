@@ -140,9 +140,9 @@ map <Leader>p "+p
 nnoremap <leader>a <c-^>
 nnoremap <leader>r :bdelete<CR>
 
-nnoremap <Leader>w :w<CR>
+nnoremap <Leader>w :wq<CR>
 nnoremap <Leader>q :q!<CR>
-nnoremap <Leader><CR> :wq<CR>
+nnoremap <Leader><CR> :w<CR>
 map f <C-f>
 map F <C-b>
 map <Leader>e <C-w>w

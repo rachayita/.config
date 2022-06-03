@@ -10,7 +10,7 @@ alias l.="exa -a | egrep '^\.'"
 alias dotf='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 
 # system
-alias x=startx
+alias xx=startx
 alias po=poweroff
 alias q=exit
 alias c=clear
@@ -55,12 +55,17 @@ alias won='nmcli radio wifi on'
 alias woff='nmcli radio wifi off'
 
 # mount
-alias mnt4='sudo mount /dev/sda4 ~/Desktop/d4'
+alias mnt4='sudo mount /dev/sda4 /mnt/sda4'
 alias umnt4='sudo umount /dev/sda4'
-alias mnt3='sudo mount /dev/sda3 ~/Desktop/d3'
+alias mnt3='sudo mount /dev/sda3 /mnt/sda3'
 alias umnt3='sudo umount /dev/sda3'
-alias mntp='sudo mount /dev/sdb ~/Desktop/usb1'
+alias mntp='sudo mount /dev/sdb /mnt/sdb'
 alias umntp='sudo umount /dev/sdb'
+alias mntp1='sudo mount -o uid=(whoami) /dev/sdb1 /mnt/sdb1'
+alias umntp1='sudo umount /dev/sdb1'
+alias mntp2='sudo mount -o uid=(whoami) /dev/sdb2 /mnt/sdb2'
+alias umntp2='sudo umount /dev/sdb2'
+alias umnta='sudo umount /dev/sda3 /dev/sda4 /dev/sdb /dev/sdb1 /dev/sdb2'
 
 # pacman
 alias sy='sudo pacman -Syyu'
