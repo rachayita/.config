@@ -138,7 +138,8 @@ map <Leader>p "+p
 
 " <leader><leader> toggles between buffers
 nnoremap <leader>a <c-^>
-nnoremap <leader>r :bdelete<CR>
+nnoremap <leader>A :bn<CR>
+nnoremap <leader>r :bwipeout<CR>
 
 nnoremap <Leader>w :wq<CR>
 nnoremap <Leader>q :q!<CR>

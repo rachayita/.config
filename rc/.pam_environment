@@ -35,4 +35,4 @@ PATH DEFAULT=${PATH}:@{HOME}/.config/vifm/scripts
 # F = quit automatically if less than one screenfull
 # R = raw terminal characters (fixes git diff)
 #     see http://jugglingbits.wordpress.com/2010/03/24/a-better-less-playing-nice-with-git/
-LESS DEFAULT="-F -X -R"
+# LESS DEFAULT="-F -X -R"

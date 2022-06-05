@@ -134,7 +134,7 @@ super + z
 
 # screenshot
 super + v
-	shotgun ~/Pictures/shotgun/shotgun-(date).png
+	shotgun ~/Pictures/shotgun/shotgun-"`date`".png
 
 # editor
 super + e
