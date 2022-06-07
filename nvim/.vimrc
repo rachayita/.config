@@ -127,6 +127,14 @@ endif
 " Help filetype detection
 autocmd BufRead *.md set filetype=markdown
 
+"
+inoremap <buffer> { {}<ESC>i
+inoremap <buffer> [ []<ESC>i
+inoremap <buffer> ( ()<ESC>i
+inoremap <buffer> " ""<ESC>i
+inoremap <buffer> ' ''<ESC>i
+inoremap <buffer> ` ``<ESC>i
+
 
 " my leader
 let mapleader = "\<Space>"
@@ -218,6 +226,9 @@ Plug 'https://github.com/tpope/vim-surround.git'
 
 call plug#end()
 
+"https://github.com/vim-airline/vim-airline.git
+let g:airline_powerline_fonts = 1
+
 "Plug 'https://github.com/lifepillar/vim-mucomplete.git'
 set completeopt=menu,menuone,noselect
 set shortmess+=c   " Shut off completion messages
@@ -284,6 +295,16 @@ map <Leader>O :set diffopt+=context:0<CR>
 " Plug 'https://github.com/vimwiki/vimwiki.git'
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
+" latex
+setlocal iskeyword+=:,-
+setlocal makeprg=pdflatex\ -file-line-error\ -interaction=nonstopmode\ %
+
+iab <buffer> ,b \begin{
+iab <buffer> ,e \end{
+
+let g:tex_flavor = "latex"
+set suffixes+=.log,.aux,.bbl,.blg,.idx,.ilg,.ind,.out,.pdf
 
 " Prevent replacing paste buffer on paste:
 " Note: place it close to end of file
