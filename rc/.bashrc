@@ -29,4 +29,4 @@ shopt -s expand_aliases # expand aliases
 [[ -f ~/.config/myrc/mybashrc ]] && . ~/.config/myrc/mybashrc
 
 #
-eval "$(starship init bash)"
+[[ -f ~/.cargo/bin/starship ]] && eval "$(starship init bash)"

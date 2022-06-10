@@ -1,6 +1,8 @@
 "enter the current millenia
 set nocompatible
-" set tabstop=1
+set tabstop=2
+set shiftwidth=2
+set expandtab
 set number relativenumber
 set autoindent
 set smartindent
@@ -32,10 +34,6 @@ imap <F1> <Esc>
 
 " Use increment searching (search while typing)
 set incsearch
-
-"enable syntax and plugins (for netrw) and rust.vim plugin
-syntax enable
-filetype plugin indent on
 
 "search down into subfolders
 "provides tab-completion for all file related task
@@ -251,6 +249,9 @@ let g:rustfmt_autosave = 1
 " let g:rustfmt_emit_files = 1
 " let g:rustfmt_fail_silently = 0
 let g:rust_clip_command = 'xclip -selection clipboard'
+"enable syntax and plugins (for "netrw") and rust.vim plugin
+syntax enable
+filetype plugin indent on
 
 " Plugin 'https://github.com/terryma/vim-expand-region.git'
 vmap v <Plug>(expand_region_expand)

@@ -4,6 +4,10 @@ set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT "1"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
+if test -f ~/.config/myrc/aliasrc
+    source ~/.config/myrc/aliasrc
+end
+
 ## Environment setup
 # Apply .profile: use this to put fish compatible .profile stuff in
 if test -f ~/.config/fish/.fish_profile
@@ -12,7 +16,7 @@ end
 
 ## Starship prompt
 if status --is-interactive
-    if test -f ~/.cargo/bin/starship
+    if test -f ~/.cargo/bin/starship1
         starship init fish | source
     end
 end
@@ -113,5 +117,3 @@ alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 # if status --is-interactive && type -q neofetch
 #    neofetch
 # end
-
-source ~/.config/myrc/aliasrc

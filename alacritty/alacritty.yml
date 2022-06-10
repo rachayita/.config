@@ -1,7 +1,6 @@
-# Garuda Linux configuration for Alacritty
 env:
   TERM: xterm-256color
- 
+
 window:
   dimensions:
     columns: 100
@@ -14,11 +13,11 @@ window:
     instance: Alacritty
     general: Alacritty
   gtk_theme_variant: dark
- 
+
 scrolling:
   history: 10000
   multiplier: 3
- 
+
 font:
   size: 8.5
   normal:
@@ -30,26 +29,26 @@ font:
   bold_italic:
     family:  JetBrains Mono
     size: 8.5
- 
+
 draw_bold_text_with_bright_colors: true
- 
+
 save_to_clipboard: true
- 
+
 window.dynamic_title: true
- 
+
 cursor:
   style: Block
- 
+
 live_config_reload: true
- 
+
 shell:
   program: /usr/bin/fish
   args:
     - --login
- 
+
 mouse:
   hide_when_typing: true
- 
+
 key_bindings:
     # (Windows, Linux, and BSD only)
   - { key: V,        mods: Control|Shift, action: Paste            }
@@ -60,30 +59,37 @@ key_bindings:
   - { key: Plus,     mods: Control,       action: IncreaseFontSize }
   - { key: Minus,    mods: Control,       action: DecreaseFontSize }
   - { key: Minus,    mods: Control,       action: DecreaseFontSize }
- 
+
+# Colors (Hyper - with ultra pink #F62E79 in maganta)
 colors:
+  # Default colors
   primary:
     background: '0x000000'
-    # background: '0x0a1124'
-    foreground: '0xeec49a'
+    foreground: '0xffffff'
   cursor:
-    text:       '0x0a1124'
-    cursor:     '0xeec49a'
+    text: '0xF81CE5'
+    cursor: '0xffffff'
+
+  # Normal colors
   normal:
-    black:      '0x0a1124'
-    red:        '0x5F4149'
-    green:      '0xEB3247'
-    yellow:     '0xBC4349'
-    blue:       '0xF35645'
-    magenta:    '0xF6A73B'
-    cyan:       '0xFAD32F'
-    white:      '0xeec49a'
+    black:   '0x000000'
+    red:     '0xfe0100'
+    green:   '0x33ff00'
+    yellow:  '0xfeff00'
+    blue:    '0x0066ff'
+    magenta: '0xF62E79'
+    # magenta: '0xcc00ff'
+    cyan:    '0x00ffff'
+    white:   '0xd0d0d0'
+
+  # Bright colors
   bright:
-    black:      '0xa6896b'
-    red:        '0x5F4149'
-    green:      '0xEB3247'
-    yellow:     '0xBC4349'
-    blue:       '0xF35645'
-    magenta:    '0xF6A73B'
-    cyan:       '0xFAD32F'
-    white:      '0xeec49a'
+    black:   '0x808080'
+    red:     '0xfe0100'
+    green:   '0x33ff00'
+    yellow:  '0xfeff00'
+    blue:    '0x0066ff'
+    magenta: '0xF62E79'
+    # magenta: '0xcc00ff'
+    cyan:    '0x00ffff'
+    white:   '0xFFFFFF'
