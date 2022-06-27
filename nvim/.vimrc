@@ -196,10 +196,13 @@ set rtp+=/usr/bin/sk
 map H ^
 map L $
 
+" on selection in visual mode
+highlight   Visual      cterm=reverse        ctermbg=black   gui=reverse
+highlight   IncSearch   cterm=reverse,bold   ctermbg=black   gui=reverse
+
 call plug#begin()
 Plug 'https://github.com/vim-airline/vim-airline.git'
 Plug 'scrooloose/nerdtree'
-Plug 'https://github.com/dense-analysis/ale.git'
 Plug 'https://github.com/rust-lang/rust.vim.git'
 Plug 'https://github.com/terryma/vim-expand-region.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
@@ -231,12 +234,15 @@ let g:airline_powerline_fonts = 1
 set completeopt=menu,menuone,noselect
 set shortmess+=c   " Shut off completion messages
 set belloff+=ctrlg " Add only if Vim beeps during completion
-let g:mucomplete#enable_auto_at_startup = 0
+let g:mucomplete#enable_auto_at_startup = 1
 
 " Plug 'autozimu/LanguageClient-neovim'
 " Note: download rust-analyzer in ~/.local/bin
 set hidden
 let g:LanguageClient_serverCommands = { 'rust': ['rust-analyzer'], }
+let g:LanguageClient_preferredMarkupKind = ['plaintext', 'markdown']
+let g:LanguageClient_floatingHoverHighlight = 'Normal:tooltip'
+highlight tooltip  ctermfg=85 ctermbg=232 guifg=#9cffd3 guibg=#202020
 " Note:  if you are using Plug mapping you should not use `noremap` mappings
 nmap <F5> <Plug>(lcn-menu)
 " Or map each action separately
@@ -256,10 +262,6 @@ filetype plugin indent on
 " Plugin 'https://github.com/terryma/vim-expand-region.git'
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
-
-" Plug 'https://github.com/dense-analysis/ale.git'
-" Note: download rust-analyzer in ~/.local/bin
-let g:ale_linters = {'rust': ['analyzer']}
 
 " format para to 80 char (selected or not)
 nnoremap <Leader>g gqap
@@ -288,6 +290,7 @@ highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Re
 highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
 highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
 highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
+
 map <Leader>m ]c "hunk downward
 map <Leader>M [c "hunk upward
 " completely fold all line above and below
