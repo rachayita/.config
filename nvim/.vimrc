@@ -150,8 +150,8 @@ nnoremap <leader>r :bwipeout<CR>
 nnoremap <Leader>w :wq<CR>
 nnoremap <Leader>q :q!<CR>
 nnoremap <Leader><CR> :w<CR>
-map f <C-f>
-map F <C-b>
+map f <C-d>
+map F <C-u>
 map <Leader>e <C-w>w
 map <Leader>d daw
 map <Leader>D dawi
@@ -231,7 +231,7 @@ call plug#end()
 let g:airline_powerline_fonts = 1
 
 "Plug 'https://github.com/lifepillar/vim-mucomplete.git'
-set completeopt=menu,menuone,noselect
+set completeopt=menuone,noselect
 set shortmess+=c   " Shut off completion messages
 set belloff+=ctrlg " Add only if Vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
