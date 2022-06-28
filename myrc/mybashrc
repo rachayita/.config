@@ -100,4 +100,4 @@ NO_COLOR="\[\033[0m\]"
 
 # create a file called .bashrc-personal and put all your personal aliases
 # They will not be overwritten by skel.
-[[ -f ~/.config/myrc/aliasrc ]] && . ~/.config/myrc/aliasrc
+[[ -f ${XDG_CONFIG_HOME}/myrc/aliasrc ]] && . ${XDG_CONFIG_HOME}/myrc/aliasrc

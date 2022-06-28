@@ -4,19 +4,19 @@ set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT "1"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
-if test -f ~/.config/myrc/aliasrc
-    source ~/.config/myrc/aliasrc
+if test -f $XDG_CONFIG_HOME/myrc/aliasrc
+    source $XDG_CONFIG_HOME/myrc/aliasrc
 end
 
 ## Environment setup
 # Apply .profile: use this to put fish compatible .profile stuff in
-if test -f ~/.config/fish/.fish_profile
-  source ~/.config/fish/.fish_profile
+if test -f $XDG_CONFIG_HOME/fish/.fish_profile
+  source $XDG_CONFIG_HOME/fish/.fish_profile
 end
 
 ## Starship prompt
 if status --is-interactive
-    if test -f ~/.cargo/bin/starship1
+    if test -f $XDG_DATA_HOME/cargo/bin/starship1
         starship init fish | source
     end
 end

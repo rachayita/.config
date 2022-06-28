@@ -137,7 +137,7 @@ inoremap <buffer> ` ``<ESC>i
 " my leader
 let mapleader = "\<Space>"
 
-noremap <leader>s :source ~/.config/nvim/.vimrc<cr>
+noremap <leader>s :source $XDG_CONFIG_HOME/nvim/.vimrc<cr>
 "copy paste in clipboard
 vnoremap <Leader>y "+y
 map <Leader>p "+p

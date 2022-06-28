@@ -8,6 +8,7 @@ alias l.="exa -a | egrep '^\.'"
 
 # path
 alias dotf='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 
 # system
 alias xx=startx
@@ -27,6 +28,7 @@ alias v=vifmrun
 alias temp="inxi -s"
 alias yy='youtube-dl -c'
 alias yta="youtube-dl -f bestaudio"
+alias wget='wget --hist-file="$XDG_DATA_HOME/wget-hsts"'
 alias wk='wget -nc'
 alias ww='wget -c'
 alias ev=evince

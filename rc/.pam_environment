@@ -15,9 +15,20 @@ EDITOR=nvim
 BROWSER=firefox
 PAGER=less
 
-DOTDIR DEFAULT=@{HOME}/.config
+# XDG
+XDG_DATA_HOME DEFAULT=@{HOME}/.local/share
+XDG_CONFIG_HOME DEFAULT=@{HOME}/.config
+XDG_STATE_HOME DEFAULT=@{HOME}/.local/state
+XDG_CACHE_HOME DEFAULT=@{HOME}/.cache
+
+# others
 FZF_DEFAULT_COMMAND DEFAULT="fd --type f --hidden --follow --exclude .git"
 FZF_DEFAULT_OPTS DEFAULT="--layout=reverse --inline-info"
+LESSHISTFILE DEFAULT=${XDG_CACHE_HOME}/less/history
+DOTDIR DEFAULT=@{HOME}/.config
+ZDOTDIR DEFAULT=${XDG_CONFIG_HOME}/zsh
+GTK2_RC_FILES DEFAULT=${XDG_CONFIG_HOME}/gtk-2.0/gtkrc
+HISTFILE DEFAULT=${XDG_STATE_HOME}/bash/history
 
 # setting locale for dmenu
 LC_CTYPE=en_US.UTF-8
@@ -25,6 +36,8 @@ LC_CTYPE=en_US.UTF-8
 # Rust stuff
 CARGO_INCREMENTAL=1
 RUST_BACKTRACE=1
+RUSTUP_HOME DEFAULT=${XDG_DATA_HOME}/rustup
+CARGO_HOME DEFAULT=${XDG_DATA_HOME}/cargo
 
 PATH DEFAULT=${PATH}:@{HOME}/.cargo/bin
 PATH DEFAULT=${PATH}:@{HOME}/.local/bin

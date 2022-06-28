@@ -5,4 +5,4 @@ export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
 #xmodmap -e "keysym Caps_Lock = Escape" 2>/dev/null &
 xmodmap ~/.config/myrc/Xmodmap
 
-feh --bg-fill ~/.config/.bg.jpg &
+feh --bg-fill --no-fehbg ~/.config/.bg.jpg &
