@@ -26,7 +26,7 @@ shopt -s expand_aliases # expand aliases
 #PS1='[\W]\$ '
 
 # load personal configs
-[[ -f ${XDG_CONFIG_HOME}/myrc/mybashrc ]] && . ~/.config/myrc/mybashrc
+[[ -f ${XDG_CONFIG_HOME}/myrc/mybashrc ]] && . ${XDG_CONFIG_HOME}/myrc/mybashrc
 
 #
 [[ -f ${XDG_DATA_HOME}/cargo/bin/starship ]] && eval "$(starship init bash)"

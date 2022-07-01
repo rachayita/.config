@@ -7,6 +7,6 @@ fi
 
 xsetroot -cursor_name left_ptr &
 
-source ~/.profile &
+source ~/.config/myrc/profile &
 bspwm
 

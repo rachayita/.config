@@ -39,9 +39,10 @@ RUST_BACKTRACE=1
 RUSTUP_HOME DEFAULT=${XDG_DATA_HOME}/rustup
 CARGO_HOME DEFAULT=${XDG_DATA_HOME}/cargo
 
-PATH DEFAULT=${PATH}:@{HOME}/.cargo/bin
+# PATH
+PATH DEFAULT=${PATH}:${XDG_DATA_HOME}/cargo/bin
 PATH DEFAULT=${PATH}:@{HOME}/.local/bin
-PATH DEFAULT=${PATH}:@{HOME}/.config/vifm/scripts
+PATH DEFAULT=${PATH}:${XDG_CONFIG_HOME}/vifm/scripts
 
 # make less better
 # X = leave content on-screen
