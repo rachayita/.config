@@ -19,6 +19,7 @@ set showcmd " Show (partial) command in status line.
 set mouse=a " Enable mouse usage (all modes) in terminals
 set autoread
 set bs=2 " backspace
+set bg=dark
 
 " list listchars 
 set list 
@@ -202,7 +203,7 @@ highlight   IncSearch   cterm=reverse,bold   ctermbg=black   gui=reverse
 
 call plug#begin()
 Plug 'https://github.com/vim-airline/vim-airline.git'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 Plug 'https://github.com/rust-lang/rust.vim.git'
 Plug 'https://github.com/terryma/vim-expand-region.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
@@ -229,6 +230,9 @@ call plug#end()
 
 "https://github.com/vim-airline/vim-airline.git
 let g:airline_powerline_fonts = 1
+highlight TabLineFill cterm=NONE
+highlight TabLine     ctermbg=NONE ctermfg=202
+highlight Cursor      cterm=bold   guifg=bg    guibg=fg
 
 "Plug 'https://github.com/lifepillar/vim-mucomplete.git'
 set completeopt=menuone,noselect
@@ -277,7 +281,7 @@ map <Leader>v :Vifm<CR>
 " Note: gdb installation required
 let g:termdebugger="rust-gdb"
 let g:termdebug_wide=1
-map <Leader>b :packadd termdebug<CR>
+map <Leader>b :packadd termdebug<CR> :Termdebug<CR>
 
 " Plug 'https://github.com/airblade/vim-gitgutter.git'
 highlight clear SignColumn
