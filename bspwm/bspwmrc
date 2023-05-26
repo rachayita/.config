@@ -13,9 +13,9 @@ bspc config gapless_monocle      true
 bspc rule -a Gimp desktop='^8' follow=on
 bspc rule -a $BROWSER desktop='^2'
 bspc rule -a Chromium desktop='^7'
-bspc rule -a zathura state=tiled
+bspc rule -a Zathura state=tiled
 bspc rule -a mplayer2 state=floating
-bspc rule -a mpv desktop='^4' state=fullscreen follow=on
+bspc rule -a mpv state=tiled
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 

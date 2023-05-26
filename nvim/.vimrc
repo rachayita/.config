@@ -21,10 +21,10 @@ set autoread
 set bs=2 " backspace
 set bg=dark
 
-" list listchars 
-set list 
-set lcs=tab:»· 
-set lcs+=trail:· 
+" list listchars
+set list
+set lcs=tab:»·
+set lcs+=trail:·
 
 " Show those damn hidden characters
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
@@ -151,8 +151,8 @@ nnoremap <leader>r :bwipeout<CR>
 nnoremap <Leader>w :wq<CR>
 nnoremap <Leader>q :q!<CR>
 nnoremap <Leader><CR> :w<CR>
-map f <C-d>
-map F <C-u>
+" map f <C-d>
+" map F <C-u>
 map <Leader>e <C-w>w
 map <Leader>d daw
 map <Leader>D dawi

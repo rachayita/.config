@@ -129,7 +129,7 @@ super + d
 	thunar
 
 # slock
-super + z
+super + shift + q
 	slock
 
 # screenshot
@@ -139,3 +139,11 @@ super + v
 # editor
 super + e
 	$TERMINAL -e $EDITOR
+
+# bookmarks list
+super + z
+  xdotool type `grep -v '#!' $XDG_DATA_HOME/bookmarks/bookmarks | dmenu -i -l 50`
+
+# bookmark it
+super + shift + z
+  ./.config/bookmarks/bookmarksh

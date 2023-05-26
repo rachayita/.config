@@ -36,6 +36,7 @@ alias dok='sudo docker'
 alias b=bat
 alias xc="xclip -sel clip -r"
 alias dmenu_run="dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'JetBrains Mono:bold:pixelsize=10'"
+alias z="zathura"
 
 # search
 alias frs='nvim $(find . -name "*.rs" | sk -m)'
@@ -68,6 +69,11 @@ alias umntp1='sudo umount /dev/sdb1'
 alias mntp2='sudo mount -o uid=(whoami) /dev/sdb2 /mnt/sdb2'
 alias umntp2='sudo umount /dev/sdb2'
 alias umnta='sudo umount /dev/sda3 /dev/sda4 /dev/sdb /dev/sdb1 /dev/sdb2'
+
+# mount mobile
+alias mobs='simple-mtpfs -l'
+alias mob='simple-mtpfs --device 1 /mnt/cell'
+alias umob='fusermount -u /mnt/cell'
 
 # pacman
 alias sy='sudo pacman -Syyu'
