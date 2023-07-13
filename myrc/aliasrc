@@ -4,7 +4,7 @@ alias exaig='exa --icons --git'
 alias la='exaig -a'
 alias ll='exaig -lrahg'
 alias l='exaig --long'
-alias l.="exa -a | egrep '^\.'"
+alias l.="exa -a | grep -E '^\.'"
 
 # path
 alias dotf='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'

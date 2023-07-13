@@ -166,7 +166,7 @@ map <Leader>l :terminal<CR>
 
 " search and replace
 " search things usual way using /something
-" hit cs, replace first match, and hit <Esc>
+" hit cgn, replace first match, and hit <Esc>
 " hit n.n.n.n.n. reviewing and replacing all matches
 vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
     \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv

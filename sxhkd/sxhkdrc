@@ -147,3 +147,7 @@ super + z
 # bookmark it
 super + shift + z
   ./.config/bookmarks/bookmarksh
+
+# dmenufm
+super + r
+  dmenufm
