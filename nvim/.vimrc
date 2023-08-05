@@ -198,11 +198,12 @@ map H ^
 map L $
 
 " on selection in visual mode
-highlight   Visual      cterm=reverse        ctermbg=black   gui=reverse
-highlight   IncSearch   cterm=reverse,bold   ctermbg=black   gui=reverse
+highlight   Visual      cterm=reverse               ctermbg=black   gui=reverse
+highlight   IncSearch   cterm=reverse,bold,italic   ctermbg=black   gui=reverse
 
 call plug#begin()
 Plug 'https://github.com/vim-airline/vim-airline.git'
+Plug 'https://github.com/tpope/vim-fugitive.git'
 " Plug 'scrooloose/nerdtree'
 Plug 'https://github.com/rust-lang/rust.vim.git'
 Plug 'https://github.com/terryma/vim-expand-region.git'
@@ -313,6 +314,8 @@ iab <buffer> ,e \end{
 
 let g:tex_flavor = "latex"
 set suffixes+=.log,.aux,.bbl,.blg,.idx,.ilg,.ind,.out,.pdf
+
+nnoremap <leader>sv :source ~/.config/nvim/init.vim<CR>
 
 " Highlight all instances of word under cursor, when idle.
 " Useful when studying strange source code.

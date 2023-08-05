@@ -19,10 +19,16 @@ bspc rule -a mpv state=tiled
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-~/.config/polybar/launch.sh &
-dunst &
-blueman-applet &
-$TERMINAL -e tmux &
+xrandr -s 1360x768
 $BROWSER &
+feh --bg-fill --no-fehbg ~/.config/.bg.jpg &
+xsetroot -cursor_name left_ptr &
 
+# mapping menu key to Super_R and caps to escape
+xmodmap ~/.config/myrc/Xmodmap &
+
+~/.config/polybar/launch.sh &
+blueman-applet &
+dunst &
+$TERMINAL -e tmux &
 
