@@ -78,11 +78,11 @@ alias mob='simple-mtpfs --device 1 /mnt/cell'
 alias umob='fusermount -u /mnt/cell'
 
 # pacman
-alias sy='sudo pacman -Syyu'
 alias sc='sudo pacman -Sc'
 alias si='sudo pacman -S '
 alias sr='sudo pacman -Rns '
 alias pc='sudo paru -Sc'
+alias sy='sudo pacman -Syyu; yes yes | pc'
 
 # fish
 alias t='math (cat /sys/class/net/wlan0/statistics/rx_bytes) / 1024 / 1024'
