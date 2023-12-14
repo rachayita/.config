@@ -20,6 +20,7 @@ set mouse=a " Enable mouse usage (all modes) in terminals
 set autoread
 set bs=2 " backspace
 set bg=dark
+set cursorline
 
 " list listchars
 set list
