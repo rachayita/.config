@@ -81,8 +81,9 @@ alias umob='fusermount -u /mnt/cell'
 alias sc='sudo pacman -Sc'
 alias si='sudo pacman -S '
 alias sr='sudo pacman -Rns '
-alias pc='sudo paru -Sc'
-alias sy='sudo pacman -Syyu; yes yes | pc'
+alias pc='yes yes | sudo paru -Sc'
+alias sy='sudo pacman -Syyu'
+alias syc='sy;pc'
 
 # fish
 alias t='math (cat /sys/class/net/wlan0/statistics/rx_bytes) / 1024 / 1024'
