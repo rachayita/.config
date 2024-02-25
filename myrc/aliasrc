@@ -20,6 +20,7 @@ alias shu='shred -u '
 alias dt='expr `cat /sys/class/net/wlp2s0/statistics/rx_bytes` / 1024 / 1024'
 alias fcc='fc-cache -vf'
 alias vmnet='sudo virsh net-start default'
+alias rm='rm -i'
 
 # app
 alias mutt=neomutt
@@ -29,7 +30,7 @@ alias v=vifmrun
 alias temp="inxi -s"
 alias yy='youtube-dl -c'
 alias yta="youtube-dl -f bestaudio"
-#alias wget='wget --hist-file="$XDG_DATA_HOME/wget-hsts"'
+alias wget='wget --hsts-file "$XDG_DATA_HOME/wget-hsts"'
 alias wk='wget -nc'
 alias ww='wget -c'
 alias ev=evince
@@ -39,6 +40,7 @@ alias xc="xclip -sel clip -r"
 alias dmenu_run="dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'JetBrains Mono:bold:pixelsize=10'"
 alias z="zathura"
 alias u="unzip"
+alias t=tree
 
 # search
 alias frs='nvim $(find . -name "*.rs" | sk -m)'
@@ -86,5 +88,5 @@ alias sy='sudo pacman -Syyu'
 alias syc='sy;pc'
 
 # fish
-alias t='math (cat /sys/class/net/wlan0/statistics/rx_bytes) / 1024 / 1024'
+alias calc='math (cat /sys/class/net/wlan0/statistics/rx_bytes) / 1024 / 1024'
 alias re='source ~/.config/fish/config.fish'

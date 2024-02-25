@@ -2,7 +2,16 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+if [[ $(xrandr --query | grep 'HDMI-1 connected') ]];
+then
+  xrandr --output eDP-1 --primary --mode 1366x768 --output HDMI-1 --mode 1360x768
+  bspc monitor eDP-1 -d 1 2 3 4 5
+  bspc monitor HDMI-1 -d 6 7 8 9 10
+else
+  xrandr -s 1366x768
+  bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+fi
+
 bspc config border_width         0
 bspc config window_gap           0
 
@@ -12,6 +21,7 @@ bspc config gapless_monocle      true
 
 bspc rule -a Gimp desktop='^8' follow=on
 bspc rule -a $BROWSER desktop='^2'
+bspc rule -a Signal desktop='^6'
 bspc rule -a Chromium desktop='^7'
 bspc rule -a Zathura state=tiled
 bspc rule -a mplayer2 state=floating
@@ -19,7 +29,7 @@ bspc rule -a mpv state=tiled
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-xrandr -s 1360x768
+signal-desktop &
 $BROWSER &
 feh --bg-fill --no-fehbg ~/.config/.bg.jpg &
 xsetroot -cursor_name left_ptr &
