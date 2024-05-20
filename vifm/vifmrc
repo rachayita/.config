@@ -199,7 +199,7 @@ filextype *.djvu
         \ apvlv %f,
 
 " Audio
-filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,*.amr
+filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,*.amr,*.x-wav
        \ mpv %c,
        \ {Play using ffplay}
        \ ffplay -nodisp -autoexit %c,

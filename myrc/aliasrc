@@ -38,8 +38,8 @@ alias dok='sudo docker'
 alias b=bat
 alias xc="xclip -sel clip -r"
 alias dmenu_run="dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'JetBrains Mono:bold:pixelsize=10'"
-alias z="zathura"
-alias u="unzip"
+alias z=zathura
+alias u=unzip
 alias t=tree
 
 # search
