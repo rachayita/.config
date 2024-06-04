@@ -21,6 +21,7 @@ alias dt='expr `cat /sys/class/net/wlp2s0/statistics/rx_bytes` / 1024 / 1024'
 alias fcc='fc-cache -vf'
 alias vmnet='sudo virsh net-start default'
 alias rm='rm -i'
+alias cp='cp -i'
 
 # app
 alias mutt=neomutt

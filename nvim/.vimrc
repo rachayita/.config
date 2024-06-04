@@ -21,6 +21,8 @@ set autoread
 set bs=2 " backspace
 set bg=dark
 set cursorline
+set termguicolors
+colorscheme wildcharm
 
 " list listchars
 set list

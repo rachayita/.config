@@ -42,7 +42,7 @@ cursor:
 live_config_reload: true
 
 shell:
-  program: /usr/bin/fish
+  program: fish
   args:
     - --login
 
