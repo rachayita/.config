@@ -22,6 +22,10 @@ alias fcc='fc-cache -vf'
 alias vmnet='sudo virsh net-start default'
 alias rm='rm -i'
 alias cp='cp -i'
+alias ff=fastfetch
+alias vup='pactl set-sink-volume @DEFAULT_SINK@ +20%'
+alias vdn='pactl set-sink-volume @DEFAULT_SINK@ -20%'
+alias mu='pactl set-sink-volume @DEFAULT_SINK@ -100%'
 
 # app
 alias mutt=neomutt
