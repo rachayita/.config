@@ -30,3 +30,4 @@ shopt -s expand_aliases # expand aliases
 
 #
 [[ -f ${XDG_DATA_HOME}/cargo/bin/starship ]] && eval "$(starship init bash)"
+[[ -f /usr/bin/starship ]] && eval "$(starship init bash)"
