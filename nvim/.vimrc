@@ -151,6 +151,7 @@ nnoremap <leader>a <c-^>
 nnoremap <leader>A :bn<CR>
 nnoremap <leader>r :bwipeout<CR>
 
+nnoremap <Leader>c ciw
 nnoremap <Leader>w :wq<CR>
 nnoremap <Leader>q :q!<CR>
 nnoremap <Leader><CR> :w<CR>
