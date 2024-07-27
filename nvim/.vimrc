@@ -167,6 +167,7 @@ map <Leader>n :NERDTreeToggle<CR>
 map <Leader>z :FZF<CR>
 map <Leader>x :SK<CR>
 map <Leader>l :terminal<CR>
+map <Leader>0 :w !sudo tee %<CR>
 
 " search and replace
 " search things usual way using /something
