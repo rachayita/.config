@@ -13,7 +13,7 @@ arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow \
 zed xdg-desktop-portal-gtk
 ```
 - lapce: rust based code editor
-- start NetworkManager, Bluetooth, ufw and cronie services by systemctl
+- start NetworkManager, bluetooth, ufw and cronie services by systemctl
 - browser addon: dark reader, https everywhere, vimium, ublock origin, firfox container
 
 ## paru
