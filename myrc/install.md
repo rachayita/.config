@@ -19,6 +19,7 @@ zed xdg-desktop-portal-gtk
 ## paru
 - paru-bin, stint(cmd line color picker), mutt-wizard-git, simple-mtpfs-git, obinskit
 - brother-mfc-l2700dw, 7-zip-full (7z), vscodium-bin, dmenufm, linux-wifi-hotspot
+- tor-borwser
 
 ## cargo
 powerline-rs du-dust racer  diskonaut paru nethoscope broot hmm fd-find
