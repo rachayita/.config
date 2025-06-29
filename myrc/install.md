@@ -24,6 +24,13 @@ zed xdg-desktop-portal-gtk
 ## cargo
 powerline-rs du-dust racer  diskonaut paru nethoscope broot hmm fd-find
 
+## update mirrorlist
+ sudo reflector --verbose --ipv4 --protocol https --score 20 --sort rate --save /etc/pacman.d/mirrorlist
+- mirror list command is already mentioned in mirrorlist
+
+## learn
+tcpdump termshark
+
 ## ~/.local/share/fonts
 > ``` fc-cache -vf ```
 - [JetBrains Mono](https://www.jetbrains.com/lp/mono/)

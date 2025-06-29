@@ -95,3 +95,6 @@ alias syc='sy;pc'
 # fish
 alias calc='math (cat /sys/class/net/wlan0/statistics/rx_bytes) / 1024 / 1024'
 alias re='source ~/.config/fish/config.fish'
+
+# play video on terminal
+alias mpt='mpv -vo tct'
