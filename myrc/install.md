@@ -10,12 +10,13 @@ skim starship eza bat pass-otp nss-mdns system-config-printer jless htop fastfet
 tcpdump hyperfine zathura-pdf-poppler cronie dmenu gparted thunar xorg xorg-xinit \
 bluez bluez-util blueman pavucontrol pipewire-pulse dunst networkmanager fzf nano \
 arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow \
-zed xdg-desktop-portal-gtk linux-firmware
+zed xdg-desktop-portal-gtk linux-firmware gdu
 ```
 - lapce: rust based code editor
 - start NetworkManager, bluetooth, ufw and cronie services by systemctl
 - browser addon: dark reader, https everywhere, vimium, ublock origin, firfox container
 - linux-firmware for missing or deleted driver
+- `sudo gdu /` analyze and clean disk space
 
 ## paru
 - paru-bin, stint(cmd line color picker), mutt-wizard-git, simple-mtpfs-git, obinskit
@@ -158,6 +159,7 @@ EndSection
   - no sources mentioned for environmental variable
 - `journalctl -u cronie.service`
 - `alacritty -e nvim` to open doc in neovim directly
+- `df -h` to see free space and `lsblk` to see mount points
 
 ## 5 sec lag problem with intel gpu
 - https://github.com/qutebrowser/qutebrowser/issues/4641

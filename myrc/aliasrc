@@ -85,10 +85,10 @@ alias mob='simple-mtpfs --device 1 /mnt/cell'
 alias umob='fusermount -u /mnt/cell'
 
 # pacman
-alias sc='sudo pacman -Sc'
+alias sc='sudo paru -Scc'
 alias si='sudo pacman -S '
 alias sr='sudo pacman -Rns '
-alias pc='yes yes | sudo paru -Sc'
+alias pc='yes yes | sudo paru -Scc'
 alias sy='sudo pacman -Syyu'
 alias syc='sy;pc'
 
