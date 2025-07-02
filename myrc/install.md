@@ -10,11 +10,12 @@ skim starship eza bat pass-otp nss-mdns system-config-printer jless htop fastfet
 tcpdump hyperfine zathura-pdf-poppler cronie dmenu gparted thunar xorg xorg-xinit \
 bluez bluez-util blueman pavucontrol pipewire-pulse dunst networkmanager fzf nano \
 arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow \
-zed xdg-desktop-portal-gtk
+zed xdg-desktop-portal-gtk linux-firmware
 ```
 - lapce: rust based code editor
 - start NetworkManager, bluetooth, ufw and cronie services by systemctl
 - browser addon: dark reader, https everywhere, vimium, ublock origin, firfox container
+- linux-firmware for missing or deleted driver
 
 ## paru
 - paru-bin, stint(cmd line color picker), mutt-wizard-git, simple-mtpfs-git, obinskit
