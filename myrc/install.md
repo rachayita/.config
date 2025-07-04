@@ -3,15 +3,16 @@
 
 ## pacman
 ```shell
-sudo pacman -S fd base-devel git meld neovim firefox mpv vifm youtube-dl feh stow \
-alacritty chromium sxiv gdb vimb ueberzug xclip neomutt font-manager syncthing ufw gufw \
-lxappearance cups netcat zathura unzip shotgun zbar tig pass  xdotool  ntfs-3g typst \
+ sudo pacman -S xorg-server xorg-xinit xorg-xrender xorg-xterm xorg-xbacklight xorg-xrandr\
+fd base-devel git meld neovim firefox mpv vifm youtube-dl feh stow lxappearance\
+alacritty chromium sxiv gdb ueberzug xclip neomutt font-manager syncthing ufw gufw \
+cups openbsd-netcat zathura unzip shotgun zbar tig pass  xdotool  ntfs-3g typst \
 skim starship eza bat pass-otp nss-mdns system-config-printer jless htop fastfetch \
-tcpdump hyperfine zathura-pdf-poppler cronie dmenu gparted thunar xorg xorg-xinit \
+tcpdump hyperfine zathura-pdf-poppler cronie dmenu gparted thunar  \
 bluez bluez-util blueman pavucontrol pipewire-pulse dunst networkmanager fzf nano \
 arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow \
-zed xdg-desktop-portal-gtk linux-firmware gdu
-```
+zed xdg-desktop-portal-gtk linux-firmware gdu tcpdump termshark ```
+
 - lapce: rust based code editor
 - start NetworkManager, bluetooth, ufw and cronie services by systemctl
 - browser addon: dark reader, https everywhere, vimium, ublock origin, firfox container
@@ -21,17 +22,10 @@ zed xdg-desktop-portal-gtk linux-firmware gdu
 ## paru
 - paru-bin, stint(cmd line color picker), mutt-wizard-git, simple-mtpfs-git, obinskit
 - brother-mfc-l2700dw, 7-zip-full (7z), vscodium-bin, dmenufm, linux-wifi-hotspot
-- tor-borwser
-
-## cargo
-powerline-rs du-dust racer  diskonaut paru nethoscope broot hmm fd-find
 
 ## update mirrorlist
  sudo reflector --verbose --ipv4 --protocol https --score 20 --sort rate --save /etc/pacman.d/mirrorlist
-- mirror list command is already mentioned in mirrorlist
-
-## learn
-tcpdump termshark
+- mirrorlist command is already mentioned in mirrorlist
 
 ## ~/.local/share/fonts
 > ``` fc-cache -vf ```
@@ -85,29 +79,10 @@ AutoEnable=true
 
 # NOTES
 
-## rust
-- `rustup doc`
-- gnu debugger(gdb) for rust
-
 ## s/w
-- TestDisk: recover deleted files
-- gitbucket
 - imcompressor: image compressor
 - dumpcap with wireshark
-- alsamixer: for vol
-
-## ss: port check
-- > `sudo watch ss -tulpn`
-
-## set screen resolution
-- arandr: graphical resolution
-- > `xrandr` shows current screen resolution
-- > ``` xrandr -q ```
-- > ``` xrandr -d :0 --output <OUTPUT> --mode 1360x768 ```
--> or ``` xrandr -s 1360x768 ```
-
-## arch graphical driver
-> xf86-video-vmware
+- xf86-video-vmware  #arch graphical driver
 
 ## enable tap click
 - https://www.reddit.com/r/archlinux/comments/86g4ef/how_to_enable_tap_click/
@@ -128,6 +103,17 @@ Section "InputClass"
         Driver "libinput"
 EndSection
 ```
+
+## ss: port check
+- > `sudo watch ss -tulpn`
+
+## set screen resolution
+- arandr: graphical resolution
+- > `xrandr` shows current screen resolution
+- > ``` xrandr -q ```
+- > ``` xrandr -d :0 --output <OUTPUT> --mode 1360x768 ```
+-> or ``` xrandr -s 1360x768 ```
+
 
 ## commands
 - `inxi -F`sys info
