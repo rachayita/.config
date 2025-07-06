@@ -10,7 +10,7 @@ cups openbsd-netcat zathura unzip shotgun zbar tig pass  xdotool  ntfs-3g typst 
 skim starship eza bat pass-otp nss-mdns system-config-printer jless htop fastfetch \
 tcpdump hyperfine zathura-pdf-poppler cronie dmenu gparted thunar  \
 bluez bluez-util blueman pavucontrol pipewire-pulse dunst networkmanager fzf nano \
-arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow \
+arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow bsp-layout \
 zed xdg-desktop-portal-gtk linux-firmware gdu tcpdump termshark ```
 
 - lapce: rust based code editor
