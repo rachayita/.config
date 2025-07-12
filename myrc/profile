@@ -22,6 +22,7 @@ export GTK2_RC_FILES=${XDG_CONFIG_HOME}/gtk-2.0/gtkrc
 export HISTFILE=${XDG_STATE_HOME}/bash/history
 export PASSWORD_STORE_DIR=${XDG_DATA_HOME}/.password-store
 export GNUPGHOME=${XDG_DATA_HOME}/.gnupg
+export XDG_NSS_USER_PATH3=${XDG_DATA_HOME}/pki
 export XAUTHORITY=${XDG_DATA_HOME}/.Xauthority
 export MBSYNCRC=${XDG_CONFIG_HOME}/myrc/mbsyncrc
 export NOTMUCH_CONFIG=${XDG_CONFIG_HOME}/myrc/notmuch-config

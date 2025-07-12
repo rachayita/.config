@@ -3,21 +3,21 @@
 
 ## pacman
 ```shell
- sudo pacman -S xorg-server xorg-xinit xorg-xrender xorg-xterm xorg-xbacklight xorg-xrandr\
+ sudo pacman -S xorg-server xorg-xinit xorg-xrandr xterm xorg-xbacklight \
 fd base-devel git meld neovim firefox mpv vifm youtube-dl feh stow lxappearance\
 alacritty chromium sxiv gdb ueberzug xclip neomutt font-manager syncthing ufw gufw \
 cups openbsd-netcat zathura unzip shotgun zbar tig pass  xdotool  ntfs-3g typst \
 skim starship eza bat pass-otp nss-mdns system-config-printer jless htop fastfetch \
 tcpdump hyperfine zathura-pdf-poppler cronie dmenu gparted thunar github-cli \
-bluez bluez-util blueman pavucontrol pipewire-pulse dunst networkmanager fzf nano \
-arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow bsp-layout \
-zed xdg-desktop-portal-gtk linux-firmware gdu tcpdump termshark ```
+bluez blueman pipewire pipewire-pulse dunst networkmanager fzf nano \
+arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow bsp-layout gdu\
+zed xdg-desktop-portal-gtk linux-firmware tcpdump termshark signal-desktop openssh
+```
 
 - lapce: rust based code editor
 - start NetworkManager, bluetooth, ufw and cronie services by systemctl
-- browser addon: dark reader, https everywhere, vimium, ublock origin, firfox container
+- browser addon: dark reader,vimium, ublock origin, firfox container
 - linux-firmware for missing or deleted driver
-- `sudo gdu /` analyze and clean disk space
 
 ## paru
 - paru-bin, stint(cmd line color picker), mutt-wizard-git, simple-mtpfs-git, obinskit
@@ -40,6 +40,10 @@ zed xdg-desktop-portal-gtk linux-firmware gdu tcpdump termshark ```
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim \
 --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
+## bash history
+```shell
+mkdir -p ~/.local/state/bash && touch ~/.local/state/bash/history
+```
 
 ## printer setup
 - install nss-mdns
@@ -60,14 +64,23 @@ hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files
 - sudo systemctl enable --now libvirtd.service
 - sudo usermod -aG libvirt $USER
 
-### bluetooth settings
+### for internet coonection
+- sudo ufw allow in on virbr0
+- sudo ufw allow out on virbr0
+- sudoedit /etc/ufw/sysctl.conf
+  - uncomment `net/ipv4/ip_forward=1`
+- sudoedit /etc/default/ufw
+  - change `DEFAULT_FORWARD_POLICY` from "DROP" to "ACCEPT"
+- sudo ufw reload
+
+## bluetooth settings
 - [blutooth auto power on after boot/resume/before login](https://wiki.archlinux.org/title/Bluetooth)
 - ``` /etc/bluetooth/main.conf ```
 ```
 [Policy]
 AutoEnable=true
 ```
-### [rust analyzer](https://github.com/rust-lang/rust-analyzer/releases)
+## [rust analyzer](https://github.com/rust-lang/rust-analyzer/releases)
 - download rust-analyzer in ~/.local/bin and make it executable
 
 ## optinal
