@@ -7,11 +7,9 @@ alias l='exaig --long'
 alias l.="exa -a | grep -E '^\.'"
 
 # path
-alias dotf='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 
 # system
-alias xx=startx
 alias po=poweroff
 alias q=exit
 alias c=clear
@@ -26,13 +24,9 @@ alias ff=fastfetch
 alias vup='pactl set-sink-volume @DEFAULT_SINK@ +20%'
 alias vdn='pactl set-sink-volume @DEFAULT_SINK@ -20%'
 alias mu='pactl set-sink-volume @DEFAULT_SINK@ -100%'
-alias portc='sudo watch ss -tulpn'
-alias xcat='xclip -sel clip'
 
 # app
 alias mutt=neomutt
-alias hm=hmmq
-alias www=w3m
 alias v=vifmrun
 alias temp="inxi -s"
 alias yy='youtube-dl -c'
@@ -40,7 +34,6 @@ alias yta="youtube-dl -f bestaudio"
 alias wget='wget --hsts-file "$XDG_DATA_HOME/wget-hsts"'
 alias wk='wget -nc'
 alias ww='wget -c'
-alias ev=evince
 alias dok='sudo docker'
 alias b=bat
 alias xc="xclip -sel clip -r"
@@ -48,6 +41,7 @@ alias dmenu_run="dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#19
 alias z=zathura
 alias u=unzip
 alias t=tree
+alias portc='sudo watch ss -tulpn'
 
 # search
 alias frs='nvim $(find . -name "*.rs" | sk -m)'
@@ -69,17 +63,22 @@ alias won='nmcli radio wifi on'
 alias woff='nmcli radio wifi off'
 
 # mount
-alias mnt4='sudo mount /dev/sda4 /mnt/sda4'
-alias umnt4='sudo umount /dev/sda4'
-alias mnt3='sudo mount /dev/sda3 /mnt/sda3'
-alias umnt3='sudo umount /dev/sda3'
-alias mntp='sudo mount /dev/sdb /mnt/sdb'
-alias umntp='sudo umount /dev/sdb'
-alias mntp1='sudo mount -o uid=(whoami) /dev/sdb1 /mnt/sdb1'
-alias umntp1='sudo umount /dev/sdb1'
-alias mntp2='sudo mount -o uid=(whoami) /dev/sdb2 /mnt/sdb2'
-alias umntp2='sudo umount /dev/sdb2'
-alias umnta='sudo umount /dev/sda3 /dev/sda4 /dev/sdb /dev/sdb1 /dev/sdb2'
+alias mnta3='sudo mount /dev/sda3 /mnt/sda3'
+alias umnta3='sudo umount /dev/sda3'
+alias mntb1='sudo mount -o uid=(whoami) /dev/sdb1 /mnt/sdb1'
+alias umntb1='sudo umount /dev/sdb1'
+alias mntb2='sudo mount /dev/sdb2 /mnt/sdb2'
+alias umntb2='sudo umount /dev/sdb2'
+alias mntb3='sudo mount /dev/sdb3 /mnt/sdb3'
+alias umntb3='sudo umount /dev/sdb3'
+alias mntb4='sudo mount /dev/sdb4 /mnt/sdb4'
+alias umntb4='sudo umount /dev/sdb4'
+alias mntc1='sudo mount /dev/sdc1 /mnt/sdc1'
+alias umntc1='sudo umount /dev/sdc1'
+alias mntc2='sudo mount /dev/sdc2 /mnt/sdc2'
+alias umntc2='sudo umount /dev/sdc2'
+alias mntc3='sudo mount /dev/sdc3 /mnt/sdc3'
+alias umntc3='sudo umount /dev/sdc3'
 
 # mount mobile
 alias mobs='simple-mtpfs -l'
