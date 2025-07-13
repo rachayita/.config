@@ -26,6 +26,8 @@ alias ff=fastfetch
 alias vup='pactl set-sink-volume @DEFAULT_SINK@ +20%'
 alias vdn='pactl set-sink-volume @DEFAULT_SINK@ -20%'
 alias mu='pactl set-sink-volume @DEFAULT_SINK@ -100%'
+alias portc='sudo watch ss -tulpn'
+alias xcat='xclip -sel clip'
 
 # app
 alias mutt=neomutt

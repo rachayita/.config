@@ -3,13 +3,13 @@
 
 ## pacman
 ```shell
- sudo pacman -S xorg-server xorg-xinit xorg-xrandr xterm xorg-xbacklight \
+ sudo pacman -S xorg-server xorg-xinit xorg-xrandr xterm xorg-xbacklight less \
 fd base-devel git meld neovim firefox mpv vifm youtube-dl feh stow lxappearance\
 alacritty chromium sxiv gdb ueberzug xclip neomutt font-manager syncthing ufw gufw \
 cups openbsd-netcat zathura unzip shotgun zbar tig pass  xdotool  ntfs-3g typst \
 skim starship eza bat pass-otp nss-mdns system-config-printer jless htop fastfetch \
 tcpdump hyperfine zathura-pdf-poppler cronie dmenu gparted thunar github-cli \
-bluez blueman pipewire pipewire-pulse dunst networkmanager fzf nano \
+bluez blueman pipewire pipewire-pulse dunst networkmanager fzf nano reflector \
 arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow bsp-layout gdu\
 zed xdg-desktop-portal-gtk linux-firmware tcpdump termshark signal-desktop openssh
 ```
@@ -24,7 +24,9 @@ zed xdg-desktop-portal-gtk linux-firmware tcpdump termshark signal-desktop opens
 - brother-mfc-l2700dw, 7-zip-full (7z), vscodium-bin, dmenufm, linux-wifi-hotspot
 
 ## update mirrorlist
+```shell
  sudo reflector --verbose --ipv4 --protocol https --score 20 --sort rate --save /etc/pacman.d/mirrorlist
+```
 - mirrorlist command is already mentioned in mirrorlist
 
 ## ~/.local/share/fonts
@@ -83,7 +85,7 @@ AutoEnable=true
 ## [rust analyzer](https://github.com/rust-lang/rust-analyzer/releases)
 - download rust-analyzer in ~/.local/bin and make it executable
 
-## optinal
+## optional
 - [vim sugar for the UNIX shell commands](https://github.com/tpope/vim-eunuch)
 - [spacer](https://github.com/samwho/spacer): cli to insert spacers when cmd output stops
 - https://github.com/polybar/polybar-scripts.git    bspwm/scripts
@@ -273,9 +275,6 @@ pinentry-program /usr/bin/pinentry-tty
 ExecStart=
 ExecStart=-/sbin/agetty -o '-p -f -- \\u' --noclear --autologin username %I $TERM
 ```
-
-## update mirror list
-``` sudo reflector --latest 20 --protocol https --sort score --save /etc/pacman.d/mirrorlist ```
 
 ## move tabs at bottom in firefox
 1. Find your Firefox profile directory
