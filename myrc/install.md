@@ -37,6 +37,12 @@ zed xdg-desktop-portal-gtk linux-firmware tcpdump termshark signal-desktop opens
 - [iosevka nerd font: fonts for starship](https://www.nerdfonts.com/font-downloads)
 - Bizcat:  an 8x16 bitmap font
 
+## ~/.local/share/icons
+- [Fancy-Dark-Icons](https://www.gnome-look.org/p/1598639)
+
+## ~/.local/share/themes
+- [Sweet-Dark](https://www.gnome-look.org/p/1253385)
+
 ## [PlugInstall](https://github.com/junegunn/vim-plug)
 ```shell
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim \
