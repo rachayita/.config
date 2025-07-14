@@ -39,6 +39,7 @@ zed xdg-desktop-portal-gtk linux-firmware tcpdump termshark signal-desktop opens
 
 ## ~/.local/share/icons
 - [Fancy-Dark-Icons](https://www.gnome-look.org/p/1598639)
+- [ArchCursor](https://www.gnome-look.org/p/999929)
 
 ## ~/.local/share/themes
 - [Sweet-Dark](https://www.gnome-look.org/p/1253385)
