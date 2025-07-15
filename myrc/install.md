@@ -14,28 +14,24 @@ arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow bsp-layout gdu\
 zed xdg-desktop-portal-gtk linux-firmware tcpdump termshark signal-desktop openssh
 ```
 
-- lapce: rust based code editor
 - start NetworkManager, bluetooth, ufw and cronie services by systemctl
-- browser addon: dark reader,vimium, ublock origin, firfox container
+- browser addon: dark reader,vimium, ublock origin, firfox container, better darkmode
 - linux-firmware for missing or deleted driver
 
 ## paru
-- paru-bin, stint(cmd line color picker), mutt-wizard-git, simple-mtpfs-git, obinskit
+- paru-bin, stint(cmd line color picker), mutt-wizard, simple-mtpfs-git, obinskit
 - brother-mfc-l2700dw, 7-zip-full (7z), vscodium-bin, dmenufm, linux-wifi-hotspot
 
 ## update mirrorlist
 ```shell
  sudo reflector --verbose --ipv4 --protocol https --score 20 --sort rate --save /etc/pacman.d/mirrorlist
 ```
-- mirrorlist command is already mentioned in mirrorlist
 
 ## ~/.local/share/fonts
 > ``` fc-cache -vf ```
 - [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
 - [Font Awesome](https://fontawesome.com/download)
-- [iosevka](https://typeof.net/Iosevka/)
 - [iosevka nerd font: fonts for starship](https://www.nerdfonts.com/font-downloads)
-- Bizcat:  an 8x16 bitmap font
 
 ## ~/.local/share/icons
 - [Fancy-Dark-Icons](https://www.gnome-look.org/p/1598639)
@@ -73,7 +69,7 @@ hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files
 - sudo systemctl enable --now libvirtd.service
 - sudo usermod -aG libvirt $USER
 
-### for internet coonection
+### [for internet coonection](https://www.youtube.com/watch?v=dLqIx-a2sPM)
 - sudo ufw allow in on virbr0
 - sudo ufw allow out on virbr0
 - sudoedit /etc/ufw/sysctl.conf
@@ -92,19 +88,15 @@ AutoEnable=true
 ## [rust analyzer](https://github.com/rust-lang/rust-analyzer/releases)
 - download rust-analyzer in ~/.local/bin and make it executable
 
-## optional
-- [vim sugar for the UNIX shell commands](https://github.com/tpope/vim-eunuch)
-- [spacer](https://github.com/samwho/spacer): cli to insert spacers when cmd output stops
-- https://github.com/polybar/polybar-scripts.git    bspwm/scripts
-- https://github.com/cirala/vifmimg fir vifm image preview
-
-
-# NOTES
-
-## s/w
-- imcompressor: image compressor
-- dumpcap with wireshark
-- xf86-video-vmware  #arch graphical driver
+## [autologin](https://wiki.archlinux.org/title/Getty#Prompt_only_the_password_for_a_default_user_in_virtual_console_login)
+- ``` sudo mkdir /etc/systemd/system/getty@tty1.service.d ```
+- ``` sudoedit /etc/systemd/system/getty@tty1.service.d/autologin.conf ```
+- change it to your username
+```
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty -o '-p -f -- \\u' --noclear --autologin username %I $TERM
+```
 
 ## enable tap click
 - https://www.reddit.com/r/archlinux/comments/86g4ef/how_to_enable_tap_click/
@@ -126,16 +118,12 @@ Section "InputClass"
 EndSection
 ```
 
-## ss: port check
-- > `sudo watch ss -tulpn`
-
 ## set screen resolution
 - arandr: graphical resolution
-- > `xrandr` shows current screen resolution
-- > ``` xrandr -q ```
-- > ``` xrandr -d :0 --output <OUTPUT> --mode 1360x768 ```
--> or ``` xrandr -s 1360x768 ```
-
+-  `xrandr` shows current screen resolution
+-  ``` xrandr -q ```
+-  ``` xrandr -s 1360x768 ```
+-  or ``` xrandr -d :0 --output <OUTPUT> --mode 1360x768 ```
 
 ## commands
 - `inxi -F`sys info
@@ -145,7 +133,6 @@ EndSection
 - `xev` to know key number
 - `some-command | xclip -sel clip` copy to clipboard
 - `curl wttr.in/city,country`
-- `curl getnews.tech/<topic>`
 - `find "4DOS" wikipedia.txt | tee 4DOS.txt | sort > 4DOSsorted.txt`
 - `exec xmodmap -e "keysym Menu = Super_R" 2>/dev/null &` map menu key to super
 - `cat ~/.ssh/id_rsa.pub | ssh admin@server "sudo tee -a /root/.ssh/authorized_keys2 > /dev/null"`
@@ -154,7 +141,7 @@ EndSection
 - `netstat -lntpu` list open network ports and the processes
 - `curl ifconfig.me` get your ip
 - pacman - get list of packages installed by user>
-  > `comm -23 <(pacman -Qqett | sort) <(pacman -Qqg base -g base-devel | sort | uniq)`
+  - `comm -23 <(pacman -Qqett | sort) <(pacman -Qqg base -g base-devel | sort | uniq)`
 - `xrandr --output eDP-1 --brightness 0.5` adjust brightness
 - `dd if=file.iso of=/dev/sdb bs=512k status=progress` create bootable usb
 - `gtk-update-icon-cache -f -t ~/.icons/<theme_name>` run to update the icon cache
@@ -168,6 +155,7 @@ EndSection
 - `journalctl -u cronie.service`
 - `alacritty -e nvim` to open doc in neovim directly
 - `df -h` to see free space and `lsblk` to see mount points
+- `sudo watch ss -tulpn` port check
 
 ## 5 sec lag problem with intel gpu
 - https://github.com/qutebrowser/qutebrowser/issues/4641
@@ -183,30 +171,18 @@ EndSection
 ```
 
 ## mount android phone
-- > `simple-mtpfs -l`
-- > `simple-mtpfs --device 1 cell/`
-- to unmount:
-- > `fusermount -u cell/`
-
-## install font manually:
-- https://ehellman.github.io/blog/2013/04/16/manually-install-a-font-in-arch-linux/
-- Unpack the file and move it to the shared fonts folder
-> `mv font.ttf /usr/share/fonts/  or  ~/.local/share/fonts`
-- Or if you want to install the font for a single user, move it to the .fonts directory in the home folder.
-> `mv font.ttf ~/.fonts/`
-- You might also have to update /etc/X11/xorg.conf or /etc/xorg.conf with the new directory
-- Search for FontPath to find the correct location within the file to add your new path.
-- Now, reload the font cache:
-> `fc-cache -vf`
+- `simple-mtpfs -l`
+- `simple-mtpfs --device 1 cell/`
+- to unmount: `fusermount -u cell/`
 
 ## connect AnnePro2 P1 via bluetooth
 - press F2 + 1 for 5 sec
-- > $ bt-device -l
-- > $ bt-device -c <mac>
+- `bt-device -l`
+- `bt-device -c <mac>`
 
 ## Try and redefine the ssh url for remote origin:
-> `git remote set-url origin ssh://git@github.com/username/<url-repo>.git`
-> `ssh -T git@github.com`
+- `git remote set-url origin ssh://git@github.com/username/<url-repo>.git`
+- `ssh -T git@github.com`
 
 ## [make brightness editable](https://wiki.archlinux.org/title/Backlight)
 - create new file `/etc/udev/rules.d/backlight.rules`
@@ -273,15 +249,6 @@ IdentityFile "PATH TO id_rsa FILE"
 ```
 pinentry-program /usr/bin/pinentry-tty
 ```
-## [autologin](https://wiki.archlinux.org/title/Getty#Prompt_only_the_password_for_a_default_user_in_virtual_console_login)
-- ``` sudo mkdir /etc/systemd/system/getty@tty1.service.d ```
-- ``` sudoedit /etc/systemd/system/getty@tty1.service.d/autologin.conf ```
-- change it to your username
-```
-[Service]
-ExecStart=
-ExecStart=-/sbin/agetty -o '-p -f -- \\u' --noclear --autologin username %I $TERM
-```
 
 ## move tabs at bottom in firefox
 1. Find your Firefox profile directory
@@ -296,4 +263,13 @@ ExecStart=-/sbin/agetty -o '-p -f -- \\u' --noclear --autologin username %I $TER
     Click "Accept the Risk and Continue"
     In the settings search bar, look for toolkit.legacyUserProfileCustomizations.stylesheets, and toggle the boolean to true
     Restart Firefox
-```
+
+## optional
+- [vim sugar for the UNIX shell commands](https://github.com/tpope/vim-eunuch)
+- [spacer](https://github.com/samwho/spacer): cli to insert spacers when cmd output stops
+- https://github.com/polybar/polybar-scripts.git    bspwm/scripts
+- https://github.com/cirala/vifmimg fir vifm image preview
+- imcompressor: image compressor
+- dumpcap with wireshark
+- xf86-video-vmware  #arch graphical driver
+
