@@ -15,7 +15,7 @@ tcpdump hyperfine zathura-pdf-poppler cronie dmenu gparted thunar github-cli \
 bluez blueman pipewire pipewire-pulse dunst networkmanager fzf nano reflector \
 arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow bsp-layout gdu\
 zed xdg-desktop-portal-gtk linux-firmware tcpdump termshark signal-desktop openssh \
-ttf-jetbrains-mono ttf-iosevka-nerd ttf-font-awesome
+ttf-jetbrains-mono ttf-iosevka-nerd ttf-font-awesome rsync axel lshw
 ```
 
 - start NetworkManager, bluetooth, ufw and cronie services by systemctl
@@ -136,7 +136,6 @@ EndSection
 ## commands
 - `inxi -F`sys info
 - `ripgrep` rg for search in docs
-- axel
 - `entr` run arbitrary commands when files change
 - `xev` to know key number
 - `some-command | xclip -sel clip` copy to clipboard
@@ -148,8 +147,6 @@ EndSection
 - `lshw -c video` cmd to show video driver
 - `netstat -lntpu` list open network ports and the processes
 - `curl ifconfig.me` get your ip
-- pacman - get list of packages installed by user>
-  - `comm -23 <(pacman -Qqett | sort) <(pacman -Qqg base -g base-devel | sort | uniq)`
 - `xrandr --output eDP-1 --brightness 0.5` adjust brightness
 - `dd if=file.iso of=/dev/sdb bs=512k status=progress` create bootable usb
 - `gtk-update-icon-cache -f -t ~/.icons/<theme_name>` run to update the icon cache
@@ -163,7 +160,6 @@ EndSection
 - `journalctl -u cronie.service`
 - `alacritty -e nvim` to open doc in neovim directly
 - `df -h` to see free space and `lsblk` to see mount points
-- `sudo watch ss -tulpn` port check
 
 ## 5 sec lag problem with intel gpu
 - https://github.com/qutebrowser/qutebrowser/issues/4641
