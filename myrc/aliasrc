@@ -19,6 +19,7 @@ alias dt='expr `cat /sys/class/net/wlp2s0/statistics/rx_bytes` / 1024 / 1024'
 alias fcc='fc-cache -vf'
 alias vmnet='sudo virsh net-start default'
 alias rm='rm -i'
+alias rmf='rm -rfi'
 alias cp='cp -i'
 alias ff=fastfetch
 alias vup='pactl set-sink-volume @DEFAULT_SINK@ +20%'

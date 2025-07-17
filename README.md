@@ -1,8 +1,8 @@
-# [LICENSE](LICENSE)
-The repo is under MIT License
-
 # .config
 backup for arch config
+
+## [LICENSE](LICENSE)
+The repo is under MIT License
 
 ## pacman
 ```shell
@@ -15,10 +15,10 @@ tcpdump hyperfine zathura-pdf-poppler cronie dmenu gparted thunar github-cli \
 bluez blueman pipewire pipewire-pulse dunst networkmanager fzf nano reflector \
 arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow bsp-layout gdu\
 zed xdg-desktop-portal-gtk linux-firmware tcpdump termshark signal-desktop openssh \
-ttf-jetbrains-mono ttf-iosevka-nerd ttf-font-awesome rsync axel lshw
+ttf-jetbrains-mono ttf-iosevka-nerd ttf-font-awesome rsync axel lshw rust-analyzer
 ```
 
-- start NetworkManager, bluetooth, ufw and cronie services by systemctl
+- start NetworkManager, bluetooth, ufw, sshd and cronie services by systemctl
 - browser addon: dark reader,vimium, ublock origin, firfox container, better darkmode
 - linux-firmware for missing or deleted driver
 
@@ -77,7 +77,7 @@ hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files
 - sudo systemctl enable --now libvirtd.service
 - sudo usermod -aG libvirt $USER
 
-### [for internet coonection](https://www.youtube.com/watch?v=dLqIx-a2sPM)
+### [for internet connection](https://www.youtube.com/watch?v=dLqIx-a2sPM)
 - sudo ufw allow in on virbr0
 - sudo ufw allow out on virbr0
 - sudoedit /etc/ufw/sysctl.conf
@@ -93,8 +93,6 @@ hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files
 [Policy]
 AutoEnable=true
 ```
-## [rust analyzer](https://github.com/rust-lang/rust-analyzer/releases)
-- download rust-analyzer in ~/.local/bin and make it executable
 
 ## [autologin](https://wiki.archlinux.org/title/Getty#Prompt_only_the_password_for_a_default_user_in_virtual_console_login)
 - ``` sudo mkdir /etc/systemd/system/getty@tty1.service.d ```
@@ -238,8 +236,10 @@ ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brigh
 - ssh-keygen -t rsa
 
 ## base64
-- echo -n 'data' | base64 c2NvdHRsaW51eC5jb20gcm9ja3MK
-- echo -n c2NvdHRsaW51eC5jb20gcm9ja3MK | base64 -d data
+- `echo -n 'data' | base64`
+  - results `ZGF0YQ==`
+- `echo -n ZGF0YQ== | base64 -d`
+  - results `data`
 
 ## .ssh/config format for multiple keys
 ```
