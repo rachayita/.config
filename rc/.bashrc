@@ -28,6 +28,9 @@ shopt -s expand_aliases # expand aliases
 # load personal configs
 [[ -f ${XDG_CONFIG_HOME}/myrc/mybashrc ]] && . ${XDG_CONFIG_HOME}/myrc/mybashrc
 
+# load xrc temporary configs
+[[ -f ${XDG_DATA_HOME}/xrc ]] && . ${XDG_DATA_HOME}/xrc
+
 #
 [[ -f ${XDG_DATA_HOME}/cargo/bin/starship ]] && eval "$(starship init bash)"
 [[ -f /usr/bin/starship ]] && eval "$(starship init bash)"
