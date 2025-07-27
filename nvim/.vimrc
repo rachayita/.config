@@ -212,17 +212,17 @@ Plug 'https://github.com/tpope/vim-fugitive.git'
 " Plug 'scrooloose/nerdtree'
 Plug 'https://github.com/rust-lang/rust.vim.git'
 Plug 'https://github.com/terryma/vim-expand-region.git'
-Plug 'https://github.com/tpope/vim-commentary.git'
+"Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/airblade/vim-rooter.git'
 Plug 'https://github.com/lifepillar/vim-mucomplete.git'
-Plug 'https://github.com/mattn/webapi-vim.git' "an interface to web apis
+"Plug 'https://github.com/mattn/webapi-vim.git' "an interface to web apis
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'autozimu/LanguageClient-neovim', {
      \ 'branch': 'next',
      \ 'do': 'bash install.sh',
      \ }
 Plug 'https://github.com/vimwiki/vimwiki.git'
-Plug 'vifm/vifm.vim'
+"Plug 'vifm/vifm.vim'
 Plug 'ap/vim-css-color'
 
 " both are related in order
@@ -307,8 +307,7 @@ map <Leader>M [c "hunk upward
 map <Leader>O :set diffopt+=context:0<CR>
 
 " Plug 'https://github.com/vimwiki/vimwiki.git'
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 " latex
 setlocal iskeyword+=:,-
