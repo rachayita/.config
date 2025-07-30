@@ -132,34 +132,6 @@ EndSection
 -  ``` xrandr -s 1360x768 ```
 -  or ``` xrandr -d :0 --output <OUTPUT> --mode 1360x768 ```
 
-## commands
-- `inxi -F`sys info
-- `ripgrep` rg for search in docs
-- `entr` run arbitrary commands when files change
-- `xev` to know key number
-- `some-command | xclip -sel clip` copy to clipboard
-- `curl wttr.in/city,country`
-- `find "4DOS" wikipedia.txt | tee 4DOS.txt | sort > 4DOSsorted.txt`
-- `exec xmodmap -e "keysym Menu = Super_R" 2>/dev/null &` map menu key to super
-- `cat ~/.ssh/id_rsa.pub | ssh admin@server "sudo tee -a /root/.ssh/authorized_keys2 > /dev/null"`
-- `git config --local status.showUntrackedFiles no` donot show untracked files locally
-- `lshw -c video` cmd to show video driver
-- `netstat -lntpu` list open network ports and the processes
-- `curl ifconfig.me` get your ip
-- `xrandr --output eDP-1 --brightness 0.5` adjust brightness
-- `dd if=file.iso of=/dev/sdb bs=512k status=progress` create bootable usb
-- `gtk-update-icon-cache -f -t ~/.icons/<theme_name>` run to update the icon cache
-- `sudo mkfs.vfat /dev/sdb1`   to format usb drive with FAT32
-- terminal background blue color #1e1e1e
-- freelance contract: https://www.ashedryden.com/blog/contract
-- `rsync -avr source destination`   no slash at path end
-- `ln -s file link`
-- if ~/.pki isn't present then $XDG_DATA_HOME/pki/nssdb will be used instead
-  - no sources mentioned for environmental variable
-- `journalctl -u cronie.service`
-- `alacritty -e nvim` to open doc in neovim directly
-- `df -h` to see free space and `lsblk` to see mount points
-
 ## 5 sec lag problem with intel gpu
 - https://github.com/qutebrowser/qutebrowser/issues/4641
 - https://github.com/qutebrowser/qutebrowser/issues/4809
@@ -193,40 +165,6 @@ EndSection
 ```
 ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"
 ```
-
-## vim
-- `set wildignore+=**/node_modules/**` ignore files or folders
-- `:w !sudo tee "%"` root priviledge for saving doc in vim
-- `:5,17s/^/#/` comment line 5-17
-- `:%s/^/#/` comment all lines
-- `gx` opens links under cursor
-
-## nvimdiff
-- ]c          - next difference
-- [c          - previous difference
-- do          - diff obtain
-- dp          - diff put
-- zo          - open folded text
-- zc          - close folded text
-- zR          - unfold all lines
-- zr          - open all folds
-- zm          - close all folds
-- :diffoff!   - to end diff mode
- :syn off     - to remove colors
-- :diffupdate - to remove leftover spacing issues)
-- :only       - once you’re done reviewing all conflicts, this shows only the middle/merged file
-- :set diffopt+=iwhite      - to avoid whitespace comparison
-- :set diffopt+=context:0   - you can influence how many identical lines are kept around changes (default: 6 lines above and below) via the context value of the diffopt option. So, to completely fold all identical lines
-- :windo diffthis - to begin diffing on all visible windows which executes :diffthis on each window.
-- default identifiers that can be selected using diffget
-  - LO local master copy
-  - RE remote master to be merged
-  - BA common ancestor of remote and local changes.
-- :diffupdate - re-scan the files for differences
-  - choose which version you want to keep with :diffget //2 or :diffget //3
-  - //2 and //3 are unique identifiers for target/master copy and merge/branch copy file names
-- If you were trying to do a git pull when you ran into merge conflicts:
-  - type `git rebase –continue`
 
 ## mutt-wizard
 > `mw -a user@gmail.com -u user -n user -i imap.gmail.com -I 993 -s smtp.gmail.com -S 465`
@@ -278,3 +216,66 @@ pinentry-program /usr/bin/pinentry-tty
 - https://github.com/Julien-cpsn/ATAC
 - https://github.com/quantumsheep/sshs
 - https://github.com/SpatiumPortae/portal
+
+## vim
+- `set wildignore+=**/node_modules/**` ignore files or folders
+- `:w !sudo tee "%"` root priviledge for saving doc in vim
+- `:5,17s/^/#/` comment line 5-17
+- `:%s/^/#/` comment all lines
+- `gx` opens links under cursor
+
+## nvimdiff
+- ]c          - next difference
+- [c          - previous difference
+- do          - diff obtain
+- dp          - diff put
+- zo          - open folded text
+- zc          - close folded text
+- zR          - unfold all lines
+- zr          - open all folds
+- zm          - close all folds
+- :diffoff!   - to end diff mode
+ :syn off     - to remove colors
+- :diffupdate - to remove leftover spacing issues)
+- :only       - once you’re done reviewing all conflicts, this shows only the middle/merged file
+- :set diffopt+=iwhite      - to avoid whitespace comparison
+- :set diffopt+=context:0   - you can influence how many identical lines are kept around changes (default: 6 lines above and below) via the context value of the diffopt option. So, to completely fold all identical lines
+- :windo diffthis - to begin diffing on all visible windows which executes :diffthis on each window.
+- default identifiers that can be selected using diffget
+  - LO local master copy
+  - RE remote master to be merged
+  - BA common ancestor of remote and local changes.
+- :diffupdate - re-scan the files for differences
+  - choose which version you want to keep with :diffget //2 or :diffget //3
+  - //2 and //3 are unique identifiers for target/master copy and merge/branch copy file names
+- If you were trying to do a git pull when you ran into merge conflicts:
+  - type `git rebase –continue`
+
+## commands
+- `inxi -F`sys info
+- `ripgrep` rg for search in docs
+- `entr` run arbitrary commands when files change
+- `xev` to know key number
+- `some-command | xclip -sel clip` copy to clipboard
+- `curl wttr.in/city,country`
+- `find "4DOS" wikipedia.txt | tee 4DOS.txt | sort > 4DOSsorted.txt`
+- `exec xmodmap -e "keysym Menu = Super_R" 2>/dev/null &` map menu key to super
+- `cat ~/.ssh/id_rsa.pub | ssh admin@server "sudo tee -a /root/.ssh/authorized_keys2 > /dev/null"`
+- `git config --local status.showUntrackedFiles no` donot show untracked files locally
+- `lshw -c video` cmd to show video driver
+- `netstat -lntpu` list open network ports and the processes
+- `curl ifconfig.me` get your ip
+- `xrandr --output eDP-1 --brightness 0.5` adjust brightness
+- `dd if=file.iso of=/dev/sdb bs=512k status=progress` create bootable usb
+- `gtk-update-icon-cache -f -t ~/.icons/<theme_name>` run to update the icon cache
+- `sudo mkfs.vfat /dev/sdb1`   to format usb drive with FAT32
+- terminal background blue color #1e1e1e
+- freelance contract: https://www.ashedryden.com/blog/contract
+- `rsync -avr source destination`   no slash at path end
+- `ln -s file link`
+- if ~/.pki isn't present then $XDG_DATA_HOME/pki/nssdb will be used instead
+  - no sources mentioned for environmental variable
+- `journalctl -u cronie.service`
+- `alacritty -e nvim` to open doc in neovim directly
+- `df -h` to see free space and `lsblk` to see mount points
+
