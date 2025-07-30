@@ -11,7 +11,7 @@ fd base-devel git meld neovim firefox mpv vifm youtube-dl feh stow lxappearance\
 alacritty chromium sxiv gdb ueberzug xclip neomutt font-manager syncthing ufw gufw \
 cups openbsd-netcat zathura unzip shotgun zbar tig pass  xdotool  ntfs-3g typst \
 skim starship eza bat pass-otp nss-mdns system-config-printer jless htop fastfetch \
-tcpdump hyperfine zathura-pdf-poppler cronie dmenu gparted thunar github-cli \
+hyperfine zathura-pdf-poppler cronie dmenu gparted thunar github-cli \
 bluez blueman pipewire pipewire-pulse dunst networkmanager fzf nano reflector \
 arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow bsp-layout gdu\
 zed xdg-desktop-portal-gtk linux-firmware tcpdump termshark signal-desktop openssh \
@@ -22,7 +22,7 @@ ttf-jetbrains-mono ttf-iosevka-nerd ttf-font-awesome rsync axel lshw rust-analyz
 - browser addon: dark reader,vimium, ublock origin, firfox container, better darkmode
 - linux-firmware for missing or deleted driver
 
-## paru
+## aur
 - paru-bin, stint(cmd line color picker), mutt-wizard, simple-mtpfs-git, obinskit
 - brother-mfc-l2700dw, 7-zip-full (7z), vscodium-bin, dmenufm, linux-wifi-hotspot
 - portal-bin
@@ -44,6 +44,7 @@ ttf-jetbrains-mono ttf-iosevka-nerd ttf-font-awesome rsync axel lshw rust-analyz
 ## ~/.local/share/icons
 - [Fancy-Dark-Icons](https://www.gnome-look.org/p/1598639)
 - [ArchCursor](https://www.gnome-look.org/p/999929)
+  - aur: xcursor-arch-simple
 
 ## ~/.local/share/themes
 - [Sweet-Dark](https://www.gnome-look.org/p/1253385)
