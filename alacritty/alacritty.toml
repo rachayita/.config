@@ -39,18 +39,6 @@ TERM = "xterm-256color"
 [font]
 size = 8.5
 
-[font.bold]
-family = "JetBrains Mono"
-
-[font.bold_italic]
-family = "JetBrains Mono"
-
-[font.italic]
-family = "JetBrains Mono"
-
-[font.normal]
-family = "JetBrains Mono"
-
 [[keyboard.bindings]]
 action = "Paste"
 key = "V"
@@ -118,4 +106,3 @@ lines = 30
 [general]
 live_config_reload = true
 
-[terminal]
