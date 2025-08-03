@@ -250,6 +250,7 @@ let g:mucomplete#enable_auto_at_startup = 1
 " Note: download rust-analyzer in ~/.local/bin
 set hidden
 let g:LanguageClient_serverCommands = { 'rust': ['/usr/bin/rust-analyzer'], }
+let g:LanguageClient_serverCommands = { 'lua': ['/usr/bin/lua-language-server'], }
 let g:LanguageClient_preferredMarkupKind = ['plaintext', 'markdown']
 let g:LanguageClient_floatingHoverHighlight = 'Normal:tooltip'
 highlight tooltip  ctermfg=85 ctermbg=232 guifg=#9cffd3 guibg=#202020

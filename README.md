@@ -15,7 +15,8 @@ hyperfine zathura-pdf-poppler cronie dmenu gparted thunar github-cli \
 bluez blueman pipewire pipewire-pulse dunst networkmanager fzf nano reflector \
 arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow bsp-layout gdu\
 zed xdg-desktop-portal-gtk linux-firmware tcpdump termshark signal-desktop openssh \
-ttf-jetbrains-mono ttf-iosevka-nerd ttf-font-awesome rsync axel lshw rust-analyzer
+ttf-jetbrains-mono ttf-iosevka-nerd ttf-font-awesome rsync axel lshw rust-analyzer \
+lua-language-server
 ```
 
 - start NetworkManager, bluetooth, ufw, sshd and cronie services by systemctl
