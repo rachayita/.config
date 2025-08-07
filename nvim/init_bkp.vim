@@ -1,25 +1,17 @@
-"enter the current millenia
-set nocompatible
 set tabstop=2
-set shiftwidth=2
+set shiftwidth=2 " measured in space
 set expandtab
 set number relativenumber
-set autoindent
 set smartindent
 set showmatch
-"set hlsearch
 set nobackup
 set noswapfile
 set splitbelow splitright
-set encoding=utf-8
 set ignorecase
 set smartcase
 set colorcolumn=90 " and give me a colored column
-set showcmd " Show (partial) command in status line.
 set mouse=a " Enable mouse usage (all modes) in terminals
-set autoread
 set bs=2 " backspace
-set bg=dark
 set cursorline
 set termguicolors
 colorscheme wildcharm
@@ -30,95 +22,15 @@ set lcs=tab:»·
 set lcs+=trail:·
 
 " Show those damn hidden characters
-set listchars=nbsp:¬,extends:»,precedes:«,trail:•
+set listchars+=nbsp:¬,extends:»,precedes:«,trail:•
 
 " I can type :help on my own, thanks.
 map <F1> <Esc>
 imap <F1> <Esc>
 
-" Use increment searching (search while typing)
-set incsearch
-
 "search down into subfolders
 "provides tab-completion for all file related task
 set path+=**
-
-"Display all matching files when we tab complete
-set wildmenu
-
-
-" NOW WE CAN:
-" - Hit tab to :find by partial match
-" - Use * to make it fuzzy
-
-" THINGS TO CONSIDER:
-" - :b lets you autocomplete any open buffer
-
-
-" TAG JUMPING:
-
-" Create the `tags` file (may need to install ctags first)
-command! MakeTags !ctags -R .
-
-" NOW WE CAN:
-" - Use ^] to jump to tag under cursor
-" - Use g^] for ambiguous tags
-" - Use ^t to jump back up the tag stack
-
-" THINGS TO CONSIDER:
-" - This doesn't help if you want a visual list of tags
-
-" AUTOCOMPLETE:
-
-" The good stuff is documented in |ins-completion|
-
-" HIGHLIGHTS:
-" - ^x^n for JUST this file
-" - ^x^f for filenames (works with our path trick!)
-" - ^x^] for tags only
-" - ^n for anything specified by the 'complete' option
-
-" NOW WE CAN:
-" - Use ^n and ^p to go back and forth in the suggestion list
-
-" FILE BROWSING:
-
-" Tweaks for browsing
-let g:netrw_banner=0        " disable annoying banner
-let g:netrw_browse_split=4  " open in prior window
-let g:netrw_altv=1          " open splits to the right
-let g:netrw_liststyle=3     " tree view
-" let g:netrw_list_hide=netrw_gitignore#Hide()
-" g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
-
-" NOW WE CAN:
-" - :edit a folder to open a file browser
-" - <CR>/v/t to open in an h-split/v-split/tab
-" - check |netrw-browse-maps| for more mappings
-
-" SNIPPETS:
-
-" Read an empty HTML template and move cursor to title
-nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
-
-" NOW WE CAN:
-" - Take over the world!
-"   (with much fewer keystrokes)
-
-" BUILD INTEGRATION:
-" http://philipbradley.net/rspec-into-vim-with-quickfix
-" Configure the `make` command to run RSpec
-" set makeprg=bundle\ exec\ rspec\ -f\ QuickfixFormatter
-set makeprg=cargo\ build
-
-" NOW WE CAN:
-" - Run :make to run RSpec
-" - :cl to list errors
-" - :cc# to jump to error by number
-" - :cn and :cp to navigate forward and back
-
-" github.com/mcantor/no_plugins
-" ----
 
 " Jump to last edit position on opening file
 if has("autocmd")
@@ -128,20 +40,22 @@ endif
 
 " Help filetype detection
 autocmd BufRead *.md set filetype=markdown
+autocmd BufRead *.rs set filetype=rust
+autocmd BufRead *.lua set filetype=lua
 
 "
-inoremap <buffer> { {}<ESC>i
-inoremap <buffer> [ []<ESC>i
-inoremap <buffer> ( ()<ESC>i
-inoremap <buffer> " ""<ESC>i
-inoremap <buffer> ' ''<ESC>i
-inoremap <buffer> ` ``<ESC>i
+"inoremap <buffer> { {}<ESC>i
+"inoremap <buffer> [ []<ESC>i
+"inoremap <buffer> ( ()<ESC>i
+"inoremap <buffer> " ""<ESC>i
+"inoremap <buffer> ' ''<ESC>i
+"inoremap <buffer> ` ``<ESC>i
 
 
 " my leader
 let mapleader = "\<Space>"
 
-noremap <leader>s :source $XDG_CONFIG_HOME/nvim/.vimrc<cr>
+noremap <leader>s :source $XDG_CONFIG_HOME/nvim/init.vim<cr>
 "copy paste in clipboard
 vnoremap <Leader>y "+y
 map <Leader>p "+p
@@ -190,7 +104,7 @@ noremap gV `[v`]
 map q: :q
 
 let g:python3_host_prog = '/usr/bin/python3'
-let g:python_host_prog='/usr/bin/python2'
+let g:python_host_prog='/usr/bin/python'
 
 "fzf
 set rtp+=/usr/bin/fzf
@@ -217,10 +131,7 @@ Plug 'https://github.com/airblade/vim-rooter.git'
 Plug 'https://github.com/lifepillar/vim-mucomplete.git'
 "Plug 'https://github.com/mattn/webapi-vim.git' "an interface to web apis
 Plug 'https://github.com/airblade/vim-gitgutter.git'
-Plug 'autozimu/LanguageClient-neovim', {
-     \ 'branch': 'next',
-     \ 'do': 'bash install.sh',
-     \ }
+Plug 'autozimu/LanguageClient-neovim', {'branch':'next', 'do':'bash install.sh',}
 Plug 'https://github.com/vimwiki/vimwiki.git'
 "Plug 'vifm/vifm.vim'
 Plug 'ap/vim-css-color'
@@ -236,9 +147,6 @@ call plug#end()
 
 "https://github.com/vim-airline/vim-airline.git
 let g:airline_powerline_fonts = 1
-highlight TabLineFill cterm=NONE
-highlight TabLine     ctermbg=NONE ctermfg=202
-highlight Cursor      cterm=bold   guifg=bg    guibg=fg
 
 "Plug 'https://github.com/lifepillar/vim-mucomplete.git'
 set completeopt=menuone,noselect
@@ -249,8 +157,9 @@ let g:mucomplete#enable_auto_at_startup = 1
 " Plug 'autozimu/LanguageClient-neovim'
 " Note: download rust-analyzer in ~/.local/bin
 set hidden
-let g:LanguageClient_serverCommands = { 'rust': ['/usr/bin/rust-analyzer'], }
-let g:LanguageClient_serverCommands = { 'lua': ['/usr/bin/lua-language-server'], }
+let g:LanguageClient_serverCommands = { 'rust': ['/usr/bin/rust-analyzer'],
+                                       \ 'lua': ['/usr/bin/lua-language-server'],
+                                      \ 'toml': ['/usr/bin/tombi'], }
 let g:LanguageClient_preferredMarkupKind = ['plaintext', 'markdown']
 let g:LanguageClient_floatingHoverHighlight = 'Normal:tooltip'
 highlight tooltip  ctermfg=85 ctermbg=232 guifg=#9cffd3 guibg=#202020
@@ -266,9 +175,6 @@ let g:rustfmt_autosave = 1
 " let g:rustfmt_emit_files = 1
 " let g:rustfmt_fail_silently = 0
 let g:rust_clip_command = 'xclip -selection clipboard'
-"enable syntax and plugins (for "netrw") and rust.vim plugin
-syntax enable
-filetype plugin indent on
 
 " Plugin 'https://github.com/terryma/vim-expand-region.git'
 vmap v <Plug>(expand_region_expand)
@@ -282,7 +188,7 @@ xnoremap <Leader>g gqa
  au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=2000}
 
 " Plug 'vifm/vifm.vim'
-map <Leader>v :Vifm<CR>
+"map <Leader>v :Vifm<CR>
 
 " rust debugger
 " Note: gdb installation required
@@ -310,17 +216,7 @@ map <Leader>O :set diffopt+=context:0<CR>
 " Plug 'https://github.com/vimwiki/vimwiki.git'
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
-" latex
-setlocal iskeyword+=:,-
-setlocal makeprg=pdflatex\ -file-line-error\ -interaction=nonstopmode\ %
-
-iab <buffer> ,b \begin{
-iab <buffer> ,e \end{
-
-let g:tex_flavor = "latex"
-set suffixes+=.log,.aux,.bbl,.blg,.idx,.ilg,.ind,.out,.pdf
-
-nnoremap <leader>sv :source ~/.config/nvim/init.vim<CR>
+"set suffixes+=.log,.aux,.bbl,.blg,.idx,.ilg,.ind,.out,.pdf
 
 " Highlight all instances of word under cursor, when idle.
 " Useful when studying strange source code.
