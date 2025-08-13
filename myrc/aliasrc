@@ -43,6 +43,21 @@ alias z=zathura
 alias u=unzip
 alias t=tree
 alias portc='sudo watch ss -tulpn'
+alias lg='glow -l'
+
+# git
+alias g=git
+alias gg='git status'
+alias gd='git diff'
+alias gdt='git difftool'
+alias ga='git add'
+alias gl='git log'
+alias gll='git log --oneline'
+alias gam='git commit --amend'
+alias gc='git commit'
+alias gsl='git stash list'
+alias gsp='git stash push'
+alias gspp='git stash pop'
 
 # search
 alias frs='nvim $(find . -name "*.rs" | sk -m)'

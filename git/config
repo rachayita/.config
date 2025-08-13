@@ -10,7 +10,7 @@
 	guitool = nvimdiff
 [mergetool "nvimdiff"]
 	; cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
-	
+
 	; $wincmd w focuses the last window because $ always references the highest window number.
         ; wincmd J moves the focused window to the bottom, so in this case the window for the merged file view.
 	cmd = "nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'"
@@ -31,22 +31,28 @@
 	autocrlf = input
 	safecrlf = true
 [alias]
+  a = stage
 	c = commit
+  cam = commit --amend
 	s = status
-	st = status
+	st = stash push
+  sp = stash pop
+  sl = stash list
+  d = diff
+  dt = difftool
 	lg = log --oneline
+  l = log
 	last = log -1 HEAD
 	f = push --force-with-lease
 	# https://stackoverflow.com/a/11688523/472927
 	ss = "!f() { git stash show stash^{/$*} -p; }; f"
 	sa = "!f() { git stash apply stash^{/$*}; }; f"
-	sl = stash list
 [pull]
 	ff = only
 [push]
 	default = simple
 [help]
-	autocorrect = 1
+	autocorrect = 0
 [url "git@github.com:"]
 	insteadOf = gh:
 [github]

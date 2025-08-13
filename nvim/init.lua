@@ -41,21 +41,20 @@ vim.opt.tabstop = 2
 vim.opt.expandtab = true
 vim.opt.completeopt = { "menuone" }
 vim.opt.shortmess:append "casI"
-vim.opt.iskeyword:append "-"                  -- hyphenated words recognized by searches
+vim.opt.iskeyword:append "-" -- hyphenated words recognized by searches
 vim.opt.rtp:remove("/usr/share/vim/vimfiles") -- separate vim plugins from neovim in case vim still in use
 vim.opt.belloff:append('ctrlg')
-vim.opt.lazyredraw = true                     -- faster scrolling, may cause screen problem
+vim.opt.lazyredraw = true -- faster scrolling, may cause screen problem
 vim.opt.smartindent = true
-vim.opt.ignorecase = true                     -- case-insensitive search/replace
-vim.opt.smartcase = true                      -- unless uppercase in search term
-vim.opt.vb = true                             -- never ever make my terminal beep
-vim.opt.wildmode = 'list:longest'             -- wildmenu completion: list all but only complete longest  match
-vim.opt.diffopt:append('iwhite')              -- by ignoring whitespacel in diffs (nvim -d)
+vim.opt.ignorecase = true -- case-insensitive search/replace
+vim.opt.smartcase = true -- unless uppercase in search term
+vim.opt.vb = true -- never ever make my terminal beep
+vim.opt.wildmode = 'list:longest' -- wildmenu completion: list all but only complete longest  match
+vim.opt.diffopt:append('iwhite') -- by ignoring whitespacel in diffs (nvim -d)
 vim.opt.diffopt:append('algorithm:histogram') -- using a smarter algorithm in nvim-d
 vim.opt.diffopt:append('indent-heuristic')
-vim.api.nvim_create_autocmd('Filetype', { pattern = 'rust', command = 'set colorcolumn=100' })
-vim.opt.listchars = 'tab:^ ,nbsp:¬,extends:»,precedes:«,trail:•' -- show more hidden characters also, show tabs nicer
 vim.opt.wildignore = '.hg,.svn,*~,*.png,*.jpg,*.gif,*.min.js,*.swp,*.o,vendor,dist,_site' -- in :e suggestion
+vim.opt.listchars = 'tab:^ ,nbsp:¬,extends:»,precedes:«,trail:•' -- show more hidden characters also, show tabs nicer
 
 -------------------------------------------------------------------------------
 -- hotkeys
@@ -237,6 +236,7 @@ vim.api.nvim_create_autocmd('BufRead', { pattern = '*.pacnew', command = 'set re
 vim.api.nvim_create_autocmd('InsertLeave', { pattern = '*', command = 'set nopaste' })
 -- help filetype detection (add as needed)
 vim.api.nvim_create_autocmd('BufRead', { pattern = '*.md', command = 'set filetype=markdown' })
+vim.api.nvim_create_autocmd('Filetype', { pattern = 'rust', command = 'set colorcolumn=100' })
 -- correctly classify mutt buffers
 local email = vim.api.nvim_create_augroup('email', { clear = true })
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
