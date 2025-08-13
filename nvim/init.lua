@@ -325,6 +325,14 @@ require("lazy").setup({
         require('colorizer').setup()
       end
     },
+    -- j--c/cwd.nvim
+    {
+      "j--c/cwd.nvim",
+      config = function()
+        require('cwd').setup()
+      end,
+      vim.keymap.set('n', '<leader>/', '<cmd>CwdChange<cr>')
+    },
     -- lualine status line
     {
       "nvim-lualine/lualine.nvim",
