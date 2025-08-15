@@ -28,20 +28,17 @@ lua-language-server tombi
 - start NetworkManager, bluetooth, ufw, sshd and cronie services by systemctl
 - browser addon: dark reader,vimium, ublock origin, firfox container, better darkmode
 - linux-firmware for missing or deleted driver
-
-### update mirrorlist
+```bash
+mkdir -p ~/.local/state/bash && touch ~/.local/state/bash/history
+```
 ```bash
 sudo reflector --verbose --ipv4 --protocol https --score 20 --sort rate --save /etc/pacman.d/mirrorlist
 ```
 
 ### ~/.local/share/fonts
-> ``` fc-cache -vf ```
-- [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
-  - pacman: `ttf-jetbrains-mono`
-- [Font Awesome](https://fontawesome.com/download)
-  - pacman: `ttf-font-awesome`
-- [iosevka nerd font: fonts for starship](https://www.nerdfonts.com/font-downloads)
-  - pacman: `ttf-iosevka-nerd`
+- `fc-cache -vf`
+- pacman: [ttf-jetbrains-mono](https://www.jetbrains.com/lp/mono/)
+- pacman: [ttf-iosevka-nerd](https://www.nerdfonts.com/font-downloads)
 
 ### ~/.local/share/icons
 - [Fancy-Dark-Icons](https://www.gnome-look.org/p/1598639)
@@ -50,16 +47,6 @@ sudo reflector --verbose --ipv4 --protocol https --score 20 --sort rate --save /
 
 ### ~/.local/share/themes
 - [Sweet-Dark](https://www.gnome-look.org/p/1253385)
-
-### [PlugInstall](https://github.com/junegunn/vim-plug)
-```bash
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim \
---create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-```
-### bash history
-```bash
-mkdir -p ~/.local/state/bash && touch ~/.local/state/bash/history
-```
 
 ## printer setup
 - install nss-mdns
