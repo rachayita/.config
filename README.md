@@ -225,6 +225,12 @@ Restart Firefox
 - `:5,17s/^/#/` comment line 5-17
 - `:%s/^/#/` comment all lines
 - `gx` opens links under cursor
+- `%s/find/replace/gci`
+    %: Indicates the entire file
+    s: Stands for substitute
+    g: Replaces all occurrences in each line
+    i: Case insensitive
+    c: Confirm each replacement
 
 ## nvimdiff
 - ]c          - next difference
