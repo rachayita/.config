@@ -174,6 +174,9 @@ vim.g.termdebugger = "rust-gdb"
 vim.g.termdebug_wide = 1
 vim.keymap.set('n', '<leader>b', ":packadd termdebug<cr> :Termdebug<cr>")
 
+-- plasticboy/vim-markdown
+vim.g.wimwiki_list = { path = '~/vimwiki/', syntax = 'markdown', ext = '.md', }
+
 -------------------------------------------------------------------------------
 -- autocommands
 -------------------------------------------------------------------------------
@@ -497,20 +500,13 @@ require("lazy").setup({
       'rust-lang/rust.vim',
       ft = { "rust" },
     },
-    -- markdown
+    -- plasticboy/vim-markdown
     {
       'plasticboy/vim-markdown',
       ft = { "markdown" },
       dependencies = {
         'godlygeek/tabular',
       },
-      config = function()
-        vim.g.wimwiki_list = {
-          path = '~/vimwiki/',
-          syntax = 'markdown',
-          ext = '.md',
-        }
-      end
     },
     -- tadmccorkle/markdown.nvim
     {
