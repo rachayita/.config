@@ -3,7 +3,7 @@ vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.cmd [[colorscheme wildcharm]]
+vim.cmd [[colorscheme lunaperche]]
 vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
 -- on os
 vim.g.python3_host_prog = 'python3'
@@ -41,7 +41,6 @@ vim.opt.tabstop = 2
 vim.opt.expandtab = true
 vim.opt.completeopt = { "menuone" }
 vim.opt.shortmess:append "casI"
-vim.opt.iskeyword:append "-" -- hyphenated words recognized by searches
 vim.opt.rtp:remove("/usr/share/vim/vimfiles") -- separate vim plugins from neovim in case vim still in use
 vim.opt.belloff:append('ctrlg')
 vim.opt.lazyredraw = true -- faster scrolling, may cause screen problem
@@ -170,8 +169,7 @@ vim.g.rustfmt_emit_files = 1
 vim.g.rustfmt_fail_silently = 0
 vim.g.rust_clip_command = 'xclip -selection clipboard'
 
--- rust debugger
--- note: gdb installation required
+-- rust debugger: gdb installation required
 vim.g.termdebugger = "rust-gdb"
 vim.g.termdebug_wide = 1
 vim.keymap.set('n', '<leader>b', ":packadd termdebug<cr> :Termdebug<cr>")
@@ -301,11 +299,12 @@ require("lazy").setup({
         'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
         'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
       },
-      init = function() vim.g.barbar_auto_setup = false end,
       opts = {
         -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
-        -- animation = true,
-        -- insert_at_start = true,
+        insert_at_start = false,
+        auto_hide = 1,
+        icons = { current = { filetype = { enabled = true } }, buffer_index = 'subscript', buffer_number = 'superscript', diagnostics = { enabled = true } },
+        --maximum_padding = math.huge,
         -- …etc.
       },
       version = '^1.0.0', -- optional: only update when a new 1.x version is released
@@ -336,6 +335,12 @@ require("lazy").setup({
           -- A list of parser names, or "all" (the listed parsers MUST always be installed)
           ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "rust" },
 
+          markdown = {
+            enable = true,
+            -- user configuration goes here
+            inline_surround = { --[[ ... ]] },
+            --on_attach = function(bufnr) --[[ ... ]] end,
+          },
           -- Install parsers synchronously (only applied to `ensure_installed`)
           sync_install = false,
 
@@ -367,6 +372,65 @@ require("lazy").setup({
           },
         }
       end
+    },
+    -- 'mfussenegger/nvim-dap'
+    {
+      'mfussenegger/nvim-dap',
+      config = function()
+        local dap = require("dap")
+        dap.adapters.gdb = {
+          type = "executable",
+          command = "gdb",
+          args = { "--interpreter=dap", "--eval-command", "set print pretty on" }
+        }
+        dap.configurations.rust = {
+          {
+            name = "Launch",
+            type = "gdb",
+            request = "launch",
+            program = function()
+              return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            end,
+            cwd = "${workspaceFolder}",
+            stopAtBeginningOfMainSubprogram = false,
+          },
+          {
+            name = "Select and attach to process",
+            type = "gdb",
+            request = "attach",
+            program = function()
+              return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            end,
+            pid = function()
+              local name = vim.fn.input('Executable name (filter): ')
+              return require("dap.utils").pick_process({ filter = name })
+            end,
+            cwd = '${workspaceFolder}'
+          },
+          {
+            name = 'Attach to gdbserver :1234',
+            type = 'gdb',
+            request = 'attach',
+            target = 'localhost:1234',
+            program = function()
+              return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            end,
+            cwd = '${workspaceFolder}'
+          },
+        }
+      end,
+      vim.keymap.set('n', '<leader>1', '<cmd>DapToggleBreakpoint<cr>'),
+      vim.keymap.set('n', '<leader>2', '<cmd>DapContinue<cr>'),
+      vim.keymap.set('n', '<leader>3', '<cmd>DapTerminate<cr>'),
+    },
+    -- rcarriga/nvim-dap-ui
+    {
+      "rcarriga/nvim-dap-ui",
+      dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+      config = function()
+        require("dapui").setup()
+      end,
+      vim.keymap.set('n', '<leader>u', "<cmd>lua require('dapui').toggle()<cr>"),
     },
     -- j--c/cwd.nvim
     {
@@ -629,13 +693,13 @@ require("lazy").setup({
             local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
             -- TODO: find some way to make this only apply to the current line.
-            if client.server_capabilities.inlayHintProvider then
+            if client.server_capabilities.inlayHintProvider ~= nil then
               vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
             end
 
             -- None of this semantics tokens business.
             -- https://www.reddit.com/r/neovim/comments/143efmd/is_it_possible_to_disable_treesitter_completely/
-            client.server_capabilities.semanticTokensProvider = nil
+            -- client.server_capabilities.semanticTokensProvider = nil
           end,
         })
       end
