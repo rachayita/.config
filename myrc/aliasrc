@@ -49,15 +49,20 @@ alias lg='glow -l'
 alias g=git
 alias gg='git status'
 alias gd='git diff'
+alias gdc='git diff --cached'
 alias gdt='git difftool'
 alias ga='git add'
 alias gl='git log'
 alias gll='git log --oneline'
 alias gam='git commit --amend'
+alias gf='git push --force-with-lease'
+alias gck='git checkout'
+alias guf='git config --local status.showUntrackedFiles' # yes or no
 alias gc='git commit'
 alias gsl='git stash list'
 alias gsp='git stash push'
 alias gspp='git stash pop'
+alias gr='git remote show origin'
 
 # search
 alias frs='nvim $(find . -name "*.rs" | sk -m)'
