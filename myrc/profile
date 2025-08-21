@@ -3,6 +3,7 @@ export TERMINAL=alacritty
 export EDITOR=nvim
 export BROWSER=firefox
 export PAGER=less
+export NET_DEVICE=wlp2s0
 
 # XDG
 export XDG_DATA_HOME=~/.local/share
