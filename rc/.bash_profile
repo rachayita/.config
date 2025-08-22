@@ -2,7 +2,7 @@
 # ~/.bash_profile
 #
 
-[[ -f ~/.config/myrc/profile ]] && . ~/.config/myrc/profile
+[[ -f ~/.config/myrc/globals ]] && . ~/.config/myrc/globals
 [[ -f ~/.config/rc/.bashrc ]] && . ~/.config/rc/.bashrc
 
 # load xrc temporary configs
