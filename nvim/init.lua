@@ -1,4 +1,6 @@
+-------------------------------------------------------------------------------
 -- leader first
+-------------------------------------------------------------------------------
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
@@ -15,7 +17,6 @@ vim.g.loaded_perl_provider = 0
 -- rust debugger: gdb installation required
 vim.g.termdebugger = "rust-gdb"
 vim.g.termdebug_wide = 1
-vim.keymap.set('n', '<leader>b', ":packadd termdebug<cr> :Termdebug<cr>")
 
 -------------------------------------------------------------------------------
 -- vim.opt
@@ -122,6 +123,7 @@ vim.keymap.set('n', 'gV', '`[v`]') -- quickly select text you just pasted
 -- format para to 80 chars (selected or not)
 vim.keymap.set('n', '<leader>g', 'gqap')
 vim.keymap.set('x', '<leader>g', 'gqa')
+vim.keymap.set('n', '<leader>b', ":packadd termdebug<cr> :Termdebug<cr>")
 
 -------------------------------------------------------------------------------
 -- floating window
@@ -228,29 +230,6 @@ vim.api.nvim_create_autocmd('InsertLeave', { pattern = '*', command = 'set nopas
 -- help filetype detection (add as needed)
 vim.api.nvim_create_autocmd('BufRead', { pattern = '*.md', command = 'set filetype=markdown' })
 vim.api.nvim_create_autocmd('Filetype', { pattern = 'rust', command = 'set colorcolumn=100' })
--- correctly classify mutt buffers
-local email = vim.api.nvim_create_augroup('email', { clear = true })
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
-  pattern = '/tmp/mutt*',
-  group = email,
-  command = 'setfiletype mail',
-})
--- also, produce "flowed text" wrapping
--- https://brianbuccola.com/line-breaks-in-mutt-and-vim/
-vim.api.nvim_create_autocmd('Filetype', {
-  pattern = 'mail',
-  group = email,
-  command = 'setlocal formatoptions+=w',
-})
--- shorter columns in text because it reads better that way
-local text = vim.api.nvim_create_augroup('text', { clear = true })
-for _, pat in ipairs({ 'text', 'mail', 'gitcommit' }) do
-  vim.api.nvim_create_autocmd('Filetype', {
-    pattern = pat,
-    group = text,
-    command = 'setlocal spell tw=72 colorcolumn=73',
-  })
-end
 
 -------------------------------------------------------------------------------
 -- lazy.vim plugin manager
@@ -653,8 +632,15 @@ require("lazy").setup({
         end
 
         -- toml
-        if vim.fn.executable('tombi') == 1 then
-          vim.lsp.enable('tombi')
+        if vim.fn.executable('taplo') == 1 then
+          vim.lsp.enable('taplo')
+          vim.lsp.config(("taplo"), {
+            settings = {
+              Toml = {
+                root_makers = { ".taplo.toml", "taplo.toml", ".git", "Cargo.toml" }
+              }
+            }
+          })
         end
 
         -- lua-language-server for lua
@@ -729,4 +715,4 @@ require("lazy").setup({
   checker = { enabled = false },
 })
 
-vim.cmd[[colorscheme tokyonight-night]]
+vim.cmd [[colorscheme tokyonight-night]]
