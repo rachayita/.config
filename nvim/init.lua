@@ -3,14 +3,6 @@ vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.cmd [[colorscheme lunaperche]]
-vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
--- on os
-vim.g.python3_host_prog = 'python3'
-vim.g.python_host_prog = 'python'
-vim.g.perl_host_prog = 'perl'
-vim.g.loaded_perl_provider = 0
-
 -------------------------------------------------------------------------------
 -- vim.opt
 -------------------------------------------------------------------------------
@@ -58,6 +50,7 @@ vim.opt.listchars = 'tab:^ ,nbsp:¬,extends:»,precedes:«,trail:•' -- show mo
 -------------------------------------------------------------------------------
 -- hotkeys
 -------------------------------------------------------------------------------
+vim.keymap.set('n', '<leader>=', '<cmd>Lazy<cr>')
 vim.keymap.set('n', '<leader>c', ':e $MYVIMRC<CR>')
 vim.keymap.set('n', '<leader>h', ':help ')
 vim.keymap.set('n', 'f', '<C-f>') -- page down/up
@@ -117,6 +110,21 @@ vim.keymap.set('n', '<leader>g', 'gqap')
 vim.keymap.set('x', '<leader>g', 'gqa')
 
 -------------------------------------------------------------------------------
+-- globals + miscellaneous
+-------------------------------------------------------------------------------
+vim.cmd [[colorscheme lunaperche]]
+vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
+-- on os
+vim.g.python3_host_prog = 'python3'
+vim.g.python_host_prog = 'python'
+vim.g.perl_host_prog = 'perl'
+vim.g.loaded_perl_provider = 0
+-- rust debugger: gdb installation required
+vim.g.termdebugger = "rust-gdb"
+vim.g.termdebug_wide = 1
+vim.keymap.set('n', '<leader>b', ":packadd termdebug<cr> :Termdebug<cr>")
+
+-------------------------------------------------------------------------------
 -- floating window
 -------------------------------------------------------------------------------
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#000000", fg = "#FFFFFF" })
@@ -159,23 +167,6 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
   vim.g["loaded_" .. plugin] = 1
 end
-
--------------------------------------------------------------------------------
--- opts for plugins
--------------------------------------------------------------------------------
--- rust.vim
-vim.g.rustfmt_autosave = 1
-vim.g.rustfmt_emit_files = 1
-vim.g.rustfmt_fail_silently = 0
-vim.g.rust_clip_command = 'xclip -selection clipboard'
-
--- rust debugger: gdb installation required
-vim.g.termdebugger = "rust-gdb"
-vim.g.termdebug_wide = 1
-vim.keymap.set('n', '<leader>b', ":packadd termdebug<cr> :Termdebug<cr>")
-
--- plasticboy/vim-markdown
-vim.g.wimwiki_list = { path = '~/vimwiki/', syntax = 'markdown', ext = '.md', }
 
 -------------------------------------------------------------------------------
 -- autocommands
@@ -499,25 +490,56 @@ require("lazy").setup({
     {
       'rust-lang/rust.vim',
       ft = { "rust" },
-    },
-    -- plasticboy/vim-markdown
-    {
-      'plasticboy/vim-markdown',
-      ft = { "markdown" },
-      dependencies = {
-        'godlygeek/tabular',
-      },
-    },
-    -- tadmccorkle/markdown.nvim
-    {
-      "tadmccorkle/markdown.nvim",
-      ft = "markdown", -- or 'event = "VeryLazy"'
-      opts = {
-        -- configuration here or empty for defaults
-      },
       config = function()
-        require("markdown").setup()
+        vim.g.rustfmt_autosave = 1
+        vim.g.rustfmt_emit_files = 1
+        vim.g.rustfmt_fail_silently = 0
+        vim.g.rust_clip_command = 'xclip -selection clipboard'
       end
+    },
+    -- vimwiki/vimwiki
+    {
+      "vimwiki/vimwiki",
+      init = function()
+        vim.g.vimwiki_list = {
+          {
+            path = '~/vimwiki',
+            syntax = 'markdown',
+            ext = '.md',
+          },
+        }
+      end,
+    },
+    --'MeanderingProgrammer/render-markdown.nvim',
+    {
+      'MeanderingProgrammer/render-markdown.nvim',
+      --dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+      -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+      dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+      opts = {},
+      vim.treesitter.language.register('markdown', 'vimwiki'),
+      config = function()
+        require('render-markdown').setup({
+          completions = { blink = { enabled = true } },
+          file_types = { 'markdown', 'vimwiki' },
+        })
+      end
+    },
+    -- "AbdelrahmanDwedar/awesome-nvim-colorschemes",
+    {
+      "AbdelrahmanDwedar/awesome-nvim-colorschemes",
+      config = function()
+      require('tokyonight').setup({
+        lazy = false,
+        style = "night",
+        transparent = true,
+        terminal_colors = true,
+        styles = {
+          sidebars = "transparent", -- style for sidebars, see below
+          floats = "transparent",
+        }
+      })
+    end,
     },
     -- Useful status updates for LSP.
     { 'j-hui/fidget.nvim', opts = {} },
