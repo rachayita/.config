@@ -25,6 +25,7 @@ alias ff=fastfetch
 alias vup='pactl set-sink-volume @DEFAULT_SINK@ +20%'
 alias vdn='pactl set-sink-volume @DEFAULT_SINK@ -20%'
 alias mu='pactl set-sink-volume @DEFAULT_SINK@ -100%'
+alias mir='sudo reflector --verbose --ipv4 --protocol https --score 20 --sort rate --save /etc/pacman.d/mirrorlist'
 
 # app
 alias mutt=neomutt
