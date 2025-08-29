@@ -4,6 +4,20 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -------------------------------------------------------------------------------
+-- globals + miscellaneous
+-------------------------------------------------------------------------------
+vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
+-- on os
+vim.g.python3_host_prog = 'python3'
+vim.g.python_host_prog = 'python'
+vim.g.perl_host_prog = 'perl'
+vim.g.loaded_perl_provider = 0
+-- rust debugger: gdb installation required
+vim.g.termdebugger = "rust-gdb"
+vim.g.termdebug_wide = 1
+vim.keymap.set('n', '<leader>b', ":packadd termdebug<cr> :Termdebug<cr>")
+
+-------------------------------------------------------------------------------
 -- vim.opt
 -------------------------------------------------------------------------------
 vim.opt.mouse = ''
@@ -108,21 +122,6 @@ vim.keymap.set('n', 'gV', '`[v`]') -- quickly select text you just pasted
 -- format para to 80 chars (selected or not)
 vim.keymap.set('n', '<leader>g', 'gqap')
 vim.keymap.set('x', '<leader>g', 'gqa')
-
--------------------------------------------------------------------------------
--- globals + miscellaneous
--------------------------------------------------------------------------------
-vim.cmd [[colorscheme lunaperche]]
-vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
--- on os
-vim.g.python3_host_prog = 'python3'
-vim.g.python_host_prog = 'python'
-vim.g.perl_host_prog = 'perl'
-vim.g.loaded_perl_provider = 0
--- rust debugger: gdb installation required
-vim.g.termdebugger = "rust-gdb"
-vim.g.termdebug_wide = 1
-vim.keymap.set('n', '<leader>b', ":packadd termdebug<cr> :Termdebug<cr>")
 
 -------------------------------------------------------------------------------
 -- floating window
@@ -529,17 +528,17 @@ require("lazy").setup({
     {
       "AbdelrahmanDwedar/awesome-nvim-colorschemes",
       config = function()
-      require('tokyonight').setup({
-        lazy = false,
-        style = "night",
-        transparent = true,
-        terminal_colors = true,
-        styles = {
-          sidebars = "transparent", -- style for sidebars, see below
-          floats = "transparent",
-        }
-      })
-    end,
+        require('tokyonight').setup({
+          lazy = false,
+          style = "night",
+          transparent = true,
+          terminal_colors = true,
+          styles = {
+            sidebars = "transparent", -- style for sidebars, see below
+            floats = "transparent",
+          }
+        })
+      end,
     },
     -- Useful status updates for LSP.
     { 'j-hui/fidget.nvim', opts = {} },
@@ -729,3 +728,5 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = false },
 })
+
+vim.cmd[[colorscheme tokyonight-night]]
