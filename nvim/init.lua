@@ -65,7 +65,9 @@ vim.opt.listchars = 'tab:^ ,nbsp:¬,extends:»,precedes:«,trail:•' -- show mo
 -------------------------------------------------------------------------------
 -- hotkeys
 -------------------------------------------------------------------------------
-vim.keymap.set('n', '<leader>=', '<cmd>Lazy<cr>')
+vim.keymap.set('n', '<leader>n', '<cmd>DiffviewOpen<cr>')
+vim.keymap.set('n', '<leader>N', '<cmd>DiffviewClose<cr>')
+vim.keymap.set('n', '<leader>L', '<cmd>Lazy<cr>')
 vim.keymap.set('n', '<leader>c', ':e $MYVIMRC<CR>')
 vim.keymap.set('n', '<leader>h', ':help ')
 vim.keymap.set('n', 'f', '<C-f>') -- page down/up
@@ -73,6 +75,7 @@ vim.keymap.set('n', 'F', '<C-b>') -- page up
 vim.keymap.set('n', '<leader><cr>', '<cmd>write<cr>')
 vim.keymap.set('n', '<leader>w', '<cmd>wq<cr>')
 vim.keymap.set('n', '<leader>q', '<cmd>q!<cr>')
+vim.keymap.set('n', '<C-q>', '<cmd>qall<cr>')
 vim.keymap.set('n', '<leader>;', '<cmd>bd<cr>')
 vim.keymap.set('n', '<leader>\'', '<cmd>bd!<cr>')
 vim.keymap.set('', '<C-p>', '<cmd>files<cr>')       -- quick-open
@@ -256,6 +259,8 @@ require("lazy").setup({
   spec = {
     -- add your plugins here
 
+    -- 'sindrets/diffview.nvim'
+    { "sindrets/diffview.nvim" },
     -- auto-cd to root of git project
     -- 'airblade/vim-rooter'
     {
