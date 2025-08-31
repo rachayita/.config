@@ -28,4 +28,5 @@ shopt -s expand_aliases # expand aliases
 # load personal configs
 [[ -f ${XDG_CONFIG_HOME}/myrc/mybashrc ]] && . ${XDG_CONFIG_HOME}/myrc/mybashrc
 
-[[ -f /usr/bin/starship ]] && eval "$(starship init bash)"
+[[ -f /usr/bin/starship ]] && eval "$(starship init bash)" # initialize starship
+source <(COMPLETE=bash jj) # auto complete for jujutsu
