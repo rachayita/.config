@@ -14,10 +14,6 @@ graph.style = "square"
 merge-editor = "nvimdiff"
 color = "always"
 
-[diff-tools.nvimdiff]
-program = "nvim"
-diff-args = ["-d", "--color=always", "$left", "$right"]
-
 [merge-tools.nvimdiff]
 program = "nvim"
 merge-tool-edits-conflict-markers = true
@@ -41,6 +37,7 @@ merge-args = [
 
 [snapshot]
 auto-update-stale = true
+auto-track = "ignore"
 
 [git]
 push-new-bookmarks = true
@@ -107,7 +104,6 @@ log = "(present(@) | ancestors(immutable_heads().., 2) | present(trunk())) & ~bl
 'user(x)' = "author(x) | committer(x)"
 
 [aliases]
-an = ["file", "annotate"] # similar to git blame
 # status
 s = ["status"]
 sf = [
@@ -335,7 +331,7 @@ or = ["op", "restore"]
 ow = ["op", "show"]
 owp = ["op", "show", "--patch"]
 # file
-fn = ["file", "annotate"]
+fn = ["file", "annotate"]        # similar to git blame
 fnr = ["file", "annotate", "-r"]
 ft = ["file", "track"]
 fu = ["file", "untrack"]
