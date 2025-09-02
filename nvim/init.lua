@@ -259,6 +259,8 @@ require("lazy").setup({
   spec = {
     -- add your plugins here
 
+    -- akinsho/git-conflict.nvim
+    { 'akinsho/git-conflict.nvim', version = "*", config = true },
     -- 'sindrets/diffview.nvim'
     { "sindrets/diffview.nvim" },
     -- auto-cd to root of git project
