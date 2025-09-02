@@ -35,14 +35,7 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a Virt-manager desktop='^9'
 
-signal-desktop &
 $BROWSER &
-feh --bg-fill --no-fehbg ~/.config/.bg.jpg &
-xsetroot -cursor_name left_ptr &
-
-# mapping menu key to Super_R and caps to escape
-xmodmap ~/.config/myrc/Xmodmap &
-
 ~/.config/polybar/launch.sh &
 blueman-applet &
 dunst &
