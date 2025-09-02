@@ -41,7 +41,7 @@ auto-track = "ignore"
 
 [git]
 push-new-bookmarks = true
-track-default-bookmark-on-clone = false
+track-default-bookmark-on-clone = true
 private-commits = "private()"
 write-change-id-header = true
 
