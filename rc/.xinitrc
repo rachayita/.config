@@ -5,6 +5,7 @@ then
     killall bspwm
 fi
 
+pgrep -x sxhkd > /dev/null || sxhkd &
 xmodmap ~/.config/myrc/Xmodmap & # mapping menu key to Super_R and caps to escape
 xsetroot -cursor_name left_ptr &
 feh --bg-fill --no-fehbg ~/.config/.bg.jpg &

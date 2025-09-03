@@ -1,7 +1,5 @@
 #! /bin/sh
 
-pgrep -x sxhkd > /dev/null || sxhkd &
-
 if [[ $(xrandr --query | grep 'HDMI-1 connected') ]];
 then
   xrandr --output eDP-1 --primary --mode 1366x768 --output HDMI-1 --mode 1360x768
