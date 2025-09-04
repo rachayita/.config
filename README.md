@@ -13,7 +13,7 @@ cups openbsd-netcat zathura unzip shotgun zbar tig pass  xdotool  ntfs-3g typst 
 skim starship eza bat pass-otp nss-mdns system-config-printer jless htop fastfetch \
 hyperfine zathura-pdf-poppler cronie dmenu gparted thunar github-cli taplo lazyjj \
 bluez blueman pipewire pipewire-pulse dunst networkmanager fzf nano reflector jujutsu \
-arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow bsp-layout gdu\
+arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow bsp-layout gdu slock \
 zed xdg-desktop-portal-gtk linux-firmware tcpdump termshark signal-desktop openssh \
 ttf-jetbrains-mono ttf-iosevka-nerd ttf-font-awesome rsync axel lshw rust-analyzer \
 lua-language-server
