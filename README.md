@@ -16,7 +16,8 @@ bluez blueman pipewire pipewire-pulse dunst networkmanager fzf nano reflector ju
 arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow bsp-layout gdu slock \
 zed xdg-desktop-portal-gtk linux-firmware tcpdump termshark signal-desktop openssh \
 ttf-jetbrains-mono ttf-iosevka-nerd ttf-font-awesome rsync axel lshw rust-analyzer \
-lua-language-server
+lua-language-server ffmpeg \
+cargo-binstall cargo-update
 ```
 
 ### aur
@@ -133,11 +134,6 @@ sudo reflector --verbose --ipv4 --protocol https --score 20 --sort rate --save /
     EndSection
     ```
 
-## mount android phone
-- `simple-mtpfs -l`
-- `simple-mtpfs --device 1 cell/`
-- to unmount: `fusermount -u cell/`
-
 ## connect AnnePro2 P1 via bluetooth
 - press F2 + 1 for 5 sec
 - `bt-device -l`
@@ -205,49 +201,10 @@ Restart Firefox
 - https://github.com/Julien-cpsn/ATAC
 - https://github.com/quantumsheep/sshs
 - https://github.com/SpatiumPortae/portal
-
-## vim
-- `set wildignore+=**/node_modules/**` ignore files or folders
-- `:w !sudo tee "%"` root priviledge for saving doc in vim
-- `:5,17s/^/#/` comment line 5-17
-- `:%s/^/#/` comment all lines
-- `gx` opens links under cursor
-- `%s/find/replace/gci`
-    %: Indicates the entire file
-    s: Stands for substitute
-    g: Replaces all occurrences in each line
-    i: Case insensitive
-    c: Confirm each replacement
-
-## nvimdiff
-- ]c          - next difference
-- [c          - previous difference
-- do          - diff obtain
-- dp          - diff put
-- zo          - open folded text
-- zc          - close folded text
-- zR          - unfold all lines
-- zr          - open all folds
-- zm          - close all folds
-- :diffoff!   - to end diff mode
-    :syn off     - to remove colors
-- :diffupdate - to remove leftover spacing issues)
-- :only       - once you’re done reviewing all conflicts, this shows only the middle/merged file
-- :set diffopt+=iwhite      - to avoid whitespace comparison
-- :set diffopt+=context:0   - you can influence how many identical lines are kept around changes (default: 6 lines above and below) via the context value of the diffopt option. So, to completely fold all identical lines
-- :windo diffthis - to begin diffing on all visible windows which executes :diffthis on each window.
-- default identifiers that can be selected using diffget
-  - LO local master copy
-  - RE remote master to be merged
-  - BA common ancestor of remote and local changes.
-- :diffupdate - re-scan the files for differences
-  - choose which version you want to keep with :diffget //2 or :diffget //3
-  - //2 and //3 are unique identifiers for target/master copy and merge/branch copy file names
-- If you were trying to do a git pull when you ran into merge conflicts:
-  - type `git rebase –continue`
+- mdbook: convert markdown to book
 
 ## commands
-- `inxi -F`sys info
+- `inxi -F` sys info
 - `ripgrep` rg for search in docs
 - `entr` run arbitrary commands when files change
 - `xev` to know key number
@@ -256,7 +213,6 @@ Restart Firefox
 - `find "4DOS" wikipedia.txt | tee 4DOS.txt | sort > 4DOSsorted.txt`
 - `exec xmodmap -e "keysym Menu = Super_R" 2>/dev/null &` map menu key to super
 - `cat ~/.ssh/id_rsa.pub | ssh admin@server "sudo tee -a /root/.ssh/authorized_keys2 > /dev/null"`
-- `git config --local status.showUntrackedFiles no` donot show untracked files locally
 - `lshw -c video` cmd to show video driver
 - `netstat -lntpu` list open network ports and the processes
 - `curl ifconfig.me` get your ip
@@ -264,7 +220,6 @@ Restart Firefox
 - `dd if=file.iso of=/dev/sdb bs=512k status=progress` create bootable usb
 - `gtk-update-icon-cache -f -t ~/.icons/<theme_name>` run to update the icon cache
 - `sudo mkfs.vfat /dev/sdb1`   to format usb drive with FAT32
-- terminal background blue color #1e1e1e
 - freelance contract: https://www.ashedryden.com/blog/contract
 - `rsync -avr source destination`   no slash at path end
 - `ln -s file link`
@@ -273,4 +228,8 @@ Restart Firefox
 - `journalctl -u cronie.service`
 - `alacritty -e nvim` to open doc in neovim directly
 - `df -h` to see free space and `lsblk` to see mount points
-
+- `diff -s folder1 folder2`
+- `printenv` to show globals
+- `pass otp -c mail`
+* `bat /sys/class/power_supply/BAT1/capacity`
+* `bat /sys/class/backlight/intel_backlight/actual_brightness`
