@@ -1,6 +1,6 @@
-#
-# ~/.bash_profile
-#
+############################################################
+# .bash_profile
+############################################################
 
 [[ -f ~/.config/myrc/globals ]] && . ~/.config/myrc/globals
 [[ -f ~/.config/rc/.bashrc ]] && . ~/.config/rc/.bashrc
