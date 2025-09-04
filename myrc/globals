@@ -41,6 +41,10 @@ export RUST_BACKTRACE=1
 export RUSTUP_HOME=${XDG_DATA_HOME}/rustup
 export CARGO_HOME=${XDG_DATA_HOME}/cargo
 
+# view man pages in bat
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
+
 # PATH
 export PATH=${PATH}:${XDG_BIN_HOME}
 export PATH=${PATH}:${XDG_CONFIG_HOME}/vifm/scripts
