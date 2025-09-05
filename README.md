@@ -16,7 +16,7 @@ bluez blueman pipewire pipewire-pulse dunst networkmanager fzf nano reflector ju
 arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow bsp-layout gdu slock \
 zed xdg-desktop-portal-gtk linux-firmware tcpdump termshark signal-desktop openssh \
 ttf-jetbrains-mono ttf-iosevka-nerd ttf-font-awesome rsync axel lshw rust-analyzer \
-lua-language-server ffmpeg \
+lua-language-server ffmpeg networkmanager-dmenu \
 cargo-binstall cargo-update
 ```
 
