@@ -30,6 +30,7 @@
 [core]
 	autocrlf = input
 	safecrlf = true
+	excludesfile = ~/.config/git/gitignore_global
 [alias]
   a = stage
 	c = commit
