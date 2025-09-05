@@ -59,8 +59,10 @@ vim.opt.wildmode = 'list:longest' -- wildmenu completion: list all but only comp
 vim.opt.diffopt:append('iwhite') -- by ignoring whitespacel in diffs (nvim -d)
 vim.opt.diffopt:append('algorithm:histogram') -- using a smarter algorithm in nvim-d
 vim.opt.diffopt:append('indent-heuristic')
-vim.opt.wildignore = '.hg,.svn,*~,*.png,*.jpg,*.gif,*.min.js,*.swp,*.o,vendor,dist,_site' -- in :e suggestion
-vim.opt.listchars = 'tab:^ ,nbsp:¬,extends:»,precedes:«,trail:•' -- show more hidden characters also, show tabs nicer
+vim.opt.diffopt:append('context:0') -- identical lines kept above-below, default 6
+vim.opt.listchars = 'tab:^ ,nbsp:¬,extends:»,precedes:«,trail:•' -- show hidden chars, show tabs nicer
+vim.opt.wildignore =
+'.hg,.svn,*~,*.png,*.jpg,*.gif,*.min.js,*.swp,*.o,vendor,dist,_site,**/node_modules/**' -- in :e suggestion
 
 -------------------------------------------------------------------------------
 -- hotkeys
@@ -723,3 +725,52 @@ require("lazy").setup({
 })
 
 vim.cmd [[colorscheme tokyonight-night]]
+
+--[[
+-------------------------------------------------------------------------------
+
+-- Notes:
+
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+-- nvimdiff or nvim -d
+-------------------------------------------------------------------------------
+- ]c          - next difference
+- [c          - previous difference
+- do          - diff obtain
+- dp          - diff put
+- zo          - open folded text
+- zc          - close folded text
+- zR          - unfold all lines
+- zr          - open all folds
+- zm          - close all folds
+- :diffoff!   - to end diff mode
+    :syn off     - to remove colors
+- :diffupdate - to remove leftover spacing issues)
+- :only       - once you’re done reviewing all conflicts, this shows only the middle/merged file
+- :windo diffthis - to begin diffing on all visible windows which executes :diffthis on each window.
+- default identifiers that can be selected using diffget
+  - LO local master copy
+  - RE remote master to be merged
+  - BA common ancestor of remote and local changes.
+- :diffupdate - re-scan the files for differences
+  - choose which version you want to keep with :diffget //2 or :diffget //3
+  - //2 and //3 are unique identifiers for target/master copy and merge/branch copy file names
+- If you were trying to do a git pull when you ran into merge conflicts:
+  - type `git rebase –continue`
+
+-------------------------------------------------------------------------------
+-- search & replace
+-------------------------------------------------------------------------------
+- `:5,17s/^/#/ comment line 5-17
+- `:%s/^/#/` comment all lines
+- `gx` opens links under cursor
+- `%s/find/replace/gci`
+    %: Indicates the entire file
+    s: Stands for substitute
+    g: Replaces all occurrences in each line
+    i: Case insensitive
+    c: Confirm each replacement
+
+]]
