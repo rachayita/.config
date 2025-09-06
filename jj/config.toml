@@ -157,6 +157,7 @@ clsu = [
 # diff
 d = ["diff"]
 dr = ["diff", "-r"]
+ds = ["diff", "--stat"]
 # new
 n = ["new"]
 nm = ["new", "-m"]
@@ -295,6 +296,7 @@ bu = ["bookmark", "untrack"]
 f = ["util", "exec", "--", "bash", "-c", "jj fo && jj rbt"]
 fw = ["util", "exec", "--", "bash", "-c", "gh pr checks --watch $0 && jj f"]
 fo = ["git", "fetch", "--all-remotes"]
+ftr = ["git", "fetch", "--tracked"]
 fa = ["util", "exec", "--", "bash", "-c", "jj fo && jj rbta"]
 faw = ["util", "exec", "--", "bash", "-c", "gh pr checks --watch $0 && jj fa"]
 # push
