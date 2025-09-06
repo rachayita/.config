@@ -193,15 +193,21 @@ In the settings search bar, look for toolkit.legacyUserProfileCustomizations.sty
 Restart Firefox
 
 ## optional
-- https://github.com/polybar/polybar-scripts.git    bspwm/scripts
-- https://github.com/cirala/vifmimg fir vifm image preview
+- [bspwm/scripts](https://github.com/polybar/polybar-scripts.git)
+- [vifm image preview](https://github.com/cirala/vifmimg)
+- [ATAC](https://github.com/Julien-cpsn/ATAC)
+- [sshs](https://github.com/quantumsheep/sshs)
+- [portal](https://github.com/SpatiumPortae/portal)
+- [shpool](https://github.com/shell-pool/shpool)
+- [ethersync](https://github.com/ethersync/ethersync)
+- [magic-wormhole](https://github.com/magic-wormhole/magic-wormhole.rs)
 - imcompressor: image compressor
 - dumpcap with wireshark or termshark
-- xf86-video-vmware  #arch graphical driver
-- https://github.com/Julien-cpsn/ATAC
-- https://github.com/quantumsheep/sshs
-- https://github.com/SpatiumPortae/portal
 - mdbook: convert markdown to book
+- xf86-video-vmware  #arch graphical driver
+- xf86-video-amdgpu
+- xf86-video-ati
+- xf86-video-vmware
 
 ## commands
 - `inxi -F` sys info
@@ -233,3 +239,8 @@ Restart Firefox
 - `pass otp -c mail`
 * `bat /sys/class/power_supply/BAT1/capacity`
 * `bat /sys/class/backlight/intel_backlight/actual_brightness`
+
+## SemVer's fundamental rules: MAJOR.MINOR.PATCH
+1. MAJOR version when you make incompatible API changes
+2. MINOR version when you add functionality in a backward-compatible manner
+3. PATCH version when you make backward-compatible bug fixes
