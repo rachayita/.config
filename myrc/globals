@@ -8,12 +8,22 @@ export BROWSER=firefox
 export PAGER=less
 export NET_DEVICE=wlp2s0
 
-# XDG
+# XDG HOME
 export XDG_DATA_HOME=~/.local/share
 export XDG_CONFIG_HOME=~/.config
 export XDG_STATE_HOME=~/.local/state
 export XDG_BIN_HOME=~/.local/bin
 export XDG_CACHE_HOME=~/.cache
+
+# XDG DIR
+export XDG_DESKTOP_DIR=~/Desktop
+export XDG_DOCUMENTS_DIR=~/Documents
+export XDG_DOWNLOAD_DIR=~/Downloads
+export XDG_MUSIC_DIR=~/Music
+export XDG_PICTURES_DIR=~/Pictures
+export XDG_PUBLICSHARE_DIR=~/Share
+export XDG_TEMPLATES_DIR=~/Templates
+export XDG_VIDEOS_DIR=~/Videos
 
 # others
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
