@@ -1,9 +1,4 @@
-# .config
-backup for arch config
-
-## [LICENSE](LICENSE)
-The repo is under MIT License
-
+# .config for arch
 ## pacman
 ```bash
 sudo pacman -S xorg-server xorg-xinit xorg-xrandr xterm xorg-xbacklight less \
@@ -15,7 +10,7 @@ hyperfine zathura-pdf-poppler cronie dmenu gparted thunar github-cli taplo lazyj
 bluez blueman pipewire pipewire-pulse dunst networkmanager fzf nano reflector jujutsu \
 arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow bsp-layout gdu slock \
 zed xdg-desktop-portal-gtk linux-firmware tcpdump termshark signal-desktop openssh \
-ttf-jetbrains-mono ttf-iosevka-nerd ttf-font-awesome rsync axel lshw rust-analyzer \
+ttf-jetbrains-mono ttf-jetbrains-mono-nerd rsync axel lshw rust-analyzer \
 lua-language-server ffmpeg networkmanager-dmenu \
 cargo-binstall cargo-update
 ```
@@ -39,7 +34,8 @@ sudo reflector --verbose --ipv4 --protocol https --score 20 --sort rate --save /
 ### ~/.local/share/fonts
 - `fc-cache -vf`
 - pacman: [ttf-jetbrains-mono](https://www.jetbrains.com/lp/mono/)
-- pacman: [ttf-iosevka-nerd](https://www.nerdfonts.com/font-downloads)
+- pacman:[ttf-jetbrains-mono-nerd](https://www.nerdfonts.com/font-downloads)
+- pacman: [ttf-iosevka-nerd](https://www.nerdfonts.com/font-downloads) has freezing issue
 
 ### ~/.local/share/icons
 - [Fancy-Dark-Icons](https://www.gnome-look.org/p/1598639)
@@ -193,6 +189,7 @@ In the settings search bar, look for toolkit.legacyUserProfileCustomizations.sty
 Restart Firefox
 
 ## optional
+- [arch install](https://www.howtogeek.com/766168/how-to-install-arch-linux-on-a-pc/)
 - [bspwm/scripts](https://github.com/polybar/polybar-scripts.git)
 - [vifm image preview](https://github.com/cirala/vifmimg)
 - [ATAC](https://github.com/Julien-cpsn/ATAC)
@@ -244,3 +241,6 @@ Restart Firefox
 1. MAJOR version when you make incompatible API changes
 2. MINOR version when you add functionality in a backward-compatible manner
 3. PATCH version when you make backward-compatible bug fixes
+
+## [LICENSE](LICENSE)
+The repo is under MIT License
