@@ -31,6 +31,9 @@ alias vdn='pactl set-sink-volume @DEFAULT_SINK@ -20%'
 alias mu='pactl set-sink-volume @DEFAULT_SINK@ -100%'
 alias mir='sudo reflector --verbose --ipv4 --protocol https --score 20 --sort rate --save /etc/pacman.d/mirrorlist'
 
+# to unlock after wrong password attempt
+alias unlock='faillock --user $USER --reset'
+
 # app
 alias mutt=neomutt
 alias v=vifmrun
