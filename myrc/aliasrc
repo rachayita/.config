@@ -17,6 +17,7 @@ alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 alias po=poweroff
 alias q=exit
 alias c=clear
+alias s=sudo
 alias lo='kill -9 -1'
 alias shu='shred -u '
 alias dt='expr `cat /sys/class/net/wlp2s0/statistics/rx_bytes` / 1024 / 1024'

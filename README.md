@@ -24,6 +24,7 @@ cargo-binstall cargo-update
 - start NetworkManager, bluetooth, ufw, sshd and cronie services by systemctl
 - browser addon: dark reader,vimium, ublock origin, firfox container, better darkmode
 - linux-firmware for missing or deleted driver
+- `Defaults:%wheel !authenticate` paste after Default in visudo
 ```bash
 mkdir -p ~/.local/state/bash && touch ~/.local/state/bash/history
 ```
