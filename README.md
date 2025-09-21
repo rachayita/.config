@@ -1,18 +1,19 @@
 # .config for arch
 ## pacman
 ```bash
-sudo pacman -S xorg-server xorg-xinit xorg-xrandr xterm xorg-xbacklight less \
-fd base-devel git meld neovim firefox mpv vifm youtube-dl feh stow lxappearance\
-alacritty chromium sxiv gdb ueberzug xclip neomutt font-manager syncthing ufw gufw \
-cups openbsd-netcat zathura unzip shotgun zbar tig pass  xdotool  ntfs-3g typst \
-skim starship eza bat pass-otp nss-mdns system-config-printer jless htop fastfetch \
-hyperfine zathura-pdf-poppler cronie dmenu gparted thunar github-cli taplo lazyjj \
+sudo pacman -S xorg-server xorg-xinit xorg-xrandr xorg-xbacklight slock \
+fd base-devel git meld neovim firefox mpv vifm feh stow openbsd-netcat zathura less \
+alacritty sxiv gdb ueberzug xclip neomutt ufw gufw zbar tig pass zed xdotool htop \
+skim starship eza bat pass-otp unzip shotgun fastfetch lua-language-server ffmpeg bc \
+zathura-pdf-poppler cronie dmenu gparted thunar networkmanager-dmenu taplo lazyjj \
 bluez blueman pipewire pipewire-pulse dunst networkmanager fzf nano reflector jujutsu \
-arch-install-scripts wget lynx bc ffmpegthumbnailer ripgrep glow bsp-layout gdu slock \
-zed xdg-desktop-portal-gtk linux-firmware tcpdump termshark signal-desktop openssh \
-ttf-jetbrains-mono ttf-jetbrains-mono-nerd rsync axel lshw rust-analyzer \
-lua-language-server ffmpeg networkmanager-dmenu \
-cargo-binstall cargo-update
+wget lynx ffmpegthumbnailer ripgrep gdu xdg-desktop-portal-gtk openssh signal-desktop \
+ttf-jetbrains-mono ttf-jetbrains-mono-nerd rsync axel lshw rustup \
+cups nss-mdns system-config-printer \
+cargo-binstall cargo-update \
+youtube-dl lxappearance chromium font-manager syncthing ntfs-3g typst jless hyperfine \
+arch-install-scripts glow bsp-layout linux-firmware tcpdump termshark github-cli xterm \
+rust-analyzer \
 ```
 
 ### aur
@@ -25,9 +26,14 @@ cargo-binstall cargo-update
 - browser addon: dark reader,vimium, ublock origin, firfox container, better darkmode
 - linux-firmware for missing or deleted driver
 - `Defaults:%wheel !authenticate` paste after Default in visudo
+
 ```bash
-mkdir -p ~/.local/state/bash && touch ~/.local/state/bash/history
+mkdir -p ~/.local/state/bash && touch ~/.local/state/bash/history && \
+cd /mnt && \
+sudo mkdir sda1 sda2 sda3 sda4 sdb1 sdb2 sdb3 sdb4 sdc1 sdc2 sdc3 cell pen && \
+sudo chown -R $USER:$USER *
 ```
+
 ```bash
 sudo reflector --verbose --ipv4 --protocol https --score 20 --sort rate --save /etc/pacman.d/mirrorlist
 ```
@@ -50,9 +56,9 @@ sudo reflector --verbose --ipv4 --protocol https --score 20 --sort rate --save /
 - install nss-mdns
 - Start/restart avahi-daemon.service and cups.service
 - Replace the hosts line in /etc/nsswitch.conf with
-    ```bash
-    hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns
-    ```
+```bash
+hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns
+```
 - [port for cups network printing](https://www.cups.org/doc/firewalls.html)
    - 631/tcp  ipp/ipps
    - 161/udp  snmp
@@ -77,27 +83,27 @@ sudo reflector --verbose --ipv4 --protocol https --score 20 --sort rate --save /
 ## bluetooth settings
 - [blutooth auto power on after boot/resume/before login](https://wiki.archlinux.org/title/Bluetooth)
 - `sudoedit /etc/bluetooth/main.conf`
-    ```bash
-    [Policy]
-    AutoEnable=true
-    ```
+```bash
+[Policy]
+AutoEnable=true
+```
 
 ## [autologin](https://wiki.archlinux.org/title/Getty#Prompt_only_the_password_for_a_default_user_in_virtual_console_login)
 - `sudo mkdir /etc/systemd/system/getty@tty1.service.d`
 - `sudoedit /etc/systemd/system/getty@tty1.service.d/autologin.conf`
 - change it to your username
 
-    ```bash
-    [Service]
-    ExecStart=
-    ExecStart=-/sbin/agetty -o '-p -f -- \\u' --noclear --autologin username %I $TERM
-    ```
+```bash
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty -o '-p -f -- \\u' --noclear --autologin username %I $TERM
+```
 
 ## [enable tap click](https://www.reddit.com/r/archlinux/comments/86g4ef/how_to_enable_tap_click/)
 - 40-libinput.conf or 30-touchpad.conf
-
-    ```bash
-    Section "InputClass"
+- `sudoedit /usr/share/X11/xorg.conf.d/40-libinput.conf`
+```bash
+Section "InputClass"
     Identifier "libinput touchpad catchall"
     MatchIsTouchpad "on"
     MatchDevicePath "/dev/input/event*"
@@ -109,8 +115,8 @@ sudo reflector --verbose --ipv4 --protocol https --score 20 --sort rate --save /
     Option "AccelSpeed" "0.5"
     Option "DisableWhileTyping" "False"
     Driver "libinput"
-    EndSection
-    ```
+EndSection
+```
 
 ## set screen resolution
 - arandr: graphical resolution
@@ -122,14 +128,14 @@ sudo reflector --verbose --ipv4 --protocol https --score 20 --sort rate --save /
 ## [5 sec lag problem with intel gpu](https://github.com/qutebrowser/qutebrowser/issues/4641)
 [1](https://github.com/qutebrowser/qutebrowser/issues/4809)
 - If not, create a new file in /etc/X11/xorg.conf.d/ called 20-modesetting.conf or whatever and add this:
-    ```bash
-    Section "Device"
+```bash
+Section "Device"
     Identifier  "Intel Graphics"
     Driver      "modesetting"
     Option      "AccelMethod" "glamor"
     Option      "DRI"    "2"
-    EndSection
-    ```
+EndSection
+```
 
 ## connect AnnePro2 P1 via bluetooth
 - press F2 + 1 for 5 sec
@@ -137,14 +143,14 @@ sudo reflector --verbose --ipv4 --protocol https --score 20 --sort rate --save /
 - `bt-device -c <mac>`
 
 ## Try and redefine the ssh url for remote origin:
-- `git remote set-url origin ssh://git@github.com/username/<url-repo>.git`
+- `git remote set-url origin ssh://git@github.com/rachayita/<url-repo>.git`
 - `ssh -T git@github.com`
 
 ## [make brightness editable](https://wiki.archlinux.org/title/Backlight)
 - add below setting in new file `/etc/udev/rules.d/backlight.rules`
-    ```bash
-    ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"
-    ```
+```bash
+ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"
+```
 
 ## mutt-wizard
 > `mw -a user@gmail.com -u user -n user -i imap.gmail.com -I 993 -s smtp.gmail.com -S 465`
@@ -171,9 +177,9 @@ IdentityFile "PATH TO id_rsa FILE"
 ```
 ## change pinentry permanently
 - `vim ~/.gnupg/gpg-agent.conf `
-    ```
-    pinentry-program /usr/bin/pinentry-tty
-    ```
+```
+pinentry-program /usr/bin/pinentry-tty
+```
 
 ## move tabs at bottom in firefox
 1. Find your Firefox profile directory
@@ -237,6 +243,7 @@ Restart Firefox
 - `pass otp -c mail`
 * `bat /sys/class/power_supply/BAT1/capacity`
 * `bat /sys/class/backlight/intel_backlight/actual_brightness`
+* `sudoedit /etc/pacman.conf` enable color for colorful paru
 
 ## SemVer's fundamental rules: MAJOR.MINOR.PATCH
 1. MAJOR version when you make incompatible API changes
