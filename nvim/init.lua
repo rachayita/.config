@@ -260,7 +260,54 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     -- add your plugins here
-
+    --
+    --folke/which-key.nvim
+    {
+      "folke/which-key.nvim",
+      event = "VeryLazy",
+      opts = {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      },
+      keys = {
+        {
+          "<leader>?",
+          function()
+            require("which-key").show({ global = false })
+          end,
+          desc = "Buffer Local Keymaps (which-key)",
+        },
+      },
+    },
+    -- folke/persistence.nvim
+    {
+      "folke/persistence.nvim",
+      event = "BufReadPre", -- this will only start session saving when an actual file was opened
+      opts = {
+        -- add any custom options here
+      },
+      -- load the session for the current directory
+      vim.keymap.set("n", "<leader>ps", function() require("persistence").load() end),
+      -- select a session to load
+      vim.keymap.set("n", "<leader>pS", function() require("persistence").select() end),
+      -- load the last session
+      vim.keymap.set("n", "<leader>pl", function() require("persistence").load({ last = true }) end),
+      -- stop Persistence => session won't be saved on exit
+      vim.keymap.set("n", "<leader>pd", function() require("persistence").stop() end),
+    },
+    -- hedyhli/outline.nvim
+    {
+      "hedyhli/outline.nvim",
+      lazy = true,
+      cmd = { "Outline", "OutlineOpen" },
+      keys = { -- Example mapping to toggle outline
+        { "<leader>-", "<cmd>Outline<CR>", desc = "Toggle outline" },
+      },
+      opts = {
+        -- Your setup opts here
+      },
+    },
     -- "nvim-tree/nvim-tree.lua"
     {
       "nvim-tree/nvim-tree.lua",
@@ -268,54 +315,6 @@ require("lazy").setup({
         require("nvim-tree").setup()
       end,
       vim.keymap.set('n', "<leader>s", "<cmd>NvimTreeFindFileToggle<cr>"),
-    },
-    ---@module "neominimap.config.meta"
-    {
-      "Isrothy/neominimap.nvim",
-      version = "v3.x.x",
-      lazy = false, -- NOTE: NO NEED to Lazy load
-      -- Optional. You can alse set your own keybindings
-      keys = {
-        -- Global Minimap Controls
-        { "<leader>nm",  "<cmd>Neominimap Toggle<cr>",      desc = "Toggle global minimap" },
-        { "<leader>no",  "<cmd>Neominimap Enable<cr>",      desc = "Enable global minimap" },
-        { "<leader>nc",  "<cmd>Neominimap Disable<cr>",     desc = "Disable global minimap" },
-        { "<leader>nr",  "<cmd>Neominimap Refresh<cr>",     desc = "Refresh global minimap" },
-
-        -- Window-Specific Minimap Controls
-        { "<leader>nwt", "<cmd>Neominimap WinToggle<cr>",   desc = "Toggle minimap for current window" },
-        { "<leader>nwr", "<cmd>Neominimap WinRefresh<cr>",  desc = "Refresh minimap for current window" },
-        { "<leader>nwo", "<cmd>Neominimap WinEnable<cr>",   desc = "Enable minimap for current window" },
-        { "<leader>nwc", "<cmd>Neominimap WinDisable<cr>",  desc = "Disable minimap for current window" },
-
-        -- Tab-Specific Minimap Controls
-        { "<leader>ntt", "<cmd>Neominimap TabToggle<cr>",   desc = "Toggle minimap for current tab" },
-        { "<leader>ntr", "<cmd>Neominimap TabRefresh<cr>",  desc = "Refresh minimap for current tab" },
-        { "<leader>nto", "<cmd>Neominimap TabEnable<cr>",   desc = "Enable minimap for current tab" },
-        { "<leader>ntc", "<cmd>Neominimap TabDisable<cr>",  desc = "Disable minimap for current tab" },
-
-        -- Buffer-Specific Minimap Controls
-        { "<leader>nbt", "<cmd>Neominimap BufToggle<cr>",   desc = "Toggle minimap for current buffer" },
-        { "<leader>nbr", "<cmd>Neominimap BufRefresh<cr>",  desc = "Refresh minimap for current buffer" },
-        { "<leader>nbo", "<cmd>Neominimap BufEnable<cr>",   desc = "Enable minimap for current buffer" },
-        { "<leader>nbc", "<cmd>Neominimap BufDisable<cr>",  desc = "Disable minimap for current buffer" },
-
-        ---Focus Controls
-        { "<leader>nf",  "<cmd>Neominimap Focus<cr>",       desc = "Focus on minimap" },
-        { "<leader>nu",  "<cmd>Neominimap Unfocus<cr>",     desc = "Unfocus minimap" },
-        { "<leader>ns",  "<cmd>Neominimap ToggleFocus<cr>", desc = "Switch focus on minimap" },
-      },
-      init = function()
-        -- The following options are recommended when layout == "float"
-        vim.opt.wrap = false
-        vim.opt.sidescrolloff = 36 -- Set a large value
-
-        --- Put your configuration here
-        -- @type Neominimap.UserConfig
-        vim.g.neominimap = {
-          auto_enable = false,
-        }
-      end,
     },
     -- akinsho/git-conflict.nvim
     { 'akinsho/git-conflict.nvim', version = "*", config = true },
@@ -507,13 +506,13 @@ require("lazy").setup({
         },
       },
     },
-    -- windwp / nvim-autopairs
+    --nvim-mini/mini.nvim
     {
-      'windwp/nvim-autopairs',
-      event = "InsertEnter",
-      config = true
-      -- use opts = {} for passing setup options
-      -- this is equivalent to setup({}) function
+      'nvim-mini/mini.nvim',
+      version = '*',
+      config = function()
+        require('mini.pairs').setup()
+      end
     },
     -- inline function signatures
     {
