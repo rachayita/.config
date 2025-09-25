@@ -260,7 +260,54 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     -- add your plugins here
-
+    --
+    --folke/which-key.nvim
+    {
+      "folke/which-key.nvim",
+      event = "VeryLazy",
+      opts = {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      },
+      keys = {
+        {
+          "<leader>?",
+          function()
+            require("which-key").show({ global = false })
+          end,
+          desc = "Buffer Local Keymaps (which-key)",
+        },
+      },
+    },
+    -- folke/persistence.nvim
+    {
+      "folke/persistence.nvim",
+      event = "BufReadPre", -- this will only start session saving when an actual file was opened
+      opts = {
+        -- add any custom options here
+      },
+      -- load the session for the current directory
+      vim.keymap.set("n", "<leader>ps", function() require("persistence").load() end),
+      -- select a session to load
+      vim.keymap.set("n", "<leader>pS", function() require("persistence").select() end),
+      -- load the last session
+      vim.keymap.set("n", "<leader>pl", function() require("persistence").load({ last = true }) end),
+      -- stop Persistence => session won't be saved on exit
+      vim.keymap.set("n", "<leader>pd", function() require("persistence").stop() end),
+    },
+    -- hedyhli/outline.nvim
+    {
+      "hedyhli/outline.nvim",
+      lazy = true,
+      cmd = { "Outline", "OutlineOpen" },
+      keys = { -- Example mapping to toggle outline
+        { "<leader>-", "<cmd>Outline<CR>", desc = "Toggle outline" },
+      },
+      opts = {
+        -- Your setup opts here
+      },
+    },
     -- "nvim-tree/nvim-tree.lua"
     {
       "nvim-tree/nvim-tree.lua",
@@ -507,13 +554,13 @@ require("lazy").setup({
         },
       },
     },
-    -- windwp / nvim-autopairs
+    --nvim-mini/mini.nvim
     {
-      'windwp/nvim-autopairs',
-      event = "InsertEnter",
-      config = true
-      -- use opts = {} for passing setup options
-      -- this is equivalent to setup({}) function
+      'nvim-mini/mini.nvim',
+      version = '*',
+      config = function()
+        require('mini.pairs').setup()
+      end
     },
     -- inline function signatures
     {
