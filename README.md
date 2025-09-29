@@ -2,7 +2,7 @@
 ## basic installation
 ### pacman
 ```bash
-sudo pacman -S xorg-server xorg-xinit xorg-xrandr xorg-xbacklight slock man-db \
+sudo pacman -S xorg-server xorg-xinit xorg-xrandr xorg-xbacklight slock man-db btop \
 fd base-devel git meld neovim firefox mpv vifm feh stow openbsd-netcat zathura less \
 alacritty sxiv gdb ueberzug xclip neomutt ufw gufw zbar tig pass zed xdotool htop \
 skim starship eza bat pass-otp unzip shotgun fastfetch lua-language-server ffmpeg bc \
@@ -29,7 +29,7 @@ cd paru-bin && makepkg -si
 
 ### todo
 - start NetworkManager, bluetooth, ufw, sshd and cronie services by systemctl
-- browser addon: dark reader,vimium, ublock origin, firfox container, better darkmode
+- browser addon: dark reader,vimium, ublock origin, firfox container, privacy badger, better darkmode
 - linux-firmware for missing or deleted driver
 - `Defaults:%wheel !authenticate` paste after Default in `visudo`
 - `mw -a user@gmail.com -u user -n user -i imap.gmail.com -I 993 -s smtp.gmail.com -S 465`
