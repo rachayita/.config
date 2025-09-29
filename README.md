@@ -29,7 +29,7 @@ cd paru-bin && makepkg -si
 
 ### todo
 - start NetworkManager, bluetooth, ufw, sshd and cronie services by systemctl
-- browser addon: dark reader,vimium, ublock origin, firfox container, better darkmode
+- browser addon: dark reader,vimium, ublock origin, firfox container, privacy badger, better darkmode
 - linux-firmware for missing or deleted driver
 - `Defaults:%wheel !authenticate` paste after Default in `visudo`
 - `mw -a user@gmail.com -u user -n user -i imap.gmail.com -I 993 -s smtp.gmail.com -S 465`
