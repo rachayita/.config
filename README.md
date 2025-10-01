@@ -9,7 +9,7 @@ skim starship eza bat pass-otp unzip shotgun fastfetch lua-language-server ffmpe
 zathura-pdf-poppler cronie dmenu gparted thunar networkmanager-dmenu taplo lazyjj \
 bluez blueman pipewire pipewire-pulse dunst networkmanager fzf nano reflector jujutsu \
 wget lynx ffmpegthumbnailer ripgrep gdu xdg-desktop-portal-gtk openssh signal-desktop \
-ttf-jetbrains-mono ttf-jetbrains-mono-nerd rsync axel lshw rustup expac \
+ttf-jetbrains-mono ttf-jetbrains-mono-nerd rsync axel lshw rustup expac apparmor \
 cups nss-mdns system-config-printer \
 cargo-binstall cargo-update \
 youtube-dl lxappearance chromium font-manager syncthing ntfs-3g typst jless hyperfine \
@@ -28,7 +28,7 @@ cd paru-bin && makepkg -si
 - portal-bin
 
 ### todo
-- start NetworkManager, bluetooth, ufw, sshd and cronie services by systemctl
+- systemctl service: NetworkManager, bluetooth, ufw, sshd, apparmor and cronie
 - browser addon: dark reader,vimium, ublock origin, firfox container, privacy badger, better darkmode
 - linux-firmware for missing or deleted driver
 - `Defaults:%wheel !authenticate` paste after Default in `visudo`
@@ -44,6 +44,15 @@ sudo chown -R $USER:$USER *
 
 ```bash reflector
 sudo reflector --verbose --ipv4 --protocol https --score 20 --sort rate --save /etc/pacman.d/mirrorlist
+```
+
+### [apparmor](https://wiki.archlinux.org/title/AppArmor)
+- pacman: apparmor
+```bash
+sudo systemctl start --now apparmor.service
+# for systemd-boot /boot/loader/entries/your-arch.conf
+# append to options line
+lsm=landlock,lockdown,yama,integrity,apparmor,bpf
 ```
 
 ### [make brightness editable](https://wiki.archlinux.org/title/Backlight)
