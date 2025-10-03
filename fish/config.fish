@@ -15,7 +15,7 @@ end
 
 ## Starship prompt
 if status --is-interactive
-    if test -f $XDG_DATA_HOME/cargo/bin/starship1
+    if test -f /usr/bin/starship1
         starship init fish | source
     end
 end
