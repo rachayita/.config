@@ -4,13 +4,14 @@
 add_newline = false
 
 # A minimal left prompt
-# format = """$directory$character"""
+#format = """$directory$character"""
 format = """$all"""
 
 # move the rest of the prompt to the right
-right_format = """$all"""
+#right_format = """$all"""
+right_format = """"""
 
-[character] 
+[character]
 success_symbol = "[➜](bold green)"
 
 #[character]
@@ -21,27 +22,34 @@ disabled = true
 
 [rust]
 disabled = false
-symbol = "⚙️ "
-format = "[$symbol($version )]($style)"
+symbol = "󱘗 "
+#format = '[$symbol($version )]($style)'
+style = "white"
+format = '[$symbol]($style)'
+
+[lua]
+disabled = false
+style = "white"
+symbol = " "
+format = '[$symbol]($style)'
 
 #[jobs]
 #number_threshold = 0
 
 [cmd_duration]
-disabled = true
+disabled = false
 
 #[directory]
 #prefix = ""
 
 [git_branch]
-#symbol = ""
-symbol = ""
-#symbol = "🌱"
+symbol = ""
 style = "bold yellow"
-format = "$symbol$branch(:$remote_branch)($style)"
+#format = "$symbol[$branch(:$remote_branch)]($style)"
+format = "[$symbol]($style)"
 
 [git_commit]
-disabled = false
+disabled = true
 
 [git_metrics]
 disabled = false
