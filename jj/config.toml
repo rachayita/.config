@@ -8,7 +8,7 @@ name = "rachayita"
 default-command = "status"
 editor = "nvim"
 pager = "less -FRX"
-diff-editor = "meld"
+#diff-editor = "meld"
 #diff-formatter = ":git"
 graph.style = "square"
 merge-editor = "nvimdiff"
@@ -216,6 +216,7 @@ sqf = ["squash", "-i", "--from"]
 sqaf = ["squash", "--from"]
 sqr = ["squash", "-i", "-r"]
 sqar = ["squash", "-r"]
+sqsh = ["squash", "--from", "@", "--into", "@-", "--ignore-immutable"]
 # rebase
 rb = ["rebase", "--skip-emptied"]
 rba = ["rebase", "--skip-emptied", "--insert-after"]
