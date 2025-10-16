@@ -71,7 +71,6 @@ vim.keymap.set('n', '<leader>n', '<cmd>DiffviewOpen<cr>')
 vim.keymap.set('n', '<leader>N', '<cmd>DiffviewClose<cr>')
 vim.keymap.set('n', '<leader>L', '<cmd>Lazy<cr>')
 vim.keymap.set('n', '<leader>c', ':e $MYVIMRC<CR>')
-vim.keymap.set('n', '<leader>h', ':help ')
 vim.keymap.set('n', 'f', '<C-f>') -- page down/up
 vim.keymap.set('n', 'F', '<C-b>') -- page up
 vim.keymap.set('n', '<leader><cr>', '<cmd>write<cr>')
@@ -91,8 +90,8 @@ vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
 vim.keymap.set('n', '<leader><leader>', '<c-^>')     -- toggles between buffers
 vim.keymap.set('n', '<leader>,', ':set invlist<cr>') -- shows/hides hidden characters
 vim.keymap.set('n', '<leader>m', 'ct_')              -- replacing up to next _ (like in variable names)
-vim.keymap.set('', '<F1>', '<Esc>')
-vim.keymap.set('i', '<F1>', '<Esc>')
+vim.keymap.set('', '<F1>', ':help ')
+vim.keymap.set('i', '<F1>', ':help ')
 vim.keymap.set('n', '<leader>l', ':terminal<cr>')
 vim.keymap.set('n', '<leader>0', ':w !sudo tee %<cr>') -- save root file
 vim.keymap.set('n', 'q:', ':q`]')
@@ -351,8 +350,6 @@ require("lazy").setup({
       vim.keymap.set('v', 'v', '<Plug>(expand_region_expand)'),
       vim.keymap.set('v', '<C-v>', '<Plug>(expand_region_shrink)'),
     },
-    -- nvim-web-devicons
-    { "nvim-tree/nvim-web-devicons" },
     -- nvim-colorizer #558817
     {
       "norcalli/nvim-colorizer.lua",
@@ -412,27 +409,29 @@ require("lazy").setup({
     -- 'mfussenegger/nvim-dap'
     {
       'mfussenegger/nvim-dap',
+      dependencies = { "theHamsta/nvim-dap-virtual-text", "rcarriga/nvim-dap-ui", "nvim-neotest/nvim-nio" },
       config = function()
         local dap = require("dap")
-        dap.adapters.gdb = {
+        dap.adapters["rust-gdb"] = {
           type = "executable",
-          command = "gdb",
+          command = "rust-gdb",
           args = { "--interpreter=dap", "--eval-command", "set print pretty on" }
         }
         dap.configurations.rust = {
           {
             name = "Launch",
-            type = "gdb",
+            type = "rust-gdb",
             request = "launch",
             program = function()
-              return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+              return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
             end,
+            args = {}, -- provide arguments if needed
             cwd = "${workspaceFolder}",
             stopAtBeginningOfMainSubprogram = false,
           },
           {
             name = "Select and attach to process",
-            type = "gdb",
+            type = "rust-gdb",
             request = "attach",
             program = function()
               return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
@@ -441,31 +440,41 @@ require("lazy").setup({
               local name = vim.fn.input('Executable name (filter): ')
               return require("dap.utils").pick_process({ filter = name })
             end,
-            cwd = '${workspaceFolder}'
+            cwd = "${workspaceFolder}"
           },
           {
-            name = 'Attach to gdbserver :1234',
-            type = 'gdb',
-            request = 'attach',
-            target = 'localhost:1234',
+            name = "Attach to gdbserver :1234",
+            type = "rust-gdb",
+            request = "attach",
+            target = "localhost:1234",
             program = function()
               return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
             end,
             cwd = '${workspaceFolder}'
-          },
+          }
         }
+        local dapui = require("dapui")
+        dapui.setup()
+        dap.listeners.before.attach.dapui_config = function()
+          dapui.open()
+        end
+        dap.listeners.before.launch.dapui_config = function()
+          dapui.open()
+        end
+        dap.listeners.before.event_terminated.dapui_config = function()
+          dapui.close()
+        end
+        dap.listeners.before.event_exited.dapui_config = function()
+          dapui.close()
+        end
       end,
-      vim.keymap.set('n', '<leader>1', '<cmd>DapToggleBreakpoint<cr>'),
-      vim.keymap.set('n', '<leader>2', '<cmd>DapContinue<cr>'),
-      vim.keymap.set('n', '<leader>3', '<cmd>DapTerminate<cr>'),
-    },
-    -- rcarriga/nvim-dap-ui
-    {
-      "rcarriga/nvim-dap-ui",
-      dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-      config = function()
-        require("dapui").setup()
-      end,
+      vim.keymap.set('n', '<F4>', '<cmd>DapToggleBreakpoint<cr>'),
+      vim.keymap.set('n', '<F5>', '<cmd>DapContinue<cr>'),
+      vim.keymap.set('n', '<F6>', '<cmd>DapStepInto<cr>'),
+      vim.keymap.set('n', '<F7>', '<cmd>DapStepOver<cr>'),
+      vim.keymap.set('n', '<F8>', '<cmd>DapStepOut<cr>'),
+      vim.keymap.set('n', '<F9>', '<cmd>DapTerminate<cr>'),
+      vim.keymap.set('n', '<F10>', '<cmd>DapClearBreakpoints<cr>'),
       vim.keymap.set('n', '<leader>u', "<cmd>lua require('dapui').toggle()<cr>"),
     },
     -- j--c/cwd.nvim
@@ -500,9 +509,9 @@ require("lazy").setup({
         signs = {
           add = { text = '+' },
           change = { text = '~' },
-          delete = { text = '_' },
-          topdelete = { text = '‾' },
-          changedelete = { text = '~' },
+          delete = { text = '-' },
+          topdelete = { text = '^' },
+          changedelete = { text = '*' },
         },
       },
     },
