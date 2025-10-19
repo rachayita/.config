@@ -53,7 +53,8 @@ export RUSTUP_HOME=${XDG_DATA_HOME}/rustup
 export CARGO_HOME=${XDG_DATA_HOME}/cargo
 
 # view man pages in bat
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+# export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="nvim +Man!"
 export MANROFFOPT="-c"
 
 # PATH
