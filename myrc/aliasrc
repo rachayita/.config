@@ -3,15 +3,14 @@
 ############################################################
 
 # exa
-alias lk='exa --icons --git'
-alias exaig='exa --icons --git'
-alias la='exaig -a'
-alias ll='exaig -lrahg'
-alias l='exaig --long'
-alias l.="exa -a | grep -E '^\.'"
+alias lk='eza --icons --git'
+alias la='lk -a'
+alias ll='lk -lrahg'
+alias l='lk --long'
+alias l.="eza -a | grep -E '^\.'"
 
 # path
-alias mbsync='mbsync -ac $MBSYNCRC'
+alias mbs='mbsync -ac $MBSYNCRC'
 
 # system
 alias po=poweroff
@@ -20,7 +19,7 @@ alias c=clear
 alias s=sudo
 alias lo='kill -9 -1'
 alias shu='shred -u '
-alias dt='expr `cat /sys/class/net/wlp2s0/statistics/rx_bytes` / 1024 / 1024'
+alias dt='expr `cat /sys/class/net/$NET_DEVICE/statistics/rx_bytes` / 1024 / 1024'
 alias fcc='fc-cache -vf'
 alias vmnet='sudo virsh net-start default'
 alias rm='rm -i'
@@ -74,6 +73,18 @@ alias gsp='git stash push'
 alias gspp='git stash pop'
 alias gr='git remote show origin'
 
+# cargo
+alias cg=cargo
+alias cr='cargo run'
+alias cb='cargo build'
+alias cbr='cargo build --release'
+alias cbr='cargo build --verbose'
+alias ct='cargo test'
+alias ctno='cargo test -- --nocapture'  # to enable print statement
+alias ctd='cargo test --doc'
+alias cdoc='cargo doc'  # build doc in target/doc
+alias cdo='cargo doc --open'  # creates and open doc
+
 # search
 alias frs='nvim $(find . -name "*.rs" | sk -m)'
 alias tf='tree -fa | grep -i'
@@ -81,9 +92,10 @@ alias sk='sk --color=bg+:24'
 alias f='l|grep -i'
 alias bb='bat $(sk -m)'
 
-# vim
+# nvim
 alias vim=nvim
 alias vi=nvim
+alias e=nvim
 alias vv='nvim $(sk -m)'
 alias se='sudoedit $(sk -m)'
 alias vimdiff="nvim -d"
@@ -126,8 +138,8 @@ alias sy='sudo pacman -Syyu'
 alias syc='sy;pc'
 
 # fish
-alias calc='math (cat /sys/class/net/wlan0/statistics/rx_bytes) / 1024 / 1024'
-alias re='source ~/.config/fish/config.fish'
+alias calc='math (cat /sys/class/net/$NET_DEVICE/statistics/rx_bytes) / 1024 / 1024'
+alias re='source $XDG_CONFIG_HOME/fish/config.fish'
 
 # Common use
 alias fixpacman="sudo rm /var/lib/pacman/db.lck"
