@@ -37,7 +37,7 @@ format = '[$symbol]($style)'
 #number_threshold = 0
 
 [cmd_duration]
-disabled = false
+disabled = true
 
 #[directory]
 #prefix = ""
@@ -45,8 +45,8 @@ disabled = false
 [git_branch]
 symbol = ""
 style = "bold yellow"
-#format = "$symbol[$branch(:$remote_branch)]($style)"
-format = "[$symbol]($style)"
+format = "$symbol[$branch(:$remote_branch)]($style)"
+#format = "[$symbol]($style)"
 
 [git_commit]
 disabled = true
