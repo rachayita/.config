@@ -23,7 +23,7 @@ vim.g.termdebug_wide = 1
 -------------------------------------------------------------------------------
 vim.opt.mouse = ''
 vim.opt.termguicolors = true
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.path:append('**') -- tab completion for all file related task
 vim.opt.foldenable = false
 vim.opt.foldmethod = 'manual'
@@ -67,6 +67,7 @@ vim.opt.wildignore =
 -------------------------------------------------------------------------------
 -- hotkeys
 -------------------------------------------------------------------------------
+vim.keymap.set({ 'n', 'v' }, '<C-h>', '<cmd>nohlsearch<cr>') -- Ctrl+h to stop searching
 vim.keymap.set('n', '<leader>n', '<cmd>DiffviewOpen<cr>')
 vim.keymap.set('n', '<leader>N', '<cmd>DiffviewClose<cr>')
 vim.keymap.set('n', '<leader>L', '<cmd>Lazy<cr>')
@@ -79,12 +80,10 @@ vim.keymap.set('n', '<leader>q', '<cmd>q!<cr>')
 vim.keymap.set('n', '<C-q>', '<cmd>qall<cr>')
 vim.keymap.set('n', '<leader>;', '<cmd>bd<cr>')
 vim.keymap.set('n', '<leader>\'', '<cmd>bd!<cr>')
-vim.keymap.set('', '<C-p>', '<cmd>files<cr>')       -- quick-open
-vim.keymap.set('n', ';', ':')                       -- make missing : less annoying
-vim.keymap.set('v', '<C-h>', '<cmd>nohlsearch<cr>') -- Ctrl+h to stop searching
-vim.keymap.set('n', '<C-h>', '<cmd>nohlsearch<cr>') -- Ctrl+h to stop searching
-vim.keymap.set('', 'H', '^')                        -- jump to start
-vim.keymap.set('', 'L', '$')                        -- jump to end
+vim.keymap.set('', '<C-p>', '<cmd>files<cr>') -- quick-open
+vim.keymap.set('n', ';', ':')                 -- make missing : less annoying
+vim.keymap.set('', 'H', '^')                  -- jump to start
+vim.keymap.set('', 'L', '$')                  -- jump to end
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
 vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
 vim.keymap.set('n', '<leader><leader>', '<c-^>')     -- toggles between buffers
@@ -92,7 +91,7 @@ vim.keymap.set('n', '<leader>,', ':set invlist<cr>') -- shows/hides hidden chara
 vim.keymap.set('n', '<leader>m', 'ct_')              -- replacing up to next _ (like in variable names)
 vim.keymap.set('', '<F1>', ':help ')
 vim.keymap.set('i', '<F1>', ':help ')
-vim.keymap.set('n', '<leader>l', ':terminal<cr>')
+vim.keymap.set('n', '<leader>t', ':terminal<cr>')
 vim.keymap.set('n', '<leader>0', ':w !sudo tee %<cr>') -- save root file
 vim.keymap.set('n', 'q:', ':q`]')
 vim.keymap.set('n', 'q', '<ESC>')
@@ -110,10 +109,6 @@ vim.keymap.set('c', '%s/', '%sm/')
 -- no arrow keys --- force yourself to use the home row
 vim.keymap.set('n', '<up>', '<nop>')
 vim.keymap.set('n', '<down>', '<nop>')
-vim.keymap.set('i', '<up>', '<nop>')
-vim.keymap.set('i', '<down>', '<nop>')
-vim.keymap.set('i', '<left>', '<nop>')
-vim.keymap.set('i', '<right>', '<nop>')
 -- let the left and right arrows be useful: they can switch buffers
 vim.keymap.set('n', '<left>', ':bn<cr>')
 vim.keymap.set('n', '<right>', ':bp<cr>')
@@ -128,6 +123,15 @@ vim.keymap.set('n', 'gV', '`[v`]') -- quickly select text you just pasted
 vim.keymap.set('n', '<leader>g', 'gqap')
 vim.keymap.set('x', '<leader>g', 'gqa')
 vim.keymap.set('n', '<leader>b', ":packadd termdebug<cr> :Termdebug<cr>")
+-- navigating window frames
+vim.keymap.set({ 'n', 'v' }, '<C-h>', '<C-w>h')
+vim.keymap.set({ 'n', 'v' }, '<C-j>', '<C-w>j')
+vim.keymap.set({ 'n', 'v' }, '<C-k>', '<C-w>k')
+vim.keymap.set({ 'n', 'v' }, '<C-l>', '<C-w>l')
+vim.keymap.set({ 'n', 'v' }, '<C-up>', '<C-w>+')
+vim.keymap.set({ 'n', 'v' }, '<C-down>', '<C-w>-')
+vim.keymap.set({ 'n', 'v' }, '<C-left>', '<C-w><')
+vim.keymap.set({ 'n', 'v' }, '<C-right>', '<C-w>>')
 
 -------------------------------------------------------------------------------
 -- floating window
@@ -500,7 +504,7 @@ require("lazy").setup({
     -- tabular
     {
       "godlygeek/tabular",
-      vim.keymap.set('n', '<leader>t', ':Tabularize /')
+      vim.keymap.set('n', '<leader>T', ':Tabularize /')
     },
     --  gitsign.nvim
     {
@@ -619,7 +623,7 @@ require("lazy").setup({
         -- C-space: Open menu or open docs if already open
         -- C-n/C-p or Up/Down: Select next/previous item
         -- C-e: Hide menu
-        -- C-k: Toggle signature help (if signature.enabled = true)
+        -- C-s: Toggle signature help (if signature.enabled = true)
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
         keymap = {
@@ -752,7 +756,7 @@ require("lazy").setup({
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
             vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-            vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+            vim.keymap.set('n', '<C-s>', vim.lsp.buf.signature_help, opts)
             vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
             vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
             vim.keymap.set('n', '<leader>wl', function()
