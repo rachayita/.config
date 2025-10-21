@@ -20,6 +20,9 @@ if status --is-interactive
     end
 end
 
+##
+zoxide init fish | source
+
 ## Functions
 # Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
 function __history_previous_command

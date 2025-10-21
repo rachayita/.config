@@ -30,3 +30,4 @@ shopt -s expand_aliases # expand aliases
 
 [[ -f /usr/bin/starship ]] && eval "$(starship init bash)" # initialize starship
 source <(COMPLETE=bash jj) # auto complete for jujutsu
+[[ -f /usr/bin/zoxide ]] && eval "$(zoxide init bash)"

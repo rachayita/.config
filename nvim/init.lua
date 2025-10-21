@@ -76,10 +76,10 @@ vim.keymap.set('n', 'f', '<C-f>') -- page down/up
 vim.keymap.set('n', 'F', '<C-b>') -- page up
 vim.keymap.set('n', '<leader><cr>', '<cmd>write<cr>')
 vim.keymap.set('n', '<leader>w', '<cmd>wq<cr>')
-vim.keymap.set('n', '<leader>q', '<cmd>q!<cr>')
+vim.keymap.set({'n','v'}, 'qq', '<cmd>q!<cr>')
 vim.keymap.set('n', '<C-q>', '<cmd>qall<cr>')
-vim.keymap.set('n', '<leader>;', '<cmd>bd<cr>')
-vim.keymap.set('n', '<leader>\'', '<cmd>bd!<cr>')
+vim.keymap.set('n', '<leader>q', '<cmd>bd<cr>')
+vim.keymap.set('n', '<leader>qq', '<cmd>bd!<cr>')
 vim.keymap.set('', '<C-p>', '<cmd>files<cr>') -- quick-open
 vim.keymap.set('n', ';', ':')                 -- make missing : less annoying
 vim.keymap.set('', 'H', '^')                  -- jump to start
@@ -264,6 +264,8 @@ require("lazy").setup({
   spec = {
     -- add your plugins here
     --
+    -- nanotee/zoxide.vim
+    {'nanotee/zoxide.vim'},
     --folke/which-key.nvim
     {
       "folke/which-key.nvim",
