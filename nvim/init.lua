@@ -21,6 +21,7 @@ vim.g.termdebug_wide = 1
 -------------------------------------------------------------------------------
 -- vim.opt
 -------------------------------------------------------------------------------
+vim.opt.cmdheight = 0  -- hide command panel
 vim.opt.mouse = ''
 vim.opt.termguicolors = true
 vim.opt.cursorline = false
@@ -67,16 +68,17 @@ vim.opt.wildignore =
 -------------------------------------------------------------------------------
 -- hotkeys
 -------------------------------------------------------------------------------
-vim.keymap.set({ 'n', 'v' }, '<C-h>', '<cmd>nohlsearch<cr>') -- Ctrl+h to stop searching
+vim.keymap.set({ 'n', 'v' }, '<C-c>', '<cmd>nohlsearch<cr>') -- Ctrl+c to stop searching
 vim.keymap.set('n', '<leader>n', '<cmd>DiffviewOpen<cr>')
 vim.keymap.set('n', '<leader>N', '<cmd>DiffviewClose<cr>')
+vim.keymap.set('n', '<leader>S', '<cmd>set ls=2<cr>') -- show status line
 vim.keymap.set('n', '<leader>L', '<cmd>Lazy<cr>')
 vim.keymap.set('n', '<leader>c', ':e $MYVIMRC<CR>')
 vim.keymap.set('n', 'f', '<C-f>') -- page down/up
 vim.keymap.set('n', 'F', '<C-b>') -- page up
 vim.keymap.set('n', '<leader><cr>', '<cmd>write<cr>')
 vim.keymap.set('n', '<leader>w', '<cmd>wq<cr>')
-vim.keymap.set({'n','v'}, 'qq', '<cmd>q!<cr>')
+vim.keymap.set({ 'n', 'v' }, 'qq', '<cmd>q!<cr>')
 vim.keymap.set('n', '<C-q>', '<cmd>qall<cr>')
 vim.keymap.set('n', '<leader>q', '<cmd>bd<cr>')
 vim.keymap.set('n', '<leader>qq', '<cmd>bd!<cr>')
@@ -214,6 +216,10 @@ vim.api.nvim_create_autocmd(
     command = 'silent! lua vim.hl.on_yank({ timeout = 500 })'
   }
 )
+
+-- remove status line
+vim.api.nvim_create_autocmd( 'BufReadPre', { pattern = '*', command = ":set laststatus=0"})
+
 -- jump to last edit position on opening file
 vim.api.nvim_create_autocmd(
   'BufReadPost',
@@ -265,7 +271,7 @@ require("lazy").setup({
     -- add your plugins here
     --
     -- nanotee/zoxide.vim
-    {'nanotee/zoxide.vim'},
+    { 'nanotee/zoxide.vim' },
     --folke/which-key.nvim
     {
       "folke/which-key.nvim",
@@ -293,13 +299,13 @@ require("lazy").setup({
         -- add any custom options here
       },
       -- load the session for the current directory
-      vim.keymap.set("n", "<leader>ps", function() require("persistence").load() end),
+      vim.keymap.set("n", "<leader>ls", function() require("persistence").load() end),
       -- select a session to load
-      vim.keymap.set("n", "<leader>pS", function() require("persistence").select() end),
+      vim.keymap.set("n", "<leader>l", function() require("persistence").select() end),
       -- load the last session
-      vim.keymap.set("n", "<leader>pl", function() require("persistence").load({ last = true }) end),
+      vim.keymap.set("n", "<leader>ll", function() require("persistence").load({ last = true }) end),
       -- stop Persistence => session won't be saved on exit
-      vim.keymap.set("n", "<leader>pd", function() require("persistence").stop() end),
+      vim.keymap.set("n", "<leader>ld", function() require("persistence").stop() end),
     },
     -- hedyhli/outline.nvim
     {
