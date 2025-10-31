@@ -21,7 +21,7 @@ vim.g.termdebug_wide = 1
 -------------------------------------------------------------------------------
 -- vim.opt
 -------------------------------------------------------------------------------
-vim.opt.cmdheight = 0  -- hide command panel
+vim.opt.cmdheight = 0 -- hide command panel
 vim.opt.mouse = ''
 vim.opt.termguicolors = true
 vim.opt.cursorline = false
@@ -218,7 +218,7 @@ vim.api.nvim_create_autocmd(
 )
 
 -- remove status line
-vim.api.nvim_create_autocmd( 'BufReadPre', { pattern = '*', command = ":set laststatus=0"})
+vim.api.nvim_create_autocmd('BufReadPre', { pattern = '*', command = ":set laststatus=0" })
 
 -- jump to last edit position on opening file
 vim.api.nvim_create_autocmd(
@@ -566,7 +566,7 @@ require("lazy").setup({
       init = function()
         vim.g.vimwiki_list = {
           {
-            path = '~/Documents/vimwiki',
+            path = '/mnt/sda3/Documents/vimwiki',
             syntax = 'markdown',
             ext = '.md',
           },
