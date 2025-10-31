@@ -123,6 +123,8 @@ alias mc2='sudo mount /dev/sdc2 /mnt/sdc2'
 alias uc2='sudo umount /dev/sdc2'
 alias mc3='sudo mount /dev/sdc3 /mnt/sdc3'
 alias uc3='sudo umount /dev/sdc3'
+alias mpen='sudo mount -o uid=(whoami) -o gid=(whoami)  /dev/sdc /mnt/pen'
+alias upen='sudo umount /mnt/pen'
 
 # mount mobile
 alias mobs='simple-mtpfs -l'
