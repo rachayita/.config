@@ -14,16 +14,17 @@ export XDG_CONFIG_HOME=~/.config
 export XDG_STATE_HOME=~/.local/state
 export XDG_BIN_HOME=~/.local/bin
 export XDG_CACHE_HOME=~/.cache
+export XDG_DIR_HOME=/mnt/sda3
 
 # XDG DIR
-export XDG_DESKTOP_DIR=~/Desktop
-export XDG_DOCUMENTS_DIR=~/Documents
-export XDG_DOWNLOAD_DIR=~/Downloads
-export XDG_MUSIC_DIR=~/Music
-export XDG_PICTURES_DIR=~/Pictures
-export XDG_PUBLICSHARE_DIR=~/Share
-export XDG_TEMPLATES_DIR=~/Templates
-export XDG_VIDEOS_DIR=~/Videos
+export XDG_DESKTOP_DIR=${XDG_DIR_HOME}/Desktop
+export XDG_DOCUMENTS_DIR=${XDG_DIR_HOME}/Documents
+export XDG_DOWNLOAD_DIR=${XDG_DIR_HOME}/Downloads
+export XDG_MUSIC_DIR=${XDG_DIR_HOME}/Music
+export XDG_PICTURES_DIR=${XDG_DIR_HOME}/Pictures
+export XDG_PUBLICSHARE_DIR=${XDG_DIR_HOME}/Public
+export XDG_TEMPLATES_DIR=${XDG_DIR_HOME}/Templates
+export XDG_VIDEOS_DIR=${XDG_DIR_HOME}/Videos
 
 # others
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
@@ -34,8 +35,8 @@ export XINITRC=${XDG_CONFIG_HOME}/rc/.xinitrc
 export ZDOTDIR=${XDG_CONFIG_HOME}/zsh
 export GTK2_RC_FILES=${XDG_CONFIG_HOME}/gtk-2.0/gtkrc
 export HISTFILE=${XDG_STATE_HOME}/bash/history
-export PASSWORD_STORE_DIR=${XDG_DATA_HOME}/.password-store
-export GNUPGHOME=${XDG_DATA_HOME}/.gnupg
+export PASSWORD_STORE_DIR=${XDG_DIR_HOME}/.password-store
+export GNUPGHOME=${XDG_DIR_HOME}/.gnupg
 export XDG_NSS_USER_PATH3=${XDG_DATA_HOME}/pki
 export XAUTHORITY=${XDG_DATA_HOME}/.Xauthority
 export MBSYNCRC=${XDG_CONFIG_HOME}/myrc/mbsyncrc

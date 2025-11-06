@@ -134,7 +134,7 @@ super + shift + q
 
 # screenshot
 super + v
-	shotgun ~/Pictures/shotgun/shotgun-"`date`".png
+	shotgun $XDG_PICTURES_DIR/shotgun/shotgun-"`date`".png
 
 # editor
 super + e
@@ -142,11 +142,11 @@ super + e
 
 # bookmarks list
 super + z
-  xdotool type `grep -v '#!' $XDG_DATA_HOME/bookmarks/bookmarks | dmenu -i -l 50`
+  xdotool type `grep -v '#!' $XDG_DESKTOP_DIR/bookmarks/bookmarks | dmenu -i -l 50`
 
 # bookmark it
 super + shift + z
-  ./.config/bookmarks/bookmarksh
+  $XDG_CONFIG_HOME/bookmarks/bookmarksh
 
 # dmenufm
 super + r
