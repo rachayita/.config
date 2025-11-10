@@ -6,7 +6,7 @@ set VIRTUAL_ENV_DISABLE_PROMPT "1"
 if test -f $XDG_CONFIG_HOME/myrc/aliasrc
     source $XDG_CONFIG_HOME/myrc/aliasrc
 end
-
+gcal1
 ## Environment setup
 # Apply .profile: use this to put fish compatible .profile stuff in
 if test -f $XDG_CONFIG_HOME/fish/.fish_profile

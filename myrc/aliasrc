@@ -143,6 +143,11 @@ alias syc='sy;pc'
 alias calc='math (cat /sys/class/net/$NET_DEVICE/statistics/rx_bytes) / 1024 / 1024'
 alias re='source $XDG_CONFIG_HOME/fish/config.fish'
 
+# calendar
+alias gcal='grep (date -I) $XDG_DESKTOP_DIR/calendar --color -A 7'
+alias gcal1='grep (date -I) $XDG_DESKTOP_DIR/calendar --color'
+alias ecal='nvim +/(date -I) $XDG_DESKTOP_DIR/calendar'
+
 # Common use
 alias fixpacman="sudo rm /var/lib/pacman/db.lck"
 alias tarnow='tar -acf '
