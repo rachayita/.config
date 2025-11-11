@@ -2,7 +2,7 @@
 ## basic installation
 ### pacman
 ```bash
-sudo pacman -S xorg-server xorg-xinit xorg-xrandr xorg-xbacklight slock man-db btop \
+sudo pacman -S xorg-server xorg-xinit xorg-xrandr xorg-xbacklight xterm man-db btop \
 fd base-devel git meld neovim firefox mpv vifm feh stow openbsd-netcat zathura less \
 alacritty sxiv gdb ueberzug xclip neomutt ufw gufw zbar tig pass zed xdotool htop \
 skim starship eza bat pass-otp unzip shotgun fastfetch lua-language-server ffmpeg bc \
@@ -10,11 +10,11 @@ zathura-pdf-poppler cronie dmenu gparted thunar networkmanager-dmenu taplo lazyj
 bluez blueman pipewire pipewire-pulse dunst networkmanager fzf nano reflector jujutsu \
 wget lynx ffmpegthumbnailer ripgrep gdu xdg-desktop-portal-gtk openssh signal-desktop \
 ttf-jetbrains-mono ttf-jetbrains-mono-nerd rsync axel lshw rustup expac apparmor \
-zoxide dosfstools \
+zoxide dosfstools slock sxhkd bspwm tmux \
 cups nss-mdns system-config-printer \
 cargo-binstall cargo-update \
 youtube-dl lxappearance chromium font-manager syncthing ntfs-3g typst jless hyperfine \
-arch-install-scripts glow bsp-layout linux-firmware tcpdump termshark github-cli xterm \
+arch-install-scripts glow bsp-layout linux-firmware tcpdump termshark github-cli \
 rust-analyzer \
 ```
 
@@ -40,7 +40,8 @@ cd paru-bin && makepkg -si
 mkdir -p ~/.local/state/bash && touch ~/.local/state/bash/history && \
 cd /mnt && \
 sudo mkdir sda1 sda2 sda3 sda4 sdb1 sdb2 sdb3 sdb4 sdc1 sdc2 sdc3 cell pen && \
-sudo chown -R $USER:$USER *
+sudo chown -R $USER:$USER * && \
+sudo timedatectl set-ntp true
 ```
 
 ```bash reflector
@@ -79,6 +80,7 @@ sudo echo 'ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$de
 ### [blutooth auto power on after boot/resume/before-login](https://wiki.archlinux.org/title/Bluetooth)
 - `sudoedit /etc/bluetooth/main.conf`
 - set `AutoEnable=true` under `[Policy]`
+  - uncomment `ControllerMode = dual`
 
 ### [autologin](https://wiki.archlinux.org/title/Getty#Prompt_only_the_password_for_a_default_user_in_virtual_console_login)
 ```bash
@@ -159,10 +161,11 @@ Section "Device"
 EndSection
 ```
 
-## connect AnnePro2 P1 via bluetooth
-- press F2 + 1 for 5 sec
-- `bt-device -l`
-- `bt-device -c <mac>`
+## connect AnnePro2 via bluetooth
+`sudoedit  /etc/bluetooth/main.conf`
+  - uncomment `ControllerMode = dual`
+- press esc key and connect wire
+  - update firmware
 
 ## Try and redefine the ssh url for remote origin:
 - `git remote set-url origin ssh://git@github.com/rachayita/<url-repo>.git`
