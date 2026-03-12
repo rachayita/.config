@@ -125,6 +125,7 @@ alias mc3='sudo mount /dev/sdc3 /mnt/sdc3'
 alias uc3='sudo umount /dev/sdc3'
 alias mpen='sudo mount -o uid=(whoami) -o gid=(whoami)  /dev/sdc /mnt/pen'
 alias upen='sudo umount /mnt/pen'
+alias mtcd='sudo mount /dev/sr0 /mnt/cdrom'
 
 # mount mobile
 alias mobs='simple-mtpfs -l'
@@ -147,6 +148,7 @@ alias re='source $XDG_CONFIG_HOME/fish/config.fish'
 alias gcal='grep (date -I) $XDG_DESKTOP_DIR/calendar --color -A 7'
 alias gcal1='grep (date -I) $XDG_DESKTOP_DIR/calendar --color'
 alias ecal='nvim +/(date -I) $XDG_DESKTOP_DIR/calendar'
+alias tt='cat $XDG_DESKTOP_DIR/tt'
 
 # Common use
 alias fixpacman="sudo rm /var/lib/pacman/db.lck"
