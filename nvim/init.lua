@@ -362,21 +362,14 @@ require("lazy").setup({
       vim.keymap.set('v', 'v', '<Plug>(expand_region_expand)'),
       vim.keymap.set('v', '<C-v>', '<Plug>(expand_region_shrink)'),
     },
-    -- nvim-colorizer #558817
-    {
-      "norcalli/nvim-colorizer.lua",
-      config = function()
-        require('colorizer').setup()
-      end
-    },
     -- nvim-treesitter/nvim-treesitter
     {
       "nvim-treesitter/nvim-treesitter",
-      branch = 'master',
+      branch = master,
       lazy = false,
       build = ":TSUpdate",
       config = function()
-        require 'nvim-treesitter.configs'.setup {
+        require('nvim-treesitter').setup {
           -- A list of parser names, or "all" (the listed parsers MUST always be installed)
           ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "rust" },
 
@@ -488,14 +481,6 @@ require("lazy").setup({
       vim.keymap.set('n', '<F9>', '<cmd>DapTerminate<cr>'),
       vim.keymap.set('n', '<F10>', '<cmd>DapClearBreakpoints<cr>'),
       vim.keymap.set('n', '<leader>u', "<cmd>lua require('dapui').toggle()<cr>"),
-    },
-    -- j--c/cwd.nvim
-    {
-      "j--c/cwd.nvim",
-      config = function()
-        require('cwd').setup()
-      end,
-      vim.keymap.set('n', '<leader>/', '<cmd>CwdChange<cr>')
     },
     -- lualine status line
     {
