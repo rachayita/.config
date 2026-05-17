@@ -25,7 +25,7 @@ vim.opt.cmdheight = 0 -- hide command panel
 vim.opt.mouse = ''
 vim.opt.termguicolors = true
 vim.opt.cursorline = false
-vim.opt.path:append('**') -- tab completion for all file related task
+vim.opt.path:append('.,**') -- tab completion for all file related task
 vim.opt.foldenable = false
 vim.opt.foldmethod = 'manual'
 vim.opt.foldlevelstart = 99
@@ -134,6 +134,9 @@ vim.keymap.set({ 'n', 'v' }, '<C-up>', '<C-w>+')
 vim.keymap.set({ 'n', 'v' }, '<C-down>', '<C-w>-')
 vim.keymap.set({ 'n', 'v' }, '<C-left>', '<C-w><')
 vim.keymap.set({ 'n', 'v' }, '<C-right>', '<C-w>>')
+
+-- visual mode support in terminal
+vim.keymap.set('t', '<esc><esc>', '<C-\\><C-n>')
 
 -------------------------------------------------------------------------------
 -- floating window
