@@ -22,8 +22,8 @@ alias shu='shred -u '
 alias dt='expr `cat /sys/class/net/$NET_DEVICE/statistics/rx_bytes` / 1024 / 1024'
 alias fcc='fc-cache -vf'
 alias vmnet='sudo virsh net-start default'
-alias rm='rm -i'
-alias rmf='rm -rfi'
+alias rm='rm -I --preserve-root'
+alias rmf='rm -rfI'
 alias cp='cp -i'
 alias ff=fastfetch
 alias vup='pactl set-sink-volume @DEFAULT_SINK@ +20%'
@@ -78,7 +78,7 @@ alias cg=cargo
 alias cr='cargo run'
 alias cb='cargo build'
 alias cbr='cargo build --release'
-alias cbr='cargo build --verbose'
+alias cbv='cargo build --verbose'
 alias ct='cargo test'
 alias ctno='cargo test -- --nocapture'  # to enable print statement
 alias ctd='cargo test --doc'
@@ -180,6 +180,8 @@ alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/p
 alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
 
 # share files with 7 days validity
+# $ echo just testing! | nc termbin.com 9999
+# $ cat ~/somefile.txt | nc termbin.com 9999
 alias tb='nc termbin.com 9999'
 
 # Cleanup orphaned packages
