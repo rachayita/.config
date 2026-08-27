@@ -39,8 +39,8 @@ alias unlock='faillock --user $USER --reset'
 alias mutt=neomutt
 alias v=vifmrun
 alias temp="inxi -s"
-alias yy='youtube-dl -c'
-alias yta="youtube-dl -f bestaudio"
+alias yy='yt-dlp -cf "bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080]" --merge-output-format mp4 '
+alias yta="yt-dlp -f bestaudio"
 alias wget='wget --hsts-file "$XDG_DATA_HOME/wget-hsts"'
 alias wk='wget -nc'
 alias ww='wget -c'

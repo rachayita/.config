@@ -500,7 +500,7 @@ require("lazy").setup({
     -- tabular
     {
       "godlygeek/tabular",
-      vim.keymap.set('n', '<leader>T', ':Tabularize /')
+      vim.keymap.set({'n','v'}, '<leader>T', ':Tabularize /')
     },
     --  gitsign.nvim
     {
