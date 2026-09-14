@@ -10,7 +10,7 @@ zathura-pdf-poppler cronie dmenu gparted thunar networkmanager-dmenu taplo lazyj
 bluez blueman pipewire pipewire-pulse dunst networkmanager fzf nano reflector jujutsu \
 wget lynx ffmpegthumbnailer ripgrep gdu xdg-desktop-portal-gtk openssh signal-desktop \
 ttf-jetbrains-mono ttf-jetbrains-mono-nerd rsync axel lshw rustup expac apparmor \
-zoxide dosfstools slock sxhkd bspwm tmux yt-dlp \
+zoxide dosfstools slock sxhkd bspwm tmux yt-dlp 7zip \
 cups nss-mdns system-config-printer \
 cargo-binstall cargo-update \
 youtube-dl lxappearance chromium font-manager syncthing ntfs-3g typst jless hyperfine \

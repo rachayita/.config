@@ -22,7 +22,7 @@ vim.g.termdebug_wide = 1
 -- vim.opt
 -------------------------------------------------------------------------------
 vim.opt.cmdheight = 0 -- hide command panel
-vim.opt.mouse = ''
+-- vim.opt.mouse = ''
 vim.opt.termguicolors = true
 vim.opt.cursorline = false
 vim.opt.path:append('.,**') -- tab completion for all file related task
