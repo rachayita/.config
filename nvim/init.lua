@@ -97,7 +97,7 @@ vim.keymap.set('n', '<leader>t', ':terminal<cr>')
 vim.keymap.set('n', '<leader>0', ':w !sudo tee %<cr>') -- save root file
 vim.keymap.set('n', 'q:', ':q`]')
 vim.keymap.set('n', 'q', '<ESC>')
-vim.keymap.set('n', '<leader>o', ':e <C-R>=expand("%:p:h") . "/" <cr>') -- open file adjacent to current
+vim.keymap.set('n', '<leader>O', ':e <C-R>=expand("%:p:h") . "/" <cr>') -- open file adjacent to current
 -- always center search results
 vim.keymap.set('n', 'n', 'nzz', { silent = true })
 vim.keymap.set('n', 'N', 'Nzz', { silent = true })
@@ -272,7 +272,28 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     -- add your plugins here
-    --
+    -- zbirenbaum/copilot.lua
+    {
+      "zbirenbaum/copilot.lua",
+      cmd = "Copilot",
+      event = "InsertEnter",
+      config = function()
+        require("copilot").setup({})
+      end,
+    },
+    -- stevearc/oil.nvim
+    {
+      'stevearc/oil.nvim',
+      ---@module 'oil'
+      ---@type oil.SetupOpts
+      opts = {},
+      -- Optional dependencies
+      -- dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+      dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+      -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+      lazy = false,
+      vim.keymap.set('n', '<leader>o', ':Oil<cr>'),
+    },
     -- nanotee/zoxide.vim
     { 'nanotee/zoxide.vim' },
     --folke/which-key.nvim
@@ -500,7 +521,7 @@ require("lazy").setup({
     -- tabular
     {
       "godlygeek/tabular",
-      vim.keymap.set({'n','v'}, '<leader>T', ':Tabularize /')
+      vim.keymap.set({ 'n', 'v' }, '<leader>T', ':Tabularize /')
     },
     --  gitsign.nvim
     {
@@ -634,7 +655,7 @@ require("lazy").setup({
         },
 
         -- (Default) Only show the documentation popup when manually triggered
-        completion = { documentation = { auto_show = true} },
+        completion = { documentation = { auto_show = true } },
 
         -- Default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, due to `opts_extend`
@@ -693,6 +714,9 @@ require("lazy").setup({
                 postfix = {
                   enable = true,
                 },
+              },
+              semanticHighlighting = {
+                enable = true,
               },
             },
           },
