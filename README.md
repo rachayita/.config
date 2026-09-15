@@ -15,7 +15,7 @@ cups nss-mdns system-config-printer \
 cargo-binstall cargo-update \
 youtube-dl lxappearance chromium font-manager syncthing ntfs-3g typst jless hyperfine \
 arch-install-scripts glow bsp-layout linux-firmware tcpdump termshark github-cli \
-rust-analyzer \
+rust-analyzer sqlx-cli \
 ```
 
 ### aur

@@ -42,4 +42,4 @@ signal-desktop &
 blueman-applet &
 dunst &
 $TERMINAL -e tmux &
-virt-manager &
+# virt-manager &
