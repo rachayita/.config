@@ -211,7 +211,7 @@ fileviewer <audio/*>
         \ vifmimg audiopreview %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
-" font 
+" font
 fileviewer <font/*>
         \ vifmimg fontpreview %px %py %pw %ph %c
         \ %pc
@@ -553,3 +553,4 @@ set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.pp
     map < :!vifmimg dec<CR>
 
 " ------------------------------------------------------------------------------
+set mouse=a

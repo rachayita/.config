@@ -221,7 +221,7 @@ vim.api.nvim_create_autocmd(
 )
 
 -- remove status line
-vim.api.nvim_create_autocmd('BufReadPre', { pattern = '*', command = ":set laststatus=0" })
+-- vim.api.nvim_create_autocmd('BufReadPre', { pattern = '*', command = ":set laststatus=0" })
 
 -- jump to last edit position on opening file
 vim.api.nvim_create_autocmd(
