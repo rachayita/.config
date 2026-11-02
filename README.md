@@ -230,7 +230,8 @@ pinentry-program /usr/bin/pinentry-tty
 - `xrandr --output eDP-1 --brightness 0.5` adjust brightness
 - `dd if=file.iso of=/dev/sdb bs=512k status=progress` create bootable usb
 - `gtk-update-icon-cache -f -t ~/.icons/<theme_name>` run to update the icon cache
-- `sudo mkfs.vfat /dev/sdb1`   to format usb drive with FAT32
+- `sudo wipefs -a /dev/sdc1`   to delete usb drive
+- `sudo mkfs.vfat /dev/sdc1`   to format usb drive with FAT32
 - freelance contract: https://www.ashedryden.com/blog/contract
 - `rsync -avr source destination`   no slash at path end
 - `ln -s file link`
