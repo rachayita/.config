@@ -196,6 +196,14 @@ vim.api.nvim_create_autocmd('TermOpen', {
   command = 'setlocal listchars= nonumber norelativenumber nocursorline',
 })
 
+-- invert color while selecting text in visual mode
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_set_hl(0, "Visual", { fg = "NONE", bg = "NONE", reverse = true })
+  end,
+})
+
 vim.api.nvim_create_autocmd('TermOpen', {
   pattern = '',
   command = 'startinsert'
