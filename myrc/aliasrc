@@ -41,6 +41,7 @@ alias v=vifmrun
 alias temp="inxi -s"
 alias yy='yt-dlp -cf "bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080]" --merge-output-format mp4 '
 alias yta="yt-dlp -f bestaudio"
+alias ytm="yt-dlp -x --audio-format mp3"
 alias wget='wget --hsts-file "$XDG_DATA_HOME/wget-hsts"'
 alias wk='wget -nc'
 alias ww='wget -c'
